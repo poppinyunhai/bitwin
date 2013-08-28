@@ -17,5 +17,5 @@ gem 'compass', '~> 0.12.2'
 # Better support for jquery in rails
 gem 'jquery-rails'
 
-gem 'sqlite3'
+gem 'mysql2'
 
