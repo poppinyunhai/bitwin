@@ -18,7 +18,27 @@ gem 'compass', '~> 0.12.2'
 gem 'jquery-rails'
 
 gem 'mysql2'
-
-# Use slim as template engine
 gem 'slim', '~> 2.0.1'
 
+
+group :test do 
+  gem 'turn', :require => false
+  gem 'rspec-rails','~> 2.13.2'
+  gem 'cucumber-rails', :require => false
+  gem 'spork'
+  gem 'spork-rails', github: 'railstutorial/spork-rails'
+  gem 'database_cleaner', '~> 1.0.1'
+  gem 'factory_girl_rails', :require => false
+  gem "capybara" ,'~> 2.1.0'
+  gem "launchy" ,'~> 2.3.0'
+  gem 'guard-spork' ,'~> 1.5.1'
+  gem 'guard-rspec' ,'~> 3.0.2'
+  gem 'guard-livereload' ,'~> 1.4.0'
+  gem 'guard-bundler' ,'~> 1.0.0'
+  gem 'guard-cucumber' ,'~> 1.4.0'
+
+  gem 'shoulda-matchers', "~> 2.2.0" #should be upgraded for rails 4
+
+  gem "poltergeist", "~> 1.3.0"
+  gem 'simplecov', :require => false
+end
