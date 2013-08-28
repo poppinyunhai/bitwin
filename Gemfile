@@ -19,3 +19,6 @@ gem 'jquery-rails'
 
 gem 'mysql2'
 
+# Use slim as template engine
+gem 'slim', '~> 2.0.1'
+
