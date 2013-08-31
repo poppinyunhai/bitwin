@@ -22,4 +22,5 @@
   * [#14] 添加cancan
   * [#30] 添加settingslogic
   * [#26] 添加china_sms
+  * [#16] 添加模板设计
 * Bugs
