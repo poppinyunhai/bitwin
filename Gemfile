@@ -22,6 +22,7 @@ gem 'slim', '~> 2.0.1'
 gem 'cancan'
 
 gem 'devise'
+gem 'settingslogic'
 
 
 group :test do 
