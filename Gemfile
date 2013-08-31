@@ -20,6 +20,8 @@ gem 'jquery-rails'
 gem 'mysql2'
 gem 'slim', '~> 2.0.1'
 
+gem 'devise'
+
 
 group :test do 
   gem 'turn', :require => false
