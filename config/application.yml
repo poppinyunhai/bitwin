@@ -1,6 +1,11 @@
+#config/application.yml
 defaults: &defaults
   app_name: Bitwin
   app_host: http://bitwin.co
+  china_sms:
+    server: emay
+    username: emay_username
+    password: emay_password
 
 development:
   <<: *defaults

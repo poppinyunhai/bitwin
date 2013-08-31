@@ -23,6 +23,7 @@ gem 'cancan'
 
 gem 'devise'
 gem 'settingslogic'
+gem 'china_sms'
 
 
 group :test do 
