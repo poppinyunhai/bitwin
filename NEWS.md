@@ -20,4 +20,5 @@
   * [#23] 删除public下面的多余代码
   * [#13] 添加devise
   * [#14] 添加cancan
+  * [#30] 添加settingslogic
 * Bugs
