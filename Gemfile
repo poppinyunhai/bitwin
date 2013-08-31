@@ -20,8 +20,13 @@ gem 'jquery-rails'
 gem 'mysql2'
 gem 'slim', '~> 2.0.1'
 gem 'cancan'
-
+gem 'capistrano'
+gem 'unicorn'
 gem 'devise'
+
+group :development do
+  gem 'capistrano-unicorn', :require => false
+end
 
 
 group :test do 
