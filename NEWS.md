@@ -21,4 +21,5 @@
   * [#13] 添加devise
   * [#14] 添加cancan
   * [#30] 添加settingslogic
+  * [#26] 添加china_sms
 * Bugs
