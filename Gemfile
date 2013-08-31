@@ -19,6 +19,7 @@ gem 'jquery-rails'
 
 gem 'mysql2'
 gem 'slim', '~> 2.0.1'
+gem 'cancan'
 
 
 group :test do 
