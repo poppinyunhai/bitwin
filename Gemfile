@@ -23,6 +23,8 @@ gem 'cancan'
 gem 'capistrano'
 gem 'unicorn'
 gem 'devise'
+gem 'settingslogic'
+gem 'china_sms'
 
 group :development do
   gem 'capistrano-unicorn', :require => false
