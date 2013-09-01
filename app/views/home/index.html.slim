@@ -1,7 +1,7 @@
 = render :partial => 'layouts/action_slider'
 .content-bitwin style="padding-bottom:20px;"
   .container-fluid.container-bitwin style="border-top:#DDDDDD 1px solid;"
-    img src="/assets/zhanghu.jpg"
+    =image_tag "zhanghu.jpg" 
 .content-bitwin style="background:#f6f5f5;"
   .container-fluid.container-bitwin style="padding-top:20px;"
     div
@@ -34,7 +34,7 @@
       .right-bitwin
         h2 style="text-indent:2em; width:100%;float:left;" Google 二次同步验证
         div style="float:left;"
-          img src="/assets/erweida.jpg" style="padding:50px; float:left;" width="200px;"
+          img src=image_url("erweida.jpg") style="padding:50px; float:left;" width="200px;"
           div style="width:300px; float:left; padding-top:40px; padding-left:120px;"
             label 您的认证密钥：
             input.input-text-bitwin type="text"
@@ -49,4 +49,4 @@
           | 2: 验证功能开通后，会在登入和提现时要求输入验证码 请妥善保管好那您的手机
           | 3：请用纸和笔抄下您的认证密钥 一旦发生您的手机丢失的情况 需要用密钥恢复
     div style="float:left;height:30px;padding-top:20px;width:100%;"
-      img src="/assets/kefu.jpg" style="height:30px;float:right;cursor:pointer;"
+      img src=image_url("kefu.jpg") style="height:30px;float:right;cursor:pointer;"
