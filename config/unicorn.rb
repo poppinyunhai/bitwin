@@ -1,4 +1,4 @@
-root = "/home/app/bitwin/current"
+root = "/home/ubuntu/app/bitwin/current"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"
