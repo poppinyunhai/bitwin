@@ -27,7 +27,6 @@ after "deploy", "deploy:cleanup" # keep only the last 5 releases
 namespace :deploy do
   desc "Start Application"
   task :start, :roles => :app do
-  	run "source ~/.bash_profile; rvm use ruby"
     run "cd #{current_path}; RAILS_ENV=production bundle exec unicorn_rails -c config/unicorn.rb -D"
   end
 
@@ -38,7 +37,7 @@ namespace :deploy do
 
   desc "Restart Application"
   task :restart, :roles => :app do
-    run "kill -USR2 `cat #{shared_path}/pids/unicorn.#{application}.pid`"
+    run "kill -USR2 `cat #{shared_path}/pids/unicorn.pid`"
   end
 
   desc "Populates the Production Database"
