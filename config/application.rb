@@ -4,7 +4,9 @@ require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env)
+if defined?(Bundler)
+  Bundler.require *Rails.groups(:assets => %w(production development test))
+end
 
 module Bitwin
   class Application < Rails::Application
@@ -22,5 +24,7 @@ module Bitwin
 
     config.autoload_paths += %W(#{Rails.root}/lib)
     config.autoload_paths += Dir["#{Rails.root}/lib/**/"]
+
+    config.assets.precompile += %w(application.css application.js)
   end
 end
