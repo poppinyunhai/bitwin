@@ -20,10 +20,17 @@ gem 'jquery-rails'
 gem 'mysql2'
 gem 'slim', '~> 2.0.1'
 gem 'cancan'
-
+gem 'unicorn'
 gem 'devise'
 gem 'settingslogic'
 gem 'china_sms'
+
+group :development do
+  gem 'capistrano'
+  gem 'rvm-capistrano'
+  # https://github.com/sosedoff/capistrano-unicorn/issues/28
+  gem 'capistrano-unicorn', :require => false
+end
 
 
 group :test do 
