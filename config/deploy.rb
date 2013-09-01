@@ -1,4 +1,6 @@
 #encoding:utf-8
+require "rvm/capistrano"
+require "bundler/capistrano"
 require 'capistrano-unicorn'
 
 set :application, "bitwin"
