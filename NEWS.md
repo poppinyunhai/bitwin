@@ -23,4 +23,5 @@
   * [#30] 添加settingslogic
   * [#26] 添加china_sms
   * [#16] 添加模板设计
+  * [#25] 添加自动部署
 * Bugs
