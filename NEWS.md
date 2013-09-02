@@ -1,15 +1,25 @@
 - [TODO](#todo)
 - [NEWS](#news)
-	- [0.1 (2013-08-XX)](#01-2013-08-xx)
+ 	- [0.2 (2013-09-xx)](#02-2013-09-xx)
+	- [0.1 (2013-09-01)](#01-2013-09-01)
 
 
 
 # TODO
-* 每周六的晚上8点发布.
+* 每周日晚8点发布.
 
 # NEWS
 
-## 0.1 (2013-08-XX)
+
+## 0.2 (2013-09-xx)
+* DEPLOY NOTES
+* Features
+* Tech Stories
+* Bugs
+  * [#39] 修改cap部署命令的bug 
+
+
+## 0.1 (2013-09-01)
 * DEPLOY NOTES
 * Features
 * Tech Stories
