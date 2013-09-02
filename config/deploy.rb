@@ -60,3 +60,6 @@ end
 
 after 'deploy:restart', 'unicorn:reload'   # app IS NOT preloaded
 after 'deploy:restart', 'unicorn:restart'  # app preloaded
+
+load 'config/deploy/resque'
+load 'config/deploy/resque-scheduler'
