@@ -16,6 +16,7 @@
 * Features
 * Tech Stories
 * Bugs
+  * [#39] 修改cap部署命令的bug 
 
 
 ## 0.1 (2013-09-01)
