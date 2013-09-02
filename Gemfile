@@ -21,9 +21,17 @@ gem 'mysql2'
 gem 'slim', '~> 2.0.1'
 gem 'cancan'
 gem 'unicorn'
+
 gem 'devise'
+gem 'devise-async'
+
 gem 'settingslogic'
 gem 'china_sms'
+
+# resque and extends
+gem 'resque', :github => 'rdd-giga/resque', :branch => 'b_1_22_0'
+gem 'resque_mailer'
+gem 'resque-scheduler', :require => 'resque_scheduler'
 
 group :development do
   gem 'capistrano'
