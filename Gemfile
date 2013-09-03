@@ -33,11 +33,15 @@ gem 'resque', :github => 'rdd-giga/resque', :branch => 'b_1_22_0'
 gem 'resque_mailer'
 gem 'resque-scheduler', :require => 'resque_scheduler'
 
+# Form DSL for nicer form code in views
+gem "simple_form", "~> 3.0.0.rc"
+
 group :development do
   gem 'capistrano'
   gem 'rvm-capistrano'
   # https://github.com/sosedoff/capistrano-unicorn/issues/28
   gem 'capistrano-unicorn', :require => false
+  gem "better_errors"
 end
 
 
