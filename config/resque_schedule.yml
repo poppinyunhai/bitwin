@@ -1,0 +1,11 @@
+# # user daily digest mail for user.email_event == 'abridged'
+# user_daily_digest_mail:
+#   description: "Send user events daily digest mail"
+#   cron: "0 4 * * *"
+#   # you can use rufus-scheduler "every" syntax in place of cron if you prefer
+#   #every: 3s
+#   # By default the job name (hash key) will be taken as worker class name.
+#   # If you want to have a different job name and class name, provide the 'class' option
+#   class: UserDailyDigestMailJob
+#   queue: user_daily_digest_mail
+#   args:
