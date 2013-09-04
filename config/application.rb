@@ -26,6 +26,11 @@ module Bitwin
     config.autoload_paths += %W(#{Rails.root}/lib)
     config.autoload_paths += Dir["#{Rails.root}/lib/**/"]
 
+    config.i18n.available_locales = [:en, "zh-CN"]
+    
+    I18n.load_path += Dir[Rails.root.join('lib', 'locale', '*.{rb,yml}')]
+    I18n.default_locale = "zh-CN"
+
     config.assets.precompile += %w(application.css application.js)
   end
 end

@@ -1,5 +1,5 @@
 h2
- | Sign up
+ =t "devise.registrations.sign_up"
 
 = simple_form_for resource, :as => resource_name, :url => registration_path(resource_name), :validate => true, :html => {:id => :user_new, :class => 'form-horizontal'} do |f|
 	= f.input :username, :label => "UserName:", :required => true
