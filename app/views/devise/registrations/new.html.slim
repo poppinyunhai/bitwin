@@ -1,0 +1,10 @@
+h2
+ | Sign up
+
+= simple_form_for resource, :as => resource_name, :url => registration_path(resource_name), :validate => true, :html => {:id => :user_new, :class => 'form-horizontal'} do |f|
+	= f.input :username, :label => "UserName:", :required => true
+	= f.input :email, :label => "Email:", :required => true
+	= f.input :password, :required => true, :label =>"Password:"
+	= f.input :password_confirmation, :required => true, :label => "Password confirmation:"
+	.form-actions
+  	= f.submit "Sign up", :class => "btn gsubmit-btn"
