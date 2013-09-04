@@ -29,7 +29,7 @@ gem 'settingslogic'
 gem 'china_sms'
 
 # resque and extends
-gem 'resque', :github => 'rdd-giga/resque', :branch => 'b_1_22_0'
+gem 'resque'
 gem 'resque_mailer'
 gem 'resque-scheduler', :require => 'resque_scheduler'
 
