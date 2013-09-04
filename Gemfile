@@ -35,6 +35,7 @@ gem 'resque-scheduler', :require => 'resque_scheduler'
 
 # Form DSL for nicer form code in views
 gem "simple_form", "~> 3.0.0.rc"
+gem 'redis-rails' # Will install several other redis-* gems
 
 group :development do
   gem 'capistrano'
