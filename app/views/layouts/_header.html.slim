@@ -6,7 +6,10 @@
       | &nbsp; Litecoin price:￥
       font color="#aac54f" 18.21
     span.top-span-bitwin style="width:200px;text-align:right;"
-      img src=image_url("avatar.jpg") style="width:25px;height:25px;"
-      a href=new_user_session_path 登录
-      = '|'
-      a href=new_user_registration_path 注册
+      - if current_user
+        img src=image_url("avatar.jpg") style="width:25px;height:25px;" title=current_user.username
+        = link_to '退出', destroy_user_session_path, :method => :delete
+      - else
+        a href=new_user_session_path 登录
+        = '|'
+        a href=new_user_registration_path 注册
