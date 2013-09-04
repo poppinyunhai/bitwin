@@ -25,4 +25,4 @@ doc/
 .secret
 coverage/
 
-config/application.yml
+/config/application.yml
