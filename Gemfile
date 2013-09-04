@@ -33,6 +33,8 @@ gem 'resque', :github => 'rdd-giga/resque', :branch => 'b_1_22_0'
 gem 'resque_mailer'
 gem 'resque-scheduler', :require => 'resque_scheduler'
 
+gem 'redis-rails' # Will install several other redis-* gems
+
 group :development do
   gem 'capistrano'
   gem 'rvm-capistrano'
