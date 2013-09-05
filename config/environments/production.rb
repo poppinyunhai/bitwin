@@ -74,6 +74,16 @@ Bitwin::Application.configure do
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
+  config.action_mailer.default_url_options = { :host => Settings.app_host }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => Settings.smtp.address,
+    :port                 => Settings.smtp.port,
+    :user_name            => Settings.smtp.user_name,
+    :password             => Settings.smtp.password,
+    :authentication       => Settings.smtp.authentication,
+    :enable_starttls_auto => true
+  }
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new

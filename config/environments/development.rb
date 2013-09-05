@@ -25,14 +25,14 @@ Bitwin::Application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  config.action_mailer.default_url_options = { :host => "127.0.0.1:3000" }
+  config.action_mailer.default_url_options = { :host => Settings.app_host }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => "smtp.exmail.qq.com",
-    :port => "25",
-    :authentication => "plain",
-    :user_name => "yinchangxin@weidaxue.me",
-    :password => "wei2013",
+    :address              => Settings.smtp.address,
+    :port                 => Settings.smtp.port,
+    :user_name            => Settings.smtp.user_name,
+    :password             => Settings.smtp.password,
+    :authentication       => Settings.smtp.authentication,
     :enable_starttls_auto => true
   }
   config.assets.debug = true
