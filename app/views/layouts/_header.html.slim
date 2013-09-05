@@ -1,12 +1,27 @@
-.top-bitwin
-  .container-bitwin
-    span.top-span-bitwin.top-message-bitwin style="width:760px;"
-      | Bitcoin price:￥
-      font color="#f39800" 621.5
-      | &nbsp; Litecoin price:￥
-      font color="#aac54f" 18.21
-    span.top-span-bitwin style="width:200px;text-align:right;"
-      img src=image_url("avatar.jpg") style="width:25px;height:25px;"
-      a href=new_user_session_path 登录
-      = '|'
-      a href=new_user_registration_path 注册
+.top-base.background-orange
+  .top-container
+    .top-logo
+      img src=image_url("topmenu/logotop.png")
+    .top-nav
+      ul.top-nav-li
+        a href="#"
+          li 
+            img src=image_url("topmenu/exchange.png")
+        a href="#"
+          li 
+            img src=image_url("topmenu/order.png") 
+        a href="#"
+          li 
+            img src=image_url("topmenu/loan.png") 
+        a href="#"
+          li 
+            img src=image_url("topmenu/forum.png")
+    .top-user
+      img src=image_url("topmenu/avatar-default.png")
+      span
+         = link_to "注册", new_user_registration_path
+         font.color-white |
+         = link_to "登入", new_user_session_path
+    .top-time
+      img src=image_url("topmenu/clock.png")  
+      span.color-white 10:30
