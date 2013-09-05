@@ -1,7 +1,10 @@
 source 'http://ruby.taobao.org'
 
 gem 'rails', '4.0.0'
-
+# 观察者
+gem 'rails-observers'
+# IP 地址查询
+gem 'taobao_geoip'
 gem 'coffee-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets

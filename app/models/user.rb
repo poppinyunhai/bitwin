@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :async, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :lockable, :confirmable
 
+  has_many :login_historys
 
   validates :username,  presence: true
 
