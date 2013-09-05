@@ -74,18 +74,17 @@ Bitwin::Application.configure do
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
+  config.action_mailer.default_url_options = { :host => Settings.app_host }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => Settings.smtp.address,
+    :port                 => Settings.smtp.port,
+    :user_name            => Settings.smtp.user_name,
+    :password             => Settings.smtp.password,
+    :authentication       => Settings.smtp.authentication,
+    :enable_starttls_auto => true
+  }
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-
-  config.action_mailer.default_url_options = { :host => "54.213.197.200" }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address => "smtp.exmail.qq.com",
-    :port => "25",
-    :authentication => "plain",
-    :user_name => "yinchangxin@weidaxue.me",
-    :password => "wei2013",
-    :enable_starttls_auto => true
-  }
 end
