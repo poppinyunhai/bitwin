@@ -48,11 +48,13 @@ namespace :deploy do
   task :setup_config, roles: :app do
     run "mkdir -p #{shared_path}/config"
     put File.read("config/database.yml.example"), "#{shared_path}/config/database.yml"
+    put File.read("config/application.yml.example"), "#{shared_path}/config/application.yml"
   end
 
   after "deploy:setup", "deploy:setup_config"
 
   task :symlink_config, roles: :app do
+    run "ln -nfs #{shared_path}/config/application.yml  #{release_path}/config/application.yml"
     run "ln -nfs #{shared_path}/config/database.yml  #{release_path}/config/database.yml"
   end
   after "deploy:finalize_update","deploy:symlink_config"
