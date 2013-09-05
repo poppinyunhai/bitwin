@@ -22,6 +22,7 @@
   * [#64] 关于帐户密码以及常量设置问题
   * [#51] 短信验证逻辑实现
 * Bugs
+  * [#master] fixed travis ci test error bug
 
 
 ## v0.1 (2013-09-01)
