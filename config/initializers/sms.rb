@@ -1,0 +1,1 @@
+ChinaSMS.use Settings.china_sms.server.to_sym, username: Settings.china_sms.username, password: Settings.china_sms.password
