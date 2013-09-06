@@ -1,5 +1,5 @@
 class Attachment < ActiveRecord::Base
-	
+
 	mount_uploader :attachment, AttachmentUploader
 
 	belongs_to :attachmentable, :polymorphic => true
@@ -14,6 +14,7 @@ class Attachment < ActiveRecord::Base
 			self.content_type = attachment.file.content_type
       self.file_size = attachment.file.size
       self.file_name = attachment.file.original_filename
+      self.image = true if self.content_type.include? 'image'
 		end
 	end
 end
