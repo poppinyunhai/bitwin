@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130905154423) do
+ActiveRecord::Schema.define(version: 20130906150626) do
+
+  create_table "attachments", force: true do |t|
+    t.string   "file_name"
+    t.string   "content_type"
+    t.string   "file_size"
+    t.string   "attachmentable_type"
+    t.integer  "attachmentable_id"
+    t.string   "attachment"
+    t.boolean  "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "login_histories", force: true do |t|
     t.string   "area"

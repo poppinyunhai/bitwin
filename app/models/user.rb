@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
 
   validates :username,  presence: true
 
+  has_many :images, -> { where image: true  }, :as => :attachmentable, class_name: 'Attachment'
 end
