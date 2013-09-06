@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  area: MyString
+  ip_address: MyString
+  action_type: MyString
+  user_id: 
+
+two:
+  area: MyString
+  ip_address: MyString
+  action_type: MyString
+  user_id: 

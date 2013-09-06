@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130905013732) do
+ActiveRecord::Schema.define(version: 20130905154423) do
+
+  create_table "login_histories", force: true do |t|
+    t.string   "area"
+    t.string   "ip_address"
+    t.string   "action_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "login_histories", ["user_id"], name: "index_login_histories_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
