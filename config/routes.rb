@@ -5,6 +5,7 @@ Bitwin::Application.routes.draw do
     collection do
       get "info_edit"
       put "info_edit" => 'users#info_update', as: :info_update
+      put "real_name_authentication" => 'users#real_name_authentication', as: :real_name_auth
     end
   end
   

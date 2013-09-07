@@ -27,6 +27,7 @@ gem 'unicorn'
 
 gem 'devise'
 gem 'devise-async'
+gem 'devise-encryptable'
 
 gem 'settingslogic'
 gem 'china_sms'

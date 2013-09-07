@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130906150626) do
+ActiveRecord::Schema.define(version: 20130907132844) do
 
   create_table "attachments", force: true do |t|
     t.string   "file_name"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20130906150626) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "mobile"
+    t.string   "real_name"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
