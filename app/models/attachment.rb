@@ -10,7 +10,7 @@ class Attachment < ActiveRecord::Base
 	protected
 
 	def set_attachment_attributes
-		if attachment.presence? && attachment_changed?
+		if attachment && attachment_changed?
 			self.content_type = attachment.file.content_type
       self.file_size = attachment.file.size
       self.file_name = attachment.file.original_filename

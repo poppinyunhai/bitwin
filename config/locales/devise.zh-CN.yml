@@ -52,7 +52,7 @@ zh-CN:
       remember_me: 记住登录
       forget_password: 找回密码
       re_sent_email_confirm: 没有收到确认短信，重新发送
-      
+      sign_out: 退出
 
   errors:
     messages:

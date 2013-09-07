@@ -1,8 +1,16 @@
 Bitwin::Application.routes.draw do
 
+
+  resources :users, :only => [] do 
+    collection do
+      get "info_edit"
+      put "info_edit" => 'users#info_update', as: :info_update
+    end
+  end
+  
   devise_for :users
   
-  root :to => "home#index"
+  root :to => "home#index" 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -32,7 +32,7 @@ class AttachmentUploader < CarrierWave::Uploader::Base
 
   protected
 
-  def image?(new_file)
-    new.content_type.include? 'image'  
+  def images?(new_file)
+    new_file.content_type.include? 'image'  
   end
 end

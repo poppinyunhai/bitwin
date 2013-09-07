@@ -26,3 +26,6 @@ doc/
 coverage/
 
 /config/application.yml
+
+/public/uploads/attachment/attachment/
+/public/uploads/tmp/
