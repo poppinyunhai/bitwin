@@ -40,6 +40,10 @@ gem 'resque-scheduler', :require => 'resque_scheduler'
 gem "simple_form", "~> 3.0.0.rc"
 gem 'redis-rails' # Will install several other redis-* gems
 
+gem 'carrierwave'
+gem 'mime-types'
+gem "mini_magick"
+
 group :development do
   gem 'capistrano'
   gem 'rvm-capistrano'

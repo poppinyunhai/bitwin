@@ -18,11 +18,17 @@
           li 
             img src=image_url("topmenu/forum.png")
     .top-user
-      img src=image_url("topmenu/avatar-default.png")
+      img src=image_url(current_user ? current_user.avatar : "topmenu/avatar-default.png")
       span
-         = link_to t("devise.links.sign_up"), new_user_registration_path
-         font.color-white |
-         = link_to t("devise.links.sign_in"), new_user_session_path
+        - if current_user
+          a href="#" =current_user.username
+          font.color-white |
+          = link_to t("devise.links.sign_out"), destroy_user_session_path ,:method => :delete
+        - else
+          = link_to t("devise.links.sign_up"), new_user_registration_path
+          font.color-white |
+          = link_to t("devise.links.sign_in"), new_user_session_path
+
     .top-time
       img src=image_url("topmenu/clock.png")  
       span.color-white 10:30

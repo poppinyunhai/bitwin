@@ -13,6 +13,7 @@
 
 ## v0.2 (2013-09-xx)
 * DEPLOY NOTES
+  1. apt-get install imagemagick
 * Features
 * Tech Stories
   * [#47] 添加邮件发送队列
@@ -21,6 +22,7 @@
   * [#39] 修正cap部署   部署命令  cap deply:update  -> cap unicorn:restart
   * [#64] 关于帐户密码以及常量设置问题
   * [#51] 短信验证逻辑实现
+  * [#69] 添加所有文件上传逻辑
 * Bugs
   * [#master] fixed travis ci test error bug
 
