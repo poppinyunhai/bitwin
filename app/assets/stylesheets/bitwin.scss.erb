@@ -593,7 +593,7 @@ input{
 	padding-top: 5px;
 	padding-bottom: 5px;
 	background-position: center;
-	background:url(../images/icon/il.jpg) repeat-x;
+	background:url(<%=image_url "icon/il.jpg"%>) repeat-x;
 	text-align: center;
 }
 
@@ -640,7 +640,7 @@ input{
 }
 
 .right-lock{
-	background: url(../images/exchange/lock.png) no-repeat;
+	background: url(<%=image_url "exchange/lock.png"%>) no-repeat;
 	background-position: left;
 }
 
@@ -653,7 +653,7 @@ input{
 }
 
 .right-unlock{
-	background: url(../images/exchange/unlock.png) no-repeat;
+	background: url(<%=image_url "exchange/unlock.png"%>) no-repeat;
 	background-position: left;	
 }
 
@@ -668,7 +668,7 @@ input{
 	width: 120px;
 	padding-right: 30px;
 	border: #000 1px solid;
-	background:url(../images/exchange/btc.png) no-repeat;
+	background:url(<%=image_url "exchange/btc.png"%>) no-repeat;
 	background-position: right;
 	height: 30px;
 	font-size: 16px;
@@ -679,7 +679,7 @@ input{
 	width: 120px;
 	padding-right: 30px;
 	border: #000 1px solid;
-	background:url(../images/exchange/cny.png) no-repeat;
+	background:url(<%=image_url "exchange/cny.png"%>) no-repeat;
 	background-position: right;
 	height: 30px;
 	font-size: 16px;
@@ -801,7 +801,7 @@ input{
 .devise-welcome{
 	width: 567px;
 	height: 74px;
-	background: url(../images/icon/welcome.jpg) no-repeat;
+	background: url(<%=image_url "icon/welcome.jpg"%>) no-repeat;
 	float: left;
 }
 
@@ -875,6 +875,43 @@ input{
 }
 
 
+#user_new{
+	margin-top: 100px;
+  input {
+  	width: 200px;
+		background-position: 10px 4px !important;
+		height: 30px !important;
+		float: left;
+		font-size: 16px;
+		border: #666 2px solid !important;
+		padding-left: 30px !important;
+	}
+
+	a {
+		line-height: 36px;
+		font-size: 16px;
+		color: #666;
+		margin-left: 36px;
+		font-family: "微软雅黑";
+	}
+
+	#user_username{
+		background:url(<%=image_url "icon/iphone.png"%>) no-repeat;
+	}
+	#user_email{
+		background:url(<%=image_url "icon/mail.png"%>) no-repeat;
+	}
+	#user_password{
+		background:url(<%=image_url "icon/key.png"%>) no-repeat;
+	}
+
+	#user_password_confirmation{
+		background:url(<%=image_url "icon/key.png"%>) no-repeat;
+	}
+	.help-inline{
+		display: block;
+	}
+}
 
 .logup-input{
 	width: 387px;
