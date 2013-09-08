@@ -1,17 +1,27 @@
-<h2><%=t('devise.links.sign_in')%></h2>
+<div class="devise-content">
+	<div class="devise-welcome">
+		<span>Hello!欢迎回来，请先登入</span>
+	</div>
+	<%= form_for resource, :as => resource_name, :url => session_path(resource_name), :id=>'user_login' do |f| %>
+		<div class="login-input">
+			<%= f.email_field :email, :placeholder=>"  注册邮箱", :autofocus => true %>
+			<%=link_to "还没注册？", new_user_registration_path%>
+		</div>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label t('user.email') %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+		<div class="login-input" >
+			<%= f.password_field :password , :placeholder => "登录密码"%>
+			<%=link_to '忘记密码？', new_password_path(resource_name)%>
+		</div>
 
-  <div><%= f.label t('user.password') %><br />
-  <%= f.password_field :password %></div>
+		<div class="login-input">
+			<input type="text" placeholder="Google身份验证码" style="background:url(<%=image_url "icon/iphone.png"%>) no-repeat;" />
+			<a href="#">手机丢了？</a>
+		</div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label t('devise.links.remember_me') %></div>
-  <% end -%>
-
-  <div><%= f.submit t('devise.links.sign_in') %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+		<div class="login-input action">
+			<button class="devise-button">登入
+				<img src=<%=image_url("icon/loginbutton.png")%> />
+		</button>
+		</div>
+	<%end%>
+</div>

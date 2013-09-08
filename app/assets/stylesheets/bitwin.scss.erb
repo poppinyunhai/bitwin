@@ -819,37 +819,6 @@ input{
 	text-align: center !important;
 }
 
-.login-input{
-	width: 442px;
-	padding-left: 125px;
-	height: 36px;
-	float: left;
-	font-size: 16px;
-	margin-top: 30px;
-}
-
-
-.login-input input{
-	width: 200px;
-	background-position: 10px 4px !important;
-	height: 30px !important;
-	float: left;
-	font-size: 16px;
-	border: #666 2px solid !important;
-	padding-left: 30px !important;
-}
-
-.login-input a{
-	line-height: 36px;
-	font-size: 16px;
-	color: #666;
-	margin-left: 36px;
-	font-family: "微软雅黑";
-}
-
-.login-input a:hover{
-	text-decoration: none;
-}
 
 .devise-button{
 	width: 240px;
@@ -875,6 +844,43 @@ input{
 }
 
 
+.login-input{
+	width: 442px;
+	padding-left: 125px;
+	height: 36px;
+	float: left;
+	font-size: 16px;
+	margin-top: 30px;
+
+	input{
+		width: 200px;
+		background-position: 10px 4px !important;
+		height: 30px !important;
+		float: left;
+		font-size: 16px;
+		border: #666 2px solid !important;
+		padding-left: 30px !important;
+	}
+
+	a{
+		line-height: 36px;
+		font-size: 16px;
+		color: #666;
+		margin-left: 36px;
+		font-family: "微软雅黑";
+	}
+	a:hover{
+		color: #005580;
+		text-decoration: none;
+	}
+
+	.devise-button{
+		float:left;
+		margin-top:40px;
+		margin-left: 50px;
+	}
+}
+
 #user_new{
 	margin-top: 100px;
   input {
@@ -887,59 +893,23 @@ input{
 		padding-left: 30px !important;
 	}
 
-	a {
-		line-height: 36px;
-		font-size: 16px;
-		color: #666;
-		margin-left: 36px;
-		font-family: "微软雅黑";
-	}
-
-	#user_username{
-		background:url(<%=image_url "icon/iphone.png"%>) no-repeat;
-	}
-	#user_email{
-		background:url(<%=image_url "icon/mail.png"%>) no-repeat;
-	}
-	#user_password{
-		background:url(<%=image_url "icon/key.png"%>) no-repeat;
-	}
-
-	#user_password_confirmation{
-		background:url(<%=image_url "icon/key.png"%>) no-repeat;
-	}
 	.help-inline{
 		display: block;
 	}
 }
 
-.logup-input{
-	width: 387px;
-	padding-left: 180px;
-	height: 36px;
-	float: left;
-	font-size: 16px;
-	margin-top: 30px;
+#user_username{
+	background:url(<%=image_url "icon/iphone.png"%>) no-repeat;
+}
+#user_email{
+	background:url(<%=image_url "icon/mail.png"%>) no-repeat;
+}
+#user_password{
+	background:url(<%=image_url "icon/key.png"%>) no-repeat;
 }
 
-
-.logup-input input{
-	width: 200px;
-	background-position: 10px 4px !important;
-	height: 30px !important;
-	float: left;
-	font-size: 16px;
-	border: #666 2px solid !important;
-	padding-left: 30px !important;
-
-}
-
-.logup-input a{
-	line-height: 36px;
-	font-size: 16px;
-	color: #666;
-	margin-left: 36px;
-	font-family: "微软雅黑";
+#user_password_confirmation{
+	background:url(<%=image_url "icon/key.png"%>) no-repeat;
 }
 
 /* end */
