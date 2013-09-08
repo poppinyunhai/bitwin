@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130905154423) do
+ActiveRecord::Schema.define(version: 20130906020916) do
 
   create_table "login_histories", force: true do |t|
     t.string   "area"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20130905154423) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "mobile"
+    t.string   "google_secret"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

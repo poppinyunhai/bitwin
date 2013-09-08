@@ -4,6 +4,12 @@ Bitwin::Application.routes.draw do
   
   root :to => "home#index"
 
+  resources :user_mfa_session do 
+    collection do
+      post 'authentic'
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
