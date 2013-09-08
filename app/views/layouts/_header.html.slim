@@ -18,10 +18,11 @@
           li 
             | 社区
     .top-user
-      img src=image_url(current_user ? current_user.avatar : "topmenu/avatar-default.png")
+      a href=user_account_path
+        img src=image_url(current_user ? current_user.avatar : "topmenu/avatar-default.png")
       span
         - if current_user
-          a href="#" =current_user.username
+          a href=user_account_path =current_user.username
           font.color-white |
           = link_to t("devise.links.sign_out"), destroy_user_session_path ,:method => :delete
         - else

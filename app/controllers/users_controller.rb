@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def account
+    
+  end
+
   def info_edit
   end
 

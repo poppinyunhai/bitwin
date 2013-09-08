@@ -13,6 +13,8 @@ Bitwin::Application.routes.draw do
   
   root :to => "home#index" 
 
+  get "/account" => "users#account", as: :user_account 
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
