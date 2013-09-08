@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     
   end
 
+  def deals
+    
+  end
+
   def info_edit
   end
 
