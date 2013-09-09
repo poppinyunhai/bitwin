@@ -5,24 +5,31 @@
         img src=image_url("topmenu/logotop.png")
     .top-nav
       ul.top-nav-li
+        a href=user_deals_path
+          li 
+            | 交易
         a href="#"
           li 
-            img src=image_url("topmenu/exchange.png")
+            | 行情
         a href="#"
           li 
-            img src=image_url("topmenu/order.png") 
+            | 借贷
         a href="#"
           li 
-            img src=image_url("topmenu/loan.png") 
-        a href="#"
-          li 
-            img src=image_url("topmenu/forum.png")
+            | 社区
     .top-user
-      img src=image_url("topmenu/avatar-default.png")
+      a href=user_account_path
+        img src=image_url(current_user ? current_user.avatar : "topmenu/avatar-default.png")
       span
-         = link_to t("devise.links.sign_up"), new_user_registration_path
-         font.color-white |
-         = link_to t("devise.links.sign_in"), new_user_session_path
+        - if current_user
+          a href=user_account_path =current_user.username
+          font.color-white |
+          = link_to t("devise.links.sign_out"), destroy_user_session_path ,:method => :delete
+        - else
+          = link_to t("devise.links.sign_up"), new_user_registration_path
+          font.color-white |
+          = link_to t("devise.links.sign_in"), new_user_session_path
+
     .top-time
       img src=image_url("topmenu/clock.png")  
       span.color-white 10:30

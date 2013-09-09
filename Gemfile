@@ -1,4 +1,5 @@
-source 'http://ruby.taobao.org'
+#source 'http://ruby.taobao.org'
+source 'http://rubygems.org'
 
 gem 'rails', '4.0.0'
 # 观察者
@@ -29,9 +30,13 @@ gem 'unicorn'
 
 gem 'devise'
 gem 'devise-async'
+gem 'devise-encryptable'
 
 gem 'settingslogic'
 gem 'china_sms'
+
+# gem cells
+gem 'cells'
 
 # resque and extends
 gem 'resque'
@@ -41,6 +46,10 @@ gem 'resque-scheduler', :require => 'resque_scheduler'
 # Form DSL for nicer form code in views
 gem "simple_form", "~> 3.0.0.rc"
 gem 'redis-rails' # Will install several other redis-* gems
+
+gem 'carrierwave'
+gem 'mime-types'
+gem "mini_magick"
 
 group :development do
   gem 'capistrano'

@@ -1,8 +1,22 @@
 Bitwin::Application.routes.draw do
 
+
+  resources :users, :only => [] do 
+    collection do
+      get "info_edit"
+      put "info_edit" => 'users#info_update', as: :info_update
+      put "real_name_authentication" => 'users#real_name_authentication', as: :real_name_auth
+      get 'close_google_auth'
+      get 'google_auth'
+    end
+  end
+  
   devise_for :users
   
-  root :to => "home#index"
+  root :to => "home#index" 
+
+  get "/account" => "users#account", as: :user_account 
+  get "/deals" => "users#deals", as: :user_deals
 
   resources :user_mfa_session do 
     collection do

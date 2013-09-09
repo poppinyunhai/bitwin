@@ -1,0 +1,21 @@
+.accordion-group
+  .accordion-heading
+    a.accordion-toggle data-parent="#personal-center" data-toggle="collapse" href="#IP-adress"
+      span
+        img src=image_url("user/ip.png")
+      | IP地址登入历史查询
+  #IP-adress.accordion-body.collapse
+    .accordion-inner
+      .personal-line
+        table.table
+          tr
+            th style="border-top:0px;"  Data And Time
+            th style="border-top:0px;"  IP Adress
+            th style="border-top:0px;"  Action
+            th style="border-top:0px;"  Adress
+          - user.login_historys.each do |item|
+            tr
+              td = item.created_at
+              td = item.ip_address
+              td = item.action_type
+              th = item.area

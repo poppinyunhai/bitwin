@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130906020916) do
+ActiveRecord::Schema.define(version: 20130907132844) do
+
+  create_table "attachments", force: true do |t|
+    t.string   "file_name"
+    t.string   "content_type"
+    t.string   "file_size"
+    t.string   "attachmentable_type"
+    t.integer  "attachmentable_id"
+    t.string   "attachment"
+    t.boolean  "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "login_histories", force: true do |t|
     t.string   "area"
@@ -44,6 +56,7 @@ ActiveRecord::Schema.define(version: 20130906020916) do
     t.string   "username"
     t.string   "mobile"
     t.string   "google_secret"
+    t.string   "real_name"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
