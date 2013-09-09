@@ -58,6 +58,11 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/config/database.yml  #{release_path}/config/database.yml"
   end
   after "deploy:finalize_update","deploy:symlink_config"
+
+  desc "assets:precompile Application"
+  task :precompile, :roles => :app do
+    run "cd #{current_path}; RAILS_ENV=production bundle exec rake assets:precompile"
+  end
 end
 
 after 'deploy:restart', 'unicorn:reload'   # app IS NOT preloaded
