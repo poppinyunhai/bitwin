@@ -9,12 +9,17 @@ Bitwin::Application.routes.draw do
     end
   end
   
-  devise_for :users
+  devise_for :users, :controllers => {
+    registrations: "registrations", 
+    confirmations: 'confirmations'
+  }
   
   root :to => "home#index" 
 
   get "/account" => "users#account", as: :user_account 
   get "/deals" => "users#deals", as: :user_deals
+  get "/sigined_up" => "users#sigined_up", as: :sigined_up 
+  get "/email_confirmed" => "users#email_confirmed", as: :email_confirmed
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

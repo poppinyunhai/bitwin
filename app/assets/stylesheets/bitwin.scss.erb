@@ -127,6 +127,53 @@ input{
 
 
 
+
+/* 临时选项 */
+.float-left{
+	float: left;
+}
+
+.text-align-center{
+	text-align: center;
+}
+
+.margin-top-short{
+	margin-top: 20px;
+}
+
+.margin-top-middle{
+	margin-top: 36px !important;
+}
+
+.margin-top-50{
+	margin-top: 50px !important;
+}
+
+.margin-top-100{
+	margin-top: 100px !important;
+}
+
+.margin-left-middle{
+	margin-left: 500px;
+}
+
+
+.shadow-radius{
+	box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+	-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+}
+
+
+.auto-height{
+	height:auto !important;
+}
+
+
+
 /* 停靠选项 */
 .float-left{
 	float: left;
@@ -787,7 +834,6 @@ input{
 
 /* 登录注册 */
 
-
 .devise-content{
 	width: 567px;
 	height: auto;
@@ -910,6 +956,31 @@ input{
 
 #user_password_confirmation{
 	background:url(<%=image_url "icon/key.png"%>) no-repeat;
+}
+
+.signed_up {
+	padding-left: 197px;
+	padding-top: 100px;
+	img {
+		width: 563px;
+		height: 184px;
+	}
+}
+
+.signed_up.resent_email{
+	margin-left: 100px
+}
+
+.email_confirmed {
+	padding-left: 124px;
+	padding-top: 100px; 
+	padding-bottom: 200px;
+	width: 608px;
+	height: 180px;
+	.message{
+		width: 608px; 
+		height: 180px;
+	}
 }
 
 /* end */

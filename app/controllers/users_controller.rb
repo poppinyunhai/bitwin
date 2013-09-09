@@ -1,6 +1,6 @@
 #encoding : utf-8
-
 class UsersController < ApplicationController
+  before_filter :authenticate_user!, :except => [:sigined_up]
 
   def account
     
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def info_edit
   end
+
 
   def info_update
   	Attachment.create(:attachmentable => current_user, :attachment => params[:attachment]) if params[:attachment]
