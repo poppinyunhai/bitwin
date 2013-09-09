@@ -23,6 +23,8 @@
   * [#64] 关于帐户密码以及常量设置问题
   * [#51] 短信验证逻辑实现
   * [#69] 添加所有文件上传逻辑
+  * [#57] IP地址纪录
+  * [#55] google 认证
 * Bugs
   * [#master] fixed travis ci test error bug
 
