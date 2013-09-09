@@ -159,46 +159,9 @@
 		</div>
 	</div>
 
-	<div class="accordion-group">
-		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#personal-center" href="#authentication">
-				<span>
-				<img src="<%=image_url("user/iphone.png")%>" /></span>
-				Google身份验证</a>
-		</div>
-		<div id="authentication" class="accordion-body collapse">
-			<div class="accordion-inner">
-				<div class="personal-line">
-					<div class="personal-center-google">
-						您的认证密钥：JFDKAJFDSAJFLSKADJFSKAF
-					</div>
-				</div>
-
-				<div style="height:140px;">
-				<div class="personal-password-safe-half personal-mobile">
-					<a href="#"><span>
-					<img src="<%=image_url("user/apple.png")%>" />
-					<p>Apple</p>
-					</span></a>
-					<a href="#"><span><img src="<%=image_url("user/android.png")%>" /><p>Android</p></span></a>
-				</div>
-				<div class="personal-password-safe-half">
-					<img class="personal-weixinimg" src="<%=image_url("user/weixin.jpg")%>" />
-				</div>
-				<div class="personal-password-safe-button" style="padding-top:50px;">
-
-					<label class="personal-tittle">已经开通</label>
-					<button class="bitwin-btn">关闭</button>
-				</div>
-			</div>
-			</div>
-			</div>
-
-
-
-
-		</div>
-
+	<!-- google auth start-->
+	<%= render_cell :user, :google_auth, user: current_user %>
+	<!-- google auth end -->
 	<div class="accordion-group">
 		<div class="accordion-heading">
 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#personal-center" href="#celphone">
@@ -232,40 +195,8 @@
 		</div>
 	</div>
 
-	<div class="accordion-group">
-		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#personal-center" href="#IP-adress">
-				<span>
-				<img src="<%=image_url("user/ip.png")%>" /></span>
-				IP地址登入历史查询</a>
-		</div>
-		<div id="IP-adress" class="accordion-body collapse">
-			<div class="accordion-inner">
-				<div class="personal-line">
-				<table class="table">
-						<tr>
-							<th style="border-top:0px;">Date And Time</th>
-							<th style="border-top:0px;">IP Adress</th>
-							<th style="border-top:0px;">Action</th>
-							<th style="border-top:0px;">地址</th>
-						</tr>
-						<tr>
-							<td>2013-02-03  12:38</td>
-							<td>192.168.1.1</td>
-							<td>hah</td>
-							<th>成都</th>
-						</tr>
-						<tr>
-							<td>2013-02-03  12:38</td>
-							<td>192.168.1.1</td>
-							<td>hah</td>
-							<th>成都</th>
-						</tr>
-					</table>
-			</div>
-			</div>
-		</div>
-	</div>
-
+	<!-- ips -->
+	<%= render_cell :user, :ips, user: current_user %>
+	<!-- ips -->
 </div>
 </div>

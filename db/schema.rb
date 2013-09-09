@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20130907132844) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "mobile"
+    t.string   "google_secret"
     t.string   "real_name"
   end
 

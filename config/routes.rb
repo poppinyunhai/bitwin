@@ -6,6 +6,8 @@ Bitwin::Application.routes.draw do
       get "info_edit"
       put "info_edit" => 'users#info_update', as: :info_update
       put "real_name_authentication" => 'users#real_name_authentication', as: :real_name_auth
+      get 'close_google_auth'
+      get 'google_auth'
     end
   end
   
@@ -20,6 +22,12 @@ Bitwin::Application.routes.draw do
   get "/deals" => "users#deals", as: :user_deals
   get "/sigined_up" => "users#sigined_up", as: :sigined_up 
   get "/email_confirmed" => "users#email_confirmed", as: :email_confirmed
+
+  resources :user_mfa_session do 
+    collection do
+      post 'authentic'
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

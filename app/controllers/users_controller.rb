@@ -19,6 +19,21 @@ class UsersController < ApplicationController
   	redirect_to root_path
   end
 
+  def close_google_auth
+    current_user.google_secret = nil
+    if current_user.save!
+      flash[:notice] = "恭喜你，解绑google认证"
+    else
+      flash[:notice] = "很遗憾！解绑google认证失败"
+    end
+    redirect_to user_account_path
+  end
+
+  def google_auth
+    current_user.set_google_secret
+    redirect_to user_account_path, notice: "恭喜你，google绑定成功"
+  end
+
   def real_name_authentication
   	if current_user.real_name.nil?
   		current_user.real_name = params[:real_name].strip

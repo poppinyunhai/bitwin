@@ -6,6 +6,8 @@ gem 'rails', '4.0.0'
 gem 'rails-observers'
 # IP 地址查询
 gem 'taobao_geoip'
+# google
+gem 'google-authenticator-rails'
 gem 'coffee-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -32,6 +34,9 @@ gem 'devise-encryptable'
 
 gem 'settingslogic'
 gem 'china_sms'
+
+# gem cells
+gem 'cells'
 
 # resque and extends
 gem 'resque'

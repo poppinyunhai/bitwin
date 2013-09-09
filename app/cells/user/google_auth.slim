@@ -1,0 +1,33 @@
+.accordion-group
+  .accordion-heading
+    a.accordion-toggle data-parent="#personal-center" data-toggle="collapse" href="#authentication"
+      span
+        img src=image_url("user/iphone.png")
+      | Google身份验证
+  #authentication.accordion-body.collapse
+    .accordion-inner
+      .personal-line
+        .personal-center-google
+        - if user.google_secret
+          = "您的认证密钥: #{user.google_secret}" 
+      div style="height:140px;"
+        .personal-password-safe-half.personal-mobile
+          a href="#"
+            span
+              img src=image_url("user/apple.png")
+              p Apple
+          a href="#"
+            span
+              img src=image_url("user/android.png")
+              p Android
+        .personal-password-safe-half
+        	- if user.google_secret
+	          img.personal-weixinimg src=user.google_qr_uri
+
+        .personal-password-safe-button style="padding-top:50px;"
+        	- if user.google_secret
+	          label.personal-tittle 已经开通
+	          = link_to "关闭", close_google_auth_users_path, class: 'btn bitwin-btn'
+	        - else
+	        	label.personal-tittle 未开通
+	        	= link_to "开通", google_auth_users_path, class: 'btn bitwin-btn'

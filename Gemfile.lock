@@ -62,6 +62,9 @@ GEM
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
+    cells (3.8.8)
+      actionpack (>= 3.0)
+      railties (>= 3.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
     china_sms (0.0.5)
@@ -118,6 +121,12 @@ GEM
     fssm (0.2.10)
     gherkin (2.12.1)
       multi_json (~> 1.3)
+    google-authenticator-rails (0.0.4)
+      actionpack
+      activerecord
+      google-qr
+      rotp
+    google-qr (0.2.2)
     guard (1.8.2)
       formatador (>= 0.2.4)
       listen (>= 1.0.0)
@@ -247,6 +256,7 @@ GEM
       rufus-scheduler
     resque_mailer (2.2.4)
       actionmailer (>= 3.0)
+    rotp (1.4.3)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -337,6 +347,7 @@ DEPENDENCIES
   capistrano-unicorn
   capybara (~> 2.1.0)
   carrierwave
+  cells
   china_sms
   coffee-rails (~> 4.0.0)
   compass (~> 0.12.2)
@@ -346,6 +357,7 @@ DEPENDENCIES
   devise-async
   devise-encryptable
   factory_girl_rails
+  google-authenticator-rails
   guard-bundler (~> 1.0.0)
   guard-cucumber (~> 1.4.0)
   guard-livereload (~> 1.4.0)
