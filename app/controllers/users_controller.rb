@@ -1,6 +1,6 @@
 #encoding : utf-8
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, :except => [:sigined_up]
+  before_filter :authenticate_user!, :except => [:sigined_up, :found_password_check]
 
   def account
     
@@ -43,4 +43,17 @@ class UsersController < ApplicationController
   		redirect_to root_path, :error => "实名一经绑定，不能再次绑定!"
   	end
   end
+
+   def found_password_check
+     type = params[:type]
+     value = params[:value]
+     # do_check  
+     # case type
+     # when 'email'
+
+     # when 'phone'
+     # when 'quetion'
+     # end
+     redirect_to edit_user_password_path(:reset_password_token=>'there is a token')
+   end
 end

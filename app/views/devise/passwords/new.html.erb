@@ -1,12 +1,24 @@
-<h2>Forgot your password?</h2>
+<div class="devise-content">
+	<div class="devise-welcome">
+		<span>选择其中一种方式重设您的密码</span>
+	</div>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+<%=form_tag found_password_check_users_path do %>
+	<div class="logup-input margin-top-50">
+		<select id="select" class="devise-select" style="margin-right:20px; " name='type'>
+		 		<option value='email'>通过注册邮箱</option>
+		 		<option value='phone'>通过手机</option>
+		 		<option value='question'>通过安全提示问题</option>
+		</select>
+	</div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
+	<div class="logup-input margin-top-50">
+		<input type="text" placeholder="注册邮箱" class="devise-input devise-mail" name='value'/>
+	</div>
 
-<%= render "devise/shared/links" %>
+	<div class="logup-input margin-top-50">
+		<button class="devise-button">下一步<img src="<%=image_url 'icon/loginbutton.png'%>" /></button>
+	</div>
+	<%end%>
+</div>

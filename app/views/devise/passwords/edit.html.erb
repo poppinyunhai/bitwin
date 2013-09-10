@@ -1,16 +1,20 @@
-<h2>Change your password</h2>
+<div class="devise-content">
+	<div class="devise-welcome">
+		<span>请重设您的密码</span>
+</div>
+
 
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
+		<div class="logup-input margin-top-50">
+			<%= f.password_field :password, :autofocus => true , :class => 'devise-input devise-lock', :placeholder=>"您的密码"%>
+		</div>
+		<div class="logup-input ">
+			<%= f.password_field :password_confirmation,  :placeholder => "请再输一次", :class => "devise-input devise-lock"%>
+		</div>
 
-  <div><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password, :autofocus => true %></div>
-
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Change my password" %></div>
+		<div class="logup-input">
+			<button class="devise-button">下一步<img src="<%=image_url("icon/loginbutton.png")%>" /></button>
+		</div>
 <% end %>
-
-<%= render "devise/shared/links" %>
