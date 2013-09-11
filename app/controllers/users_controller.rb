@@ -45,6 +45,8 @@ class UsersController < ApplicationController
   end
 
    def found_password_check
+     user = User.where(:username=>params[:username].to_s).first
+     return redirect_to new_user_password_path, :flash => {error: "用户不存在！请输入正确的用户名."} unless user 
      type = params[:type]
      value = params[:value]
      # do_check  
