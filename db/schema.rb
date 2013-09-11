@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130907132844) do
+ActiveRecord::Schema.define(version: 20130911144743) do
+
+  create_table "answers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.string   "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "attachments", force: true do |t|
     t.string   "file_name"
@@ -36,6 +44,12 @@ ActiveRecord::Schema.define(version: 20130907132844) do
 
   add_index "login_histories", ["user_id"], name: "index_login_histories_on_user_id", using: :btree
 
+  create_table "questions", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -55,8 +69,8 @@ ActiveRecord::Schema.define(version: 20130907132844) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "mobile"
-    t.string   "google_secret"
     t.string   "real_name"
+    t.string   "google_secret"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
