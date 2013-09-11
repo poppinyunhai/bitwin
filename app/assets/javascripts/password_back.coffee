@@ -36,7 +36,7 @@ class PassworBack
       @message.text("问题答案不能为空！")
       @message.addClass('error')
       return false
-    else if @email.find('input').val().length is 0
+    else if type is 'email' &&  @email.find('input').val().length is 0
       @message.text("邮箱地址不能空！")
       @message.addClass('error')
       return false
