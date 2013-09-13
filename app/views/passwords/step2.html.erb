@@ -15,10 +15,8 @@
     </select>
   </div>
 
-  <div class="logup-input margin-top-50 auto-height hide">
-    <p class="devise-question">
-        你XXXXXXXXXXXXX，，，，，？
-    </p >
+  <div class="logup-input hide question">
+    <p class="devise-question"><%=flash[:question]%></p >
   </div>
 
 
@@ -30,7 +28,7 @@
     <input type="text" placeholder="问题答案" class="devise-input devise-key" name='answer'/>
   </div>
 
-  <div class="logup-input margin-top-50 step-2 submit hide">
+  <div class="logup-input margin-top-50 step-2 submit">
     <button class="devise-button">第2步<img src="<%=image_url 'icon/loginbutton.png'%>" /></button>
   </div>
   <%end%>

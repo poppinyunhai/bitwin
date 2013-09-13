@@ -8,7 +8,6 @@ Bitwin::Application.routes.draw do
       put "real_name_authentication" => 'users#real_name_authentication', as: :real_name_auth
       get 'close_google_auth'
       get 'google_auth'
-      post 'found_password_check'
     end
   end
 

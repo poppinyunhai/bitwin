@@ -43,9 +43,13 @@ class PassworBack
     $target = $(event.currentTarget)
     type = $target.val()
     if type is 'question'
-      @question.show()
-      @answer.show()
-      @email.hide()
+      if @$element.find('p.devise-question').text().trim().length is 0
+        @message.text("对不起该用户没有设置安全问题。")
+        $target.val('email')
+      else 
+        @question.show()
+        @answer.show()
+        @email.hide()
     else
       @question.hide()
       @answer.hide()

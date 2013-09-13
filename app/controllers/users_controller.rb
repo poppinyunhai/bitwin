@@ -43,20 +43,4 @@ class UsersController < ApplicationController
   		redirect_to root_path, :error => "实名一经绑定，不能再次绑定!"
   	end
   end
-
-   def found_password_check
-     user = User.where(:username=>params[:username].to_s).first
-     return redirect_to new_user_password_path, :flash => {error: "用户不存在！请输入正确的用户名."} unless user 
-     type = params[:type].strip 
-     if type == 'email' && params[:email] == user.email
-        user.send_reset_password_instructions
-        flash[:notice] = "重置密码的邮件已发送。"
-        redirect_to new_user_session_path
-     elsif type == 'question' 
-        #do check quesiton and answer.
-        redirect_to edit_user_password_path(:reset_password_token=>'there is a token')
-     else 
-        redirect_to new_user_password_path :flash => {error: "部分输入不合法，请重新输入。"}
-     end
-   end
 end
