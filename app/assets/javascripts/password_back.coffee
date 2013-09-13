@@ -20,19 +20,16 @@ class PassworBack
 
   step1_submit: (event)->
     $target = $(event.currentTarget)
-    if @username.val().length == 0 
+    if @username.val().length == 0
       @message.text("用户名不能为空")
       @message.addClass('error')
       return false
-    @message.text("请选择一种找回密码的方式")
-    @$element.find('.step-1').hide()
-    @$element.find('.step-2').show()
-    return false
+    return true
 
   step2_submit: (event)->
     $target = $(event.currentTarget)
     type = $('#type').val()
-    if type is 'question' && @answer.find('input').val().length is 0 
+    if type is 'question' && @answer.find('input').val().length is 0
       @message.text("问题答案不能为空！")
       @message.addClass('error')
       return false
@@ -40,7 +37,7 @@ class PassworBack
       @message.text("邮箱地址不能空！")
       @message.addClass('error')
       return false
-    return true 
+    return true
 
   select_type: (element)->
     $target = $(event.currentTarget)

@@ -1,0 +1,37 @@
+<%=form_tag step2_passwords_path , :id=>'password_back' do %>
+<div class="devise-content">
+  <div class="devise-welcome">
+    <span class='message'><%= flash[:error] || "请选择一种方式找回密码."%></span>
+  </div>
+
+  <div class="logup-input margin-top-50 step-1 hide">
+    <input type="text" placeholder="用户名" class="devise-input devise-name" name='username' value='<%=flash[:username]%>'/>
+  </div>
+
+  <div class="logup-input margin-top-50 step-2">
+    <select id="type" class="devise-select" style="margin-right:20px; " name='type'>
+        <option value='email'>通过注册邮箱</option>
+        <option value='question'>通过安全提示问题</option>
+    </select>
+  </div>
+
+  <div class="logup-input margin-top-50 auto-height hide">
+    <p class="devise-question">
+        你XXXXXXXXXXXXX，，，，，？
+    </p >
+  </div>
+
+
+  <div class="logup-input margin-top-50 email step-2">
+    <input type="text" placeholder="注册邮箱" class="devise-input devise-mail" name='email'/>
+  </div>
+
+  <div class="logup-input margin-top-50 question hide answer">
+    <input type="text" placeholder="问题答案" class="devise-input devise-key" name='answer'/>
+  </div>
+
+  <div class="logup-input margin-top-50 step-2 submit hide">
+    <button class="devise-button">第2步<img src="<%=image_url 'icon/loginbutton.png'%>" /></button>
+  </div>
+  <%end%>
+</div>

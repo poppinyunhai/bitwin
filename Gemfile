@@ -1,5 +1,5 @@
-#source 'http://ruby.taobao.org'
-source 'http://rubygems.org'
+source 'http://ruby.taobao.org'
+# source 'http://rubygems.org'
 
 gem 'rails', '4.0.0'
 # 观察者
@@ -60,7 +60,7 @@ group :development do
 end
 
 
-group :test do 
+group :test do
   gem 'turn', :require => false
   gem 'rspec-rails','~> 2.13.2'
   gem 'cucumber-rails', :require => false

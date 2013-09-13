@@ -1,0 +1,14 @@
+<%=form_tag step1_post_passwords_path , :id=>'password_back' do %>
+  <div class="devise-content">
+    <div class="devise-welcome">
+      <span class='message'><%= flash[:error] || "请先输入用户名"%></span>
+    </div>
+
+    <div class="logup-input margin-top-50 step-1">
+      <input type="text" placeholder="用户名" class="devise-input devise-name" name='username' id='username'/>
+    </div>
+
+    <div class="logup-input margin-top-50 step-1 submit ">
+      <button class="devise-button">第1步<img src="<%=image_url 'icon/loginbutton.png'%>" /></button>
+    </div>
+<%end%>

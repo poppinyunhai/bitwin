@@ -3,7 +3,7 @@
 		<span>
 			<%if flash[:notice]%>
 				<%= flash[:notice]%>
-			<%elsif flash[:error]%>
+		<%elsif flash[:error]%>
 				<%= flash[:error]%>
 			<%else%>
 				Hello!欢迎回来，请先登入
@@ -18,7 +18,7 @@
 
 		<div class="login-input" >
 			<%= f.password_field :password , :placeholder => "登录密码"%>
-			<%=link_to '忘记密码？', new_password_path(resource_name)%>
+			<%=link_to '忘记密码？', back_passwords_path%>
 		</div>
 
 		<div class="login-input">
