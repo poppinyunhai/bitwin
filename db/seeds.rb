@@ -8,4 +8,11 @@
 
 #encoding : utf-8
 q1 = Question.new
-q1.description = ""
+q1.description = "我的生日是？"
+q1.save!
+
+q2 = Question.new
+q2.description = "我最喜欢的人的名字是？"
+q2.save!
+
+
