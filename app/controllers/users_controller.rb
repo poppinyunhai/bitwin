@@ -43,4 +43,21 @@ class UsersController < ApplicationController
   		redirect_to root_path, :error => "实名一经绑定，不能再次绑定!"
   	end
   end
+
+  def update
+    case params[:type]
+    when 'password' 
+      return render json: { :success => false, :message=>'原密码输入不正确!'} unless current_user.valid_password?(params[:current_password])
+      return render json: { :success => false, :message=>'确认密码和输入密码不匹配!'} unless params[:password] != params[:password_confirm]
+      user = current_user
+      current_user.password = params[:password]
+      if current_user.save!
+        sign_in(user, :bypass => true)
+        return render json: { :success => true, :message=>'新密码已经修改成功！!'}
+      end
+      return render json: { :success => false, :message=>current_user.errors.full_messages}
+    else
+      return render json: { :success => false, :message=>current_user.valid_password?(params[:user][:password])}  
+    end    
+  end
 end
