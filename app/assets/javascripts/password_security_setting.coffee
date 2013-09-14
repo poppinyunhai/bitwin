@@ -4,6 +4,7 @@ class PasswordSecuritySetting
 
     @$element.find('button.password').on 'click', $.proxy(@, 'update_password')
     @$element.find('button.question').on 'click', $.proxy(@, 'update_question')
+    @$element.find('button.trade-password').on 'click', $.proxy(@, 'update_trade_password')
 
   
   update_password: (event)->
@@ -50,6 +51,23 @@ class PasswordSecuritySetting
         id: $question
         answer: $('#answer-input').val()
     @update_with_ajax(payload: payload, message: $message)
+  update_trade_password: ()->
+    $trade_password = $('#trade-password').val().trim()
+    $trade_password_confirm = $('#trade-password-confirm').val().trim()
+    $message = $('#trade-message')
+    return $message.text('交易密码不能为空') if $trade_password.length is 0
+    return $message.text('确认密码和密码不匹配') unless $trade_password == $trade_password_confirm 
+
+    payload =
+      url:  '/users/update'
+      type: 'PUT'
+      dataType: 'json'
+      data:
+        type: 'trade'
+        trade_password: $trade_password
+        trade_password_confirm: $trade_password_confirm
+    @update_with_ajax(payload: payload, message: $message)
+
 
 
   update_with_ajax: (options={})->

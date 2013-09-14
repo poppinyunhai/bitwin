@@ -68,6 +68,11 @@ class UsersController < ApplicationController
       else
         return render json: { :success => false, :message=>answer.errors.full_messages}
       end
+    when 'trade'
+      return render json: { :success => false, :message=>'确认密码和密码不匹配!'} unless params[:trade_password] == params[:trade_password_confirm]
+      current_user.trade_password = params[:trade_password]
+      return render json: { :success => true, :message=>'交易密码设置成功！'} if current_user.save!
+      render json: { :success => false, :message=>current_user.errors.full_messages} 
     end    
   end
 end
