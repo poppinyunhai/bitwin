@@ -44,6 +44,14 @@ class UsersController < ApplicationController
   	end
   end
 
+  def sms_bind
+    
+  end
+
+  def solutions_sms_bind
+    
+  end
+
    def found_password_check
      type = params[:type]
      value = params[:value]
