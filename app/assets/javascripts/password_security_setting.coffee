@@ -3,9 +3,10 @@ class PasswordSecuritySetting
     @$element = $(element)
 
     @$element.find('button.password').on 'click', $.proxy(@, 'update_password')
+    @$element.find('button.question').on 'click', $.proxy(@, 'update_question')
+
   
   update_password: (event)->
-    $target = $(event.currentTarget)
     $password_message = $('#password-message')
 
     current_password = $('#current-password').val().trim()
@@ -14,14 +15,14 @@ class PasswordSecuritySetting
 
     password = $('#new-password').val().trim()
     if password.length < 6
-      return $password_message.text('密码最少为6位')
+      return $password_message.text('新密码最少是6位的字串')
 
     password_confirm = $('#new-password-confirm').val().trim()
     if password != password_confirm
       return $password_message.text('确认密码和新密码不匹配')
 
     if current_password == password
-      return $password_message.text('新密码和原密码相同.')
+      return $password_message.text('新密码和原始密码不能相同')
 
     payload =
       url:  '/users/update'
@@ -33,11 +34,32 @@ class PasswordSecuritySetting
         password_confirmation: password_confirm
         current_password: current_password
 
+    @update_with_ajax(payload: payload, message: $password_message)
+
+  update_question:() ->
+    $question = $('#question').val()
+    $message = $('#question-message')
+    return $message.text('请选择一个安全问题') unless $question > 0
+
+    payload =
+      url:  '/users/update'
+      type: 'PUT'
+      dataType: 'json'
+      data:
+        type: 'question'
+        id: $question
+        answer: $('#answer-input').val()
+    @update_with_ajax(payload: payload, message: $message)
+
+
+  update_with_ajax: (options={})->
     dfd = $.Deferred()
-    $.ajax(payload).success (data)=>
-      $password_message.text(data.message)
+    $.ajax(options.payload).success (data)=>
+      options.message.text(data.message)
     .always () ->
       dfd.resolve()
+
+
 
 $ ->
   $('#password-safe').each ->

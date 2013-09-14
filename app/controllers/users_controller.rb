@@ -53,11 +53,21 @@ class UsersController < ApplicationController
       current_user.password = params[:password]
       if current_user.save!
         sign_in(user, :bypass => true)
-        return render json: { :success => true, :message=>'新密码已经修改成功！!'}
+        return render json: { :success => true, :message=>'新密码已经修改成功!'}
       end
       return render json: { :success => false, :message=>current_user.errors.full_messages}
-    else
-      return render json: { :success => false, :message=>current_user.valid_password?(params[:user][:password])}  
+    when 'question'
+      return render json: { :success => true, :message=>'安全问题已经解除!'} if params[:answer].blank? && current_user.answer && current_user.answer.destroy
+      question = Question.where(:id => params[:id]).first
+      return render json: { :success => false, :message=>'输入的安全问题不合法！'} unless question
+      answer = current_user.answer || current_user.build_answer
+      answer.question = question
+      answer.answer = params[:answer].to_s.strip
+      if answer.save!
+        return render json: { :success => true, :message=>'安全问题设置成功!'}
+      else
+        return render json: { :success => false, :message=>answer.errors.full_messages}
+      end
     end    
   end
 end
