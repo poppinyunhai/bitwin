@@ -162,39 +162,10 @@
 	<!-- google auth start-->
 	<%= render_cell :user, :google_auth, user: current_user %>
 	<!-- google auth end -->
-	<div class="accordion-group">
-		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#personal-center" href="#celphone">
-				<span>
-				<img src="<%=image_url("user/sms.png")%>" /></span>
-				手机短信验证（仅限中国大陆地区）</a>
-		</div>
-		<div id="celphone" class="accordion-body collapse">
-			<div class="accordion-inner">
-				<div class="personal-line">
-					<div class="personal-center-phone">
-					<select class="personal-area" id="area">
-			 		<option>+86 中国</option>
-			 		<option>XXX</option>
-			 		</select>
-			 		<input type="text" ></input>
-			 		<button class="bitwin-btn" style="margin-top:-10px;">绑定手机</button>
-			 			
-			 	</div>
-			 	<div class="personal-line">
-			 		<input type="text" placeholder="输入验证信息" class="input-short pull-right" />
-			 	</div>
-			 	<div class="personal-line">
-			 		<button class="bitwin-btn pull-right bitwin-btn-longth">开通</button>
-			 	</div>
-				</div>
 
-			 	
-			
-			</div>
-		</div>
-	</div>
-
+	<!-- sms -->
+	<%= render_cell :user, :sms, user: current_user %>
+	<!-- sms end -->
 	<!-- ips -->
 	<%= render_cell :user, :ips, user: current_user %>
 	<!-- ips -->

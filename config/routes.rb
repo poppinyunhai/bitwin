@@ -9,6 +9,7 @@ Bitwin::Application.routes.draw do
       get  'close_google_auth'
       get  'google_auth'
       post 'sms_bind'
+      post 'seed_sms_code'
       post 'solutions_sms_bind'
     end
   end

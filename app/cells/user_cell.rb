@@ -7,4 +7,8 @@ class UserCell < Cell::Rails
 		ips = LoginHistory.where(user: args[:user]).paginate(:page => params[:page]).order('id DESC')
 		render locals: args.merge(ips: ips)
 	end
+
+	def sms args
+		render locals: args
+	end
 end
