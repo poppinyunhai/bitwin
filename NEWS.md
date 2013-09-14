@@ -1,6 +1,7 @@
 '- [TODO](#todo)
 - [NEWS](#news)
- 	- [v0.2 (2013-09-xx)](#v02-2013-09-xx)
+  - [v0.3 (2013-09-xx)](#v02-2013-09-xx)
+ 	- [v0.2 (2013-09-08)](#v02-2013-09-08)
 	- [v0.1 (2013-09-01)](#v01-2013-09-01)
 
 
@@ -9,9 +10,15 @@
 * 每周日晚8点发布.
 
 # NEWS
+## v0.3 (2013-09-xx)
+* DEPLOY NOTES
+* Features
+  * [#78] 完善密码找回
+* Tech Stories
+  * [#86] 个人中心url自动打开div
+* Bugs
 
-
-## v0.2 (2013-09-xx)
+## v0.2 (2013-09-08)
 * DEPLOY NOTES
   1. apt-get install imagemagick
 * Features
