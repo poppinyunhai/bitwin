@@ -19,4 +19,14 @@ class User < ActiveRecord::Base
   def avatar
   	self.images.last.try(:attachment).try(:url) || "/uploads/attachment/default/user.png"
   end
+
+  def trade_password=(new_password)
+    @trade_password = BCrypt::Password.create(new_password)
+    self.trade_hash = @trade_password
+  end
+
+  def trade_password
+     @trade_password ||= BCrypt::Password.new(trade_hash)
+  end
+
 end
