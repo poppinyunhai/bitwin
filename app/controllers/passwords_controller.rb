@@ -31,8 +31,10 @@ class PasswordsController < ApplicationController
       end
     when 'question'
       if user.answer.answer.strip == params[:answer].strip
-        user.send_reset_password_instructions
-        redirect_to edit_user_password_path(:reset_password_token=>user.reload.reset_password_token)
+        user.reset_password_token= User.reset_password_token
+        user.reset_password_sent_at = Time.now 
+        user.save!
+        redirect_to edit_user_password_path(:reset_password_token=>user.reset_password_token)
       else
         redirect_to step2_passwords_path, :flash => {username: user.username, question: user.question.try(:description), error: "问题答案回答不正确！"}
       end
@@ -40,4 +42,16 @@ class PasswordsController < ApplicationController
        redirect_to step2_passwords_path, :flash => {username: user.username, question: user.question.try(:description), error: "选择验证的方式不正确！"}
     end
   end
+
+  def update
+    user = User.reset_password_by_token(params[:user])
+
+    if user.errors.empty?
+      redirect_to new_user_session_path, :flash => {notice: "密码已找回，请重新登录！."}
+    else
+      redirect_to edit_user_password_path(:reset_password_token=>user.reload.reset_password_token), :flash => { error: user.errors.to_a}
+    end
+  end
+
+
 end
