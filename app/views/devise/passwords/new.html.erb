@@ -1,24 +1,41 @@
+<%=form_tag found_password_check_users_path , :id=>'password_back' do %>
 <div class="devise-content">
 	<div class="devise-welcome">
-		<span>选择其中一种方式重设您的密码</span>
+		<span class='message'><%= flash[:error] || "请先输入用户名"%></span>
 	</div>
 
-<%=form_tag found_password_check_users_path do %>
-	<div class="logup-input margin-top-50">
-		<select id="select" class="devise-select" style="margin-right:20px; " name='type'>
+	<div class="logup-input margin-top-50 step-1">
+		<input type="text" placeholder="用户名" class="devise-input devise-name" name='username' id='username'/>
+	</div>
+
+	<div class="logup-input margin-top-50 hide step-2">
+		<select id="type" class="devise-select" style="margin-right:20px; " name='type'>
 		 		<option value='email'>通过注册邮箱</option>
-		 		<option value='phone'>通过手机</option>
 		 		<option value='question'>通过安全提示问题</option>
 		</select>
 	</div>
 
-
-	<div class="logup-input margin-top-50">
-		<input type="text" placeholder="注册邮箱" class="devise-input devise-mail" name='value'/>
+	<div class="logup-input margin-top-50 hide question">
+		<select class="devise-select" style="margin-right:20px; " name='question'>
+		 		<option value='q1'>这里是问题1</option>
+		 		<option value='q2'>问题2</option>
+		</select>
 	</div>
 
-	<div class="logup-input margin-top-50">
-		<button class="devise-button">下一步<img src="<%=image_url 'icon/loginbutton.png'%>" /></button>
+
+	<div class="logup-input margin-top-50 email hide step-2">
+		<input type="text" placeholder="注册邮箱" class="devise-input devise-mail" name='email'/>
+	</div>
+
+	<div class="logup-input margin-top-50 question hide answer">
+		<input type="text" placeholder="问题答案" class="devise-input devise-key" name='answer'/>
+	</div>
+
+	<div class="logup-input margin-top-50 step-1 submit ">
+		<button class="devise-button">第1步<img src="<%=image_url 'icon/loginbutton.png'%>" /></button>
+	</div>
+	<div class="logup-input margin-top-50 step-2 submit hide">
+		<button class="devise-button">第2步<img src="<%=image_url 'icon/loginbutton.png'%>" /></button>
 	</div>
 	<%end%>
 </div>

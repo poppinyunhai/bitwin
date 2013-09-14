@@ -1,6 +1,14 @@
 <div class="devise-content">
 	<div class="devise-welcome">
-		<span>Hello!欢迎回来，请先登入</span>
+		<span>
+			<%if flash[:notice]%>
+				<%= flash[:notice]%>
+		<%elsif flash[:error]%>
+				<%= flash[:error]%>
+			<%else%>
+				Hello!欢迎回来，请先登入
+			<%end%>
+	  </span>
 	</div>
 	<%= form_for resource, :as => resource_name, :url => session_path(resource_name), :id=>'user_login' do |f| %>
 		<div class="login-input">
@@ -10,7 +18,7 @@
 
 		<div class="login-input" >
 			<%= f.password_field :password , :placeholder => "登录密码"%>
-			<%=link_to '忘记密码？', new_password_path(resource_name)%>
+			<%=link_to '忘记密码？', back_passwords_path%>
 		</div>
 
 		<div class="login-input">

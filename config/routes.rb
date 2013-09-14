@@ -1,34 +1,42 @@
 Bitwin::Application.routes.draw do
 
 
-  resources :users, :only => [] do 
+  resources :users, :only => [] do
     collection do
       get  "info_edit"
       put  "info_edit" => 'users#info_update', as: :info_update
       put  "real_name_authentication" => 'users#real_name_authentication', as: :real_name_auth
       get  'close_google_auth'
+      get  'google_auth'
       post 'sms_bind'
       post 'solutions_sms_bind'
-      get  'google_auth'
-      post 'found_password_check'
     end
   end
-  
+
   devise_for :users, :controllers => {
-    registrations: "registrations", 
+    registrations: "registrations",
     confirmations: 'confirmations'
   }
-  
-  root :to => "home#index" 
 
-  get "/account" => "users#account", as: :user_account 
+  root :to => "home#index"
+
+  get "/account" => "users#account", as: :user_account
   get "/deals" => "users#deals", as: :user_deals
-  get "/sigined_up" => "users#sigined_up", as: :sigined_up 
+  get "/sigined_up" => "users#sigined_up", as: :sigined_up
   get "/email_confirmed" => "users#email_confirmed", as: :email_confirmed
 
-  resources :user_mfa_session do 
+  resources :user_mfa_session do
     collection do
       post 'authentic'
+    end
+  end
+
+  resources :passwords do
+    collection do
+      get 'back/step1' => "passwords#step1", as: :back
+      post 'back/step1' => "passwords#step1_post", as: :step1_post
+      get 'back/step2' => "passwords#step2", as: :step2
+      post 'back/step2' => "passwords#step2_post", as: :step2_post
     end
   end
 
@@ -66,7 +74,7 @@ Bitwin::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

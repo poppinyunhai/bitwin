@@ -6,7 +6,7 @@ GIT
       spork (>= 1.0rc0)
 
 GEM
-  remote: http://rubygems.org/
+  remote: http://ruby.taobao.org/
   specs:
     actionmailer (4.0.0)
       actionpack (= 4.0.0)

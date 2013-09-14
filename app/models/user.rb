@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
 
   has_many :images, -> { where image: true  }, :as => :attachmentable, class_name: 'Attachment'
 
-
+  has_one :answer, dependent: :destroy
+  has_one :question,  :through => :answer, :source => :question
 
   def avatar
   	self.images.last.try(:attachment).try(:url) || "/uploads/attachment/default/user.png"
