@@ -6,8 +6,7 @@
 			</a>
 		</div>
 		<div id="personal-information" class="accordion-body collapse">
-			<div class="accordion-inner">
-				<div class="personal-inner">
+			<div class="accordion-inner" style="padding:0px 40px;">
 				<div class="personal-line">
 					<img src="<%=image_url(current_user.avatar)%>" /> 
 					<p><%=current_user.username%></p>
@@ -28,15 +27,24 @@
 					</div>
 					
 					</div>
-				</div>
 				<div class="personal-line">
-					<font class="color-gray" style='margin-left:50px;'><%=current_user.email%></font></div>
+					<font class="color-gray"><%=current_user.email%></font></div>
+					<div class="personal-line">
+						<div class='personal-left'>
+								<font style="line-height:40px; font-size:16px;">实名认证：</font>
+								<input type="text" style="margin-top:8px;" id='realname_input' value="<%=current_user.real_name%>" disabled="<%='disabled' if current_user.real_name%>"/>
+								<button class="bitwin-btn realname_btn" disabled="<%='disabled' if current_user.real_name%>">确定</button>
+						</div>
+						<div class="alert personal-right error-message hide" contenteditable="true" id='realname-message'>
+		            <button type="button" class="close" data-dismiss="alert">×</button>
+		            <span>请注意你的个人隐私安全.<span>
+		        </div>
+		      </div>
 				<div class="personal-line">
-					<font style="line-height:40px; font-size:16px;">实名认证：</font>
-					<input type="text" style="margin-top:8px;" />
-					<button class="bitwin-btn">确定</button>
+					<font class="color-orange">
+						绑定实名后 人民币充值提现只限本人账户 此项绑定后不可修改
+					</font>
 				</div>
-				<div class="personal-line"><font class="color-orange">绑定实名后 人民币充值提现只限本人账户 此项绑定后不可修改</font></div>
 				<div class="personal-line">
 					<table class="table">
 						<tr>
@@ -77,4 +85,3 @@
 			</div>
 			</div>
 		</div>
-	</div>

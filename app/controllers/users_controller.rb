@@ -73,6 +73,13 @@ class UsersController < ApplicationController
       current_user.trade_password = params[:trade_password]
       return render json: { :success => true, :message=>'交易密码设置成功！'} if current_user.save!
       render json: { :success => false, :message=>current_user.errors.full_messages} 
+    when 'realname'
+      return render json: { :success => false, :message=>'实名认证不能为空'} if params[:realname].blank?
+      current_user.real_name = params[:realname]
+      return render json: { :success => true, :message=>'实名认证已经设置成功!'} if current_user.save!
+      return render json: { :success => false, :message=>current_user.errors.full_messages} if current_user.save!
+    else
+      return render json: { :success => false, :message=>'操作不合法！'}
     end    
   end
 end
