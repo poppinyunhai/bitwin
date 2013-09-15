@@ -23,18 +23,29 @@ class UsersController < ApplicationController
   end
 
   def close_google_auth
-    current_user.google_secret = nil
-    if current_user.save!
+    if current_user.google_authentic?(params[:user][:google_code])
+      current_user.google_auth = false
+      current_user.save!
       flash[:notice] = "恭喜你，解绑google认证"
     else
       flash[:notice] = "很遗憾！解绑google认证失败"
     end
-    redirect_to user_account_path
+    redirect_to "/account#authentication"
+  end
+
+  def set_google_auth
+    current_user.set_google_secret
+    redirect_to "/account#authentication"
   end
 
   def google_auth
-    current_user.set_google_secret
-    redirect_to user_account_path, notice: "恭喜你，google绑定成功"
+    if (current_user.google_auth = current_user.google_authentic?(params[:user][:google_code]))
+      current_user.save!
+      flash[:notice] = "恭喜你，google绑定成功"
+    else
+      flash[:notice] = "验证失败，请重试！"
+    end
+    redirect_to "/account#authentication"
   end
 
   def real_name_authentication
