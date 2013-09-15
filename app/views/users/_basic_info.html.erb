@@ -8,8 +8,8 @@
 		<div id="personal-information" class="accordion-body collapse">
 			<div class="accordion-inner" style="padding:0px 40px;">
 				<div class="personal-line">
-					<img src="<%=image_url(current_user.avatar)%>" /> 
-					<p><%=current_user.username%></p>
+					<img src="<%=image_url(current_user.avatar)%>" class="user_avatar link"/> 
+					<p class='username'><%=current_user.username%></p>
 					<div class="ranking">
 						<div class='rates'>手续费率0.3%</div>
 						<div class='line'>
@@ -80,8 +80,8 @@
 							<td></td>
 						</tr>
 					</table>
-
 				</div>
 			</div>
-			</div>
+			<%=render :partial=>'users/info_form'%>
 		</div>
+	</div>

@@ -16,7 +16,9 @@ class UsersController < ApplicationController
 
   def info_update
   	Attachment.create(:attachmentable => current_user, :attachment => params[:attachment]) if params[:attachment]
-  	redirect_to root_path
+    current_user.username = params[:username]
+    current_user.save!
+  	redirect_to user_account_path
   end
 
   def close_google_auth

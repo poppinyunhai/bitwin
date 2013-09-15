@@ -3,7 +3,7 @@ class BashInfoSetting
     @$element = $(element)
 
     @$element.find('button.realname_btn').on 'click', $.proxy(@, 'update_realname')
-
+    @$element.find('img.user_avatar').on 'click', $.proxy(@, 'show_modal')
   
   update_realname: (event)->
     realname = $('#realname_input').val().trim()
@@ -24,6 +24,16 @@ class BashInfoSetting
         realname: realname
 
     @update_with_ajax(payload: payload, message: message)
+
+
+  show_modal: (event)->
+    $modal = @$element.find('.user_form_modal')
+    if $modal.length > 0
+      $modal.modal
+        show:true
+        keyboard: false
+        backdrop: 'static' 
+    $modal.find('#username').val(@$element.find('p.username').text())
 
 
 
