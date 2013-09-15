@@ -1,5 +1,5 @@
-source 'http://ruby.taobao.org'
-# source 'http://rubygems.org'
+#source 'http://ruby.taobao.org'
+source 'http://rubygems.org'
 
 gem 'rails', '4.0.0'
 # 观察者
