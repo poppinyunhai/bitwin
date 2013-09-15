@@ -1,0 +1,80 @@
+	<div class="accordion-group">
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#personal-center" href="#personal-information">
+				<span><img src="<%=image_url("user/monster.png")%>" /></span> 基本资料
+
+			</a>
+		</div>
+		<div id="personal-information" class="accordion-body collapse">
+			<div class="accordion-inner">
+				<div class="personal-inner">
+				<div class="personal-line">
+					<img src="<%=image_url(current_user.avatar)%>" /> 
+					<p><%=current_user.username%></p>
+					<div class="ranking">
+						<div class='rates'>手续费率0.3%</div>
+						<div class='line'>
+								<span class='level1'>vip1</span>
+								<div class="progress progress-success">
+								  <div class="bar" style="width: <%=243*100/500%>%"></div>
+								</div>
+								 <span class='level2'>vip2</span>
+							</div>
+						<div class='values'>
+							<span class='start'>0</span>
+							<span class='current' style='margin-left: <%=243*100/500-8%>%'>43</span>
+							<span class='end'>500</span>
+						</div>
+					</div>
+					
+					</div>
+				</div>
+				<div class="personal-line">
+					<font class="color-gray" style='margin-left:50px;'><%=current_user.email%></font></div>
+				<div class="personal-line">
+					<font style="line-height:40px; font-size:16px;">实名认证：</font>
+					<input type="text" style="margin-top:8px;" />
+					<button class="bitwin-btn">确定</button>
+				</div>
+				<div class="personal-line"><font class="color-orange">绑定实名后 人民币充值提现只限本人账户 此项绑定后不可修改</font></div>
+				<div class="personal-line">
+					<table class="table">
+						<tr>
+							<th></th>
+							<th>可用余额</th>
+							<th>交易锁定</th>
+							<th>贷款抵押</th>
+							<th>提现待处理</th>
+							<th>总计</th>
+						</tr>
+						<tr>
+							<th>BTC</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th>LTC</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th>CNY</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
