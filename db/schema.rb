@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130911144743) do
+ActiveRecord::Schema.define(version: 20130914095800) do
 
   create_table "answers", force: true do |t|
     t.integer  "user_id"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20130911144743) do
     t.string   "mobile"
     t.string   "real_name"
     t.string   "google_secret"
+    t.string   "trade_hash"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

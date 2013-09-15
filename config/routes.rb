@@ -3,14 +3,14 @@ Bitwin::Application.routes.draw do
 
   resources :users, :only => [] do
     collection do
-      get  "info_edit"
-      put  "info_edit" => 'users#info_update', as: :info_update
-      put  "real_name_authentication" => 'users#real_name_authentication', as: :real_name_auth
-      get  'close_google_auth'
-      get  'google_auth'
       post 'sms_bind'
       post 'seed_sms_code'
       post 'solutions_sms_bind'
+      put  "info_edit" => 'users#info_update', as: :info_update
+      put "real_name_authentication" => 'users#real_name_authentication', as: :real_name_auth
+      get 'close_google_auth'
+      get 'google_auth'
+      put 'update' => 'users#update'
     end
   end
 

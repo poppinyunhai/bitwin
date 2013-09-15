@@ -1,9 +1,3 @@
-$.fn.show = ->
-  $(this).removeClass('hide')
-
-$.fn.hide = ->
-  $(this).addClass('hide')
-
 class PassworBack
   constructor: (element, options) ->
     that = this
