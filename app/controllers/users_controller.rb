@@ -1,6 +1,7 @@
 #encoding : utf-8
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:sigined_up, :found_password_check]
+  layout false, only: [:sms_bind,:solutions_sms_bind]
 
   def account
     
@@ -22,18 +23,29 @@ class UsersController < ApplicationController
   end
 
   def close_google_auth
-    current_user.google_secret = nil
-    if current_user.save!
+    if current_user.google_authentic?(params[:user][:google_code])
+      current_user.google_auth = false
+      current_user.save!
       flash[:notice] = "恭喜你，解绑google认证"
     else
       flash[:notice] = "很遗憾！解绑google认证失败"
     end
-    redirect_to user_account_path
+    redirect_to "/account#authentication"
+  end
+
+  def set_google_auth
+    current_user.set_google_secret
+    redirect_to "/account#authentication"
   end
 
   def google_auth
-    current_user.set_google_secret
-    redirect_to user_account_path, notice: "恭喜你，google绑定成功"
+    if (current_user.google_auth = current_user.google_authentic?(params[:user][:google_code]))
+      current_user.save!
+      flash[:notice] = "恭喜你，google绑定成功"
+    else
+      flash[:notice] = "验证失败，请重试！"
+    end
+    redirect_to "/account#authentication"
   end
 
   def real_name_authentication
@@ -45,6 +57,44 @@ class UsersController < ApplicationController
   		redirect_to root_path, :error => "实名一经绑定，不能再次绑定!"
   	end
   end
+
+  def seed_sms_code
+    session[:mobile] = params[:user][:mobile] unless params[:user].to_s.empty?
+    @seed_state = Authentication::SmsAuth.new(mobile: current_user.mobile||params[:user][:mobile]||session[:mobile], email: current_user.email)
+  end
+
+  def sms_bind
+    if Authentication::SmsAuth.validate(email: current_user.email, code: params[:user][:code])
+      current_user.mobile = session[:mobile]
+      @result_state = current_user.save!
+      @info = "绑定成功！"
+    else
+      @error = "验证码有误, 绑定失败, 请重试!"
+    end
+  end
+
+  def solutions_sms_bind
+    if Authentication::SmsAuth.validate(email: current_user.email, code: params[:user][:code])
+      current_user.mobile = nil
+      current_user.save!
+      @info = "解除绑定成功！"
+    else
+      @error = "验证码有误, 解除绑定失败, 请重试!"
+    end
+  end
+
+  def found_password_check
+    type = params[:type]
+    value = params[:value]
+      # do_check  
+      # case type
+      # when 'email'
+
+      # when 'phone'
+      # when 'quetion'
+      # end
+    redirect_to edit_user_password_path(:reset_password_token=>'there is a token')
+   end
 
   def update
     case params[:type]
