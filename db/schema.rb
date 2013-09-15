@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20130915124545) do
 
+
   create_table "answers", force: true do |t|
     t.integer  "user_id"
     t.integer  "question_id"
@@ -79,9 +80,10 @@ ActiveRecord::Schema.define(version: 20130915124545) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "mobile"
-    t.string   "real_name"
     t.string   "google_secret"
+    t.string   "real_name"
     t.string   "trade_hash"
+    t.boolean  "google_auth"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

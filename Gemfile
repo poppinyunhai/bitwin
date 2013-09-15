@@ -1,5 +1,5 @@
-source 'http://ruby.taobao.org'
-# source 'http://rubygems.org'
+#source 'http://ruby.taobao.org'
+source 'http://rubygems.org'
 
 gem 'rails', '4.0.0'
 # 观察者
@@ -19,7 +19,8 @@ gem 'bootstrap-sass', '~> 2.3.2.1'
 
 # Sass gem for stylesheets
 gem 'compass', '~> 0.12.2'
-
+# pages
+gem "will_paginate", "~> 3.0.4"
 # Better support for jquery in rails
 gem 'jquery-rails'
 

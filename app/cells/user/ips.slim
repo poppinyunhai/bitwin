@@ -13,9 +13,10 @@
             th style="border-top:0px;"  IP Adress
             th style="border-top:0px;"  Action
             th style="border-top:0px;"  Adress
-          - user.login_historys.each do |item|
+          - ips.each do |item|
             tr
               td = item.created_at
               td = item.ip_address
               td = item.action_type
               th = item.area
+= will_paginate ips
