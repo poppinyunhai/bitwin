@@ -14,6 +14,7 @@
 * DEPLOY NOTES
 * Features
   * [#78] 完善密码找回
+  * [#issue_52] 完善个人中心基本信息修改
 * Tech Stories
   * [#86] 个人中心url自动打开div
 * Bugs
