@@ -11,6 +11,8 @@ module Bitwin
 						open_price: (data['bid'].to_f*6.1183).round(1),
 						volume: data['volume'].to_i
 				})
+			ticker.reload
+			ticker
 		end
 	end
 end

@@ -29,10 +29,11 @@
   .comment-user
     img src=image_url("index/avatar-default.png")
     span admin
-    span 2013 8.21
+    span =@news.try(:created_at).to_s.split(/ /).first
   .comment-content.shadow-radius
     /! <img src="images/index/comment_t.jpg" class="comment-tran">
     textarea.comment-textarea
+      =@news.try(:content)
   .news-show-more
     a href="#"
       img src=image_url("index/morenews.png")

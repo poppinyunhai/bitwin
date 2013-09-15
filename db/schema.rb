@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130915124545) do
-
+ActiveRecord::Schema.define(version: 20130915144943) do
 
   create_table "answers", force: true do |t|
     t.integer  "user_id"
@@ -44,6 +43,12 @@ ActiveRecord::Schema.define(version: 20130915124545) do
   end
 
   add_index "login_histories", ["user_id"], name: "index_login_histories_on_user_id", using: :btree
+
+  create_table "news", force: true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "questions", force: true do |t|
     t.string   "description"
@@ -80,8 +85,8 @@ ActiveRecord::Schema.define(version: 20130915124545) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "mobile"
-    t.string   "google_secret"
     t.string   "real_name"
+    t.string   "google_secret"
     t.string   "trade_hash"
     t.boolean  "google_auth"
   end
