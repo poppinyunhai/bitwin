@@ -7,11 +7,20 @@
       th 今日开盘价
       th 24小时成交量：
     tr
-      td.color-orange ￥621.5
-      td.color-gray-deep -￥21.5
-      td.color-gray-deep ￥600~￥650
-      td.color-gray-deep ￥641.5
-      td.color-gray-deep 1254BTC
+      td.color-orange 
+        ="￥#{@ticker.last_price}"
+      td.color-gray-deep 
+        - change_price = (@ticker.last_price-@ticker.open_price).round(1)
+        - if change_price > 0 
+          = "+￥#{change_price}"
+        - else
+          = "-￥#{change_price*-1}"
+      td.color-gray-deep 
+        ="￥#{@ticker.lowest_sell.round}~#{@ticker.high_buy}"
+      td.color-gray-deep 
+        ="￥#{@ticker.open_price.round}"
+      td.color-gray-deep 
+        ="#{@ticker.volume}BTC"
 .chart-base
   img src=image_url("temp/chart.jpg") width="960"
 .news-icon

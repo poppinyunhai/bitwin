@@ -51,6 +51,8 @@ gem 'carrierwave'
 gem 'mime-types'
 gem "mini_magick"
 
+gem "mechanize", "~> 2.7.2"
+
 group :development do
   gem 'capistrano'
   gem 'rvm-capistrano'
