@@ -32,8 +32,9 @@
 					<div class="personal-line">
 						<div class='personal-left'>
 								<font style="line-height:40px; font-size:16px;">实名认证：</font>
-								<input type="text" style="margin-top:8px;" id='realname_input' value="<%=current_user.real_name%>" disabled="<%='disabled' if current_user.real_name%>"/>
-								<button class="bitwin-btn realname_btn" disabled="<%='disabled' if current_user.real_name%>">确定</button>
+								<input type="text" style="margin-top:8px;" id='realname_input' value="<%=current_user.real_name%>" 
+								<%='disabled=disabled' unless current_user.real_name.blank?%> />
+								<button class="bitwin-btn realname_btn" <%='disabled=disabled' unless current_user.real_name.blank?%>>确定</button>
 						</div>
 						<div class="alert personal-right error-message hide" contenteditable="true" id='realname-message'>
 		            <button type="button" class="close" data-dismiss="alert">×</button>
