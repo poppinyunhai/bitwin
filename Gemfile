@@ -53,6 +53,7 @@ gem 'mime-types'
 gem "mini_magick"
 
 gem "mechanize", "~> 2.7.2"
+gem "nokogiri", "~> 1.6.0"
 
 group :development do
   gem 'capistrano'
