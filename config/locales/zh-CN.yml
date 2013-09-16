@@ -11,11 +11,14 @@ zh-CN:
           attributes:
             username:
               blank: '用户名不能为空!'
+              taken: '此用户名已经被注册！'
             email:
               blank: '邮件地址不能为空!'
               invalid: '邮件地址格式不正确!'
+              taken: '此邮箱已经被使用！'
             password:
               blank: '登录密码不能为空!'
               too_short: '输入的登录密码必须大于6个字符!'
             password_confirmation:
               confirmation: "确认密码和密码不匹配!"
+

@@ -30,4 +30,4 @@ coverage/
 /public/uploads/attachment/attachment/
 /public/uploads/tmp/
 
-config/initializers/devise.rb
+/config/initializers/devise.rb
