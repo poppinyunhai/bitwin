@@ -22,7 +22,6 @@
             br    
             = "您的认证密钥: #{user.google_secret}"
             - unless user.google_auth
-              - user.set_google_secret
               form
               = form_tag google_auth_users_path, method: "post" do
                 input.input-short placeholder="输入验证信息" type="text" name="user[google_code]"

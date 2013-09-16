@@ -1,5 +1,9 @@
 class UserCell < Cell::Rails
 	def google_auth args
+		unless args[:user].google_auth
+	    args[:user].set_google_secret 
+	    args[:user].save!
+	  end
 		render locals: args
 	end
 
