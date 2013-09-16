@@ -29,7 +29,7 @@ gem 'slim', '~> 2.0.1'
 gem 'cancan'
 gem 'unicorn'
 
-gem 'devise'
+gem 'devise', '~> 3.0.3' 
 gem 'devise-async'
 gem 'devise-encryptable'
 

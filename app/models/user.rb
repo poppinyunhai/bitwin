@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   acts_as_google_authenticated
   
   devise :database_authenticatable, :async, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :lockable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :login_historys
 
