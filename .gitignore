@@ -29,5 +29,3 @@ coverage/
 
 /public/uploads/attachment/attachment/
 /public/uploads/tmp/
-
-/config/initializers/devise.rb
