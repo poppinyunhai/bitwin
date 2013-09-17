@@ -1,6 +1,9 @@
 Bitwin::Application.routes.draw do
 
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  
   resources :users, :only => [] do
     collection do
       post 'sms_bind'

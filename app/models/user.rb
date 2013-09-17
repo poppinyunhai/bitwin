@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
   has_many :images, -> { where image: true  }, :as => :attachmentable, class_name: 'Attachment'
 
+  has_and_belongs_to_many :roles
+
   has_one :answer, dependent: :destroy
   has_one :question,  :through => :answer, :source => :question
 
@@ -31,6 +33,14 @@ class User < ActiveRecord::Base
 
   def user_name_with_label
     "#{self.username}@snowball.io"
+  end
+
+  def is?(role)
+    roles.map(&:name).include?(role.to_s)
+  end
+
+  def admin?
+    is?(:admin)
   end
 
 end

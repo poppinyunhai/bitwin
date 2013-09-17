@@ -20,7 +20,7 @@ gem 'bootstrap-sass', '~> 2.3.2.1'
 # Sass gem for stylesheets
 gem 'compass', '~> 0.12.2'
 # pages
-gem "will_paginate", "~> 3.0.4"
+gem "kaminari", "~> 0.14.1"
 # Better support for jquery in rails
 gem 'jquery-rails'
 
@@ -54,6 +54,8 @@ gem "mini_magick"
 
 gem "mechanize", "~> 2.7.2"
 gem "nokogiri", "~> 1.6.0"
+
+gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
 
 group :development do
   gem 'capistrano'

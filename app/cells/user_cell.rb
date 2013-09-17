@@ -8,7 +8,7 @@ class UserCell < Cell::Rails
 	end
 
 	def ips args
-		ips = LoginHistory.where(user: args[:user]).paginate(:page => params[:page], :per_page => 15).order('id DESC')
+		ips = LoginHistory.where(user: args[:user]).order('id DESC').limit(10)
 		render locals: args.merge(ips: ips)
 	end
 
