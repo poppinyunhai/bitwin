@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  acts_as_google_authenticated
+  acts_as_google_authenticated :method => :user_name_with_label
   
   devise :database_authenticatable, :async, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
 
   def trade_password
      @trade_password ||= BCrypt::Password.new(trade_hash)
+  end
+
+  def user_name_with_label
+    "#{self.username}@snowball.io"
   end
 
 end

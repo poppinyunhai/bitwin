@@ -85,8 +85,8 @@ ActiveRecord::Schema.define(version: 20130915144943) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "mobile"
-    t.string   "real_name"
     t.string   "google_secret"
+    t.string   "real_name"
     t.string   "trade_hash"
     t.boolean  "google_auth"
   end
