@@ -67,6 +67,7 @@ class UsersController < ApplicationController
       current_user.mobile = session[:mobile]
       @result_state = current_user.save!
       @info = "绑定成功！"
+      redirect_to 'account#celphone'
     else
       @error = "验证码有误, 绑定失败, 请重试!"
     end
