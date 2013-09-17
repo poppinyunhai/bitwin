@@ -78,6 +78,7 @@ class UsersController < ApplicationController
       current_user.mobile = nil
       current_user.save!
       @info = "解除绑定成功！"
+      redirect_to 'account#celphone'
     else
       @error = "验证码有误, 解除绑定失败, 请重试!"
     end

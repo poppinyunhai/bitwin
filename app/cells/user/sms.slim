@@ -12,8 +12,8 @@
             .personal-center-phone
               = "你已经绑定手机 #{user.mobile}"
               = link_to "解除绑定", seed_sms_code_users_path(format: :js), remote: true, method: 'post'
-              / button.bitwin-btn style="margin-top:-10px;" 解除绑定
           #validate_code.hide
+            .message
             a data-method="post" data-remote="true" href="/users/seed_sms_code.js" rel="nofollow" 重发验证码
             = form_tag solutions_sms_bind_users_path(format: :js), remote: true, method: "post" do
               .personal-line
@@ -30,6 +30,7 @@
                   input type="text" name="user[mobile]" id="mobile"
                 button.bitwin-btn.bind style="margin-top:-10px;" 绑定手机
           #validate_code.hide
+            .message
             a data-method="post" data-remote="true" href="/users/seed_sms_code.js" rel="nofollow" 重发验证码
             = form_tag sms_bind_users_path(format: :js), remote: true, method: "post" do
               .personal-line

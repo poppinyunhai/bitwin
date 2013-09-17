@@ -1,5 +1,5 @@
 <% if @error %>
-	$("#message").replaceWith('<%= escape_javascript(render_cell :message, :error, error: @error) %>')
+	$(".message").replaceWith('<%= escape_javascript(render_cell :message, :error, error: @error) %>')
 <% else %>
-	$("#message").replaceWith('<%= escape_javascript(render_cell :message, :info, info: @info) %>')
+	$(".message").replaceWith('<%= escape_javascript(render_cell :message, :info, info: @info) %>')
 <% end %>
