@@ -21,7 +21,7 @@
         ="￥#{@ticker.open_price.round}"
       td.color-gray-deep 
         ="#{@ticker.volume}BTC"
-.chart-base
+.chart-base.highstock 
   img src=image_url("temp/chart.jpg") width="960"
 .news-icon
   img src=image_url("index/news.png")
@@ -38,3 +38,7 @@
     a href="#"
       img src=image_url("index/morenews.png")
     span Show All News
+
+
+script src="/plugins/highstock/js/highstock.js"
+script src="/plugins/highstock/js/modules/exporting.js"
