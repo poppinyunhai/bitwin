@@ -3,11 +3,14 @@
 		<span>
 			<%if flash[:notice]%>
 				<%= flash[:notice]%>
-		<%elsif flash[:error]%>
+			<%elsif flash[:error]%>
 				<%= flash[:error]%>
+			<%elsif flash[:alert]%>
+				<%= flash[:alert]%>
 			<%else%>
 				Hello!欢迎回来，请先登入
 			<%end%>
+			
 	  </span>
 	</div>
 	<%= form_for resource, :as => resource_name, :url => session_path(resource_name), :id=>'user_login' do |f| %>

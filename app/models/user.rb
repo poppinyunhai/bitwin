@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
   acts_as_google_authenticated :method => :user_name_with_label
   
   devise :database_authenticatable, :async, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :lockable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :login_historys
 
-  validates :username,  presence: true
+  validates :username,  presence: true, uniqueness: true
 
   has_many :images, -> { where image: true  }, :as => :attachmentable, class_name: 'Attachment'
 
