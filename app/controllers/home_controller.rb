@@ -3,6 +3,7 @@ class HomeController < ApplicationController
 
   def index
   	@ticker = Ticker.last
+  	Bitwin::ThirdPartyBt.data if @ticker.nil?
   	@ticker = Bitwin::ThirdPartyBt.data if @ticker.updated_at < 2.minutes.ago
   	
   	@news = News.last
