@@ -15,16 +15,16 @@
 	</div>
 	<%= form_for resource, :as => resource_name, :url => session_path(resource_name), :id=>'user_login' do |f| %>
 		<div class="login-input">
-			<%= f.email_field :email, :placeholder=>"  注册邮箱", :autofocus => true %>
+			<%= f.email_field :email, :placeholder=>"  注册邮箱", :autofocus => true ,:class => "devise-mail" %>
 			<%=link_to "还没注册？", new_user_registration_path%>
 		</div>
 
 		<div class="login-input" >
-			<%= f.password_field :password , :placeholder => "登录密码"%>
+			<%= f.password_field :password , :placeholder => "登录密码" ,:class => "devise-key"%>
 			<%=link_to '忘记密码？', back_passwords_path%>
 		</div>
 		<div class="login-input">
-			<input type="text" placeholder="Google身份验证码" style="background:url(<%=image_url "icon/iphone.png"%>) no-repeat;" />
+			<input type="text" placeholder="Google身份验证码" class="devise-iphone" />
 			<a href="#">手机丢了？</a>
 		</div>
 

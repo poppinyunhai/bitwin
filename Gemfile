@@ -54,6 +54,7 @@ gem "mini_magick"
 
 gem "mechanize", "~> 2.7.2"
 gem "nokogiri", "~> 1.6.0"
+gem 'binding_of_caller'
 
 group :development do
   gem 'capistrano'
@@ -61,6 +62,7 @@ group :development do
   # https://github.com/sosedoff/capistrano-unicorn/issues/28
   gem 'capistrano-unicorn', :require => false
   gem "better_errors"
+
 end
 
 

@@ -1,12 +1,18 @@
-<h2>Resend confirmation instructions</h2>
 
-<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.submit "Resend confirmation instructions" %></div>
+<%= form_for(resource, :as =>
+resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+<div class="devise-tittle">Resend confirmation instructions</div>
+<div>
+<%= devise_error_messages! %>
+</div>
+<div class="devise-tip">
+	<%= f.label :email %></div>
+<div class="devise-tip">
+	<%= f.email_field :email, :autofocus =>true ,:class => "devise-input devise-mail"%></div>
+<div class="devise-tip margin-top-short"	>
+	<%= f.submit "Resend confirmation instructions" ,:class =>"devise-button"%></div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+<div class="devise-tip" style="padding-top:50px;">
+	<%= render "devise/shared/links" %></div>
+<div class="devise-tip"></div>

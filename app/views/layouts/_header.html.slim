@@ -1,8 +1,8 @@
-.top-base.background-orange
+.top-base.background-gray-light
   .top-container
     .top-logo
       a href=root_path
-        img src=image_url("topmenu/logotop.png")
+        img src=image_url("topmenu/logo-top.png")
     .top-nav
       ul.top-nav-li
         a href=user_deals_path
@@ -23,13 +23,13 @@
       span
         - if current_user
           a href=user_account_path =current_user.username
-          font.color-white |
+          font |
           = link_to t("devise.links.sign_out"), destroy_user_session_path ,:method => :delete
         - else
           = link_to t("devise.links.sign_up"), new_user_registration_path
-          font.color-white |
+          font |
           = link_to t("devise.links.sign_in"), new_user_session_path
 
     .top-time
       img src=image_url("topmenu/clock.png")  
-      span.color-white 10:30
+      span 10:30
