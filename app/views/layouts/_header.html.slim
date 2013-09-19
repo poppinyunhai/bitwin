@@ -19,7 +19,7 @@
             | 社区
     .top-user
       a href=user_account_path
-        img src=image_url(current_user ? current_user.avatar : "topmenu/avatar-default.png")
+        img src=image_url(current_user ? current_user.avatar : "topmenu/user_default_icon.png")
       span
         - if current_user
           a href=user_account_path =current_user.username
