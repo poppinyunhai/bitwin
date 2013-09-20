@@ -1,6 +1,6 @@
 .devise-content
 	.devise-welcome.float-left
-		span
+		span.devise-welcome-content.shadow-radius
 		 | Hi!欢迎加入我们，请先注册
 
 	= simple_form_for resource, :as => resource_name, :url => registration_path(resource_name), :validate => true, :html => {:id => :user_new, :class => 'form-horizontal float-left margin-top-middle'} do |f|

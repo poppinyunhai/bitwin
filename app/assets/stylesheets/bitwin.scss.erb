@@ -226,6 +226,10 @@ input[type="checkbox"]{
 	margin-top: -10px;
 }
 
+.text-left{
+	text-align: left !important;
+}
+
 /* 公共 */
 .tittle{
 	width: 100%;
@@ -861,30 +865,31 @@ input[type="checkbox"]{
 	float: left;
 	padding-left: 196px;
 	padding-right: 197px;
-	padding-top: 80px;
+	padding-top: 60px;
 	padding-bottom: 80px;
 }
 
 .devise-welcome{
-	width: 567px;
-	height: 74px;
-	background: url(<%=image_url "icon/welcome.jpg" %>) no-repeat;
+	width: 467px;
+	padding-left: 100px;
+	height: auto;
+	background: url(<%=image_url "user/snowmonster.png" %>) no-repeat;
 	float: left;
+}
+.devise-welcome-content{
+	width: 440px;
+	height: auto;
+	line-height: 30px;
+	padding: 10px;
+	float: left;
+	border: #ccc 2px solid;
+	line-height: 30px;
+	font-size: 21px;
+	text-align: center;
+	color: #f26834;
+	background: #EEEEEE;
 }
 
-.devise-welcome span{
-	height: 40px;
-	width: 400px;
-	padding-top: 17px;
-	padding-left: 130px;
-	padding-right: 37px;
-	padding-bottom: 17px;
-	line-height: 40px;
-	float: left;
-	font-size: 21px;
-	color: #f26834;
-	text-align: center !important;
-}
 
 .login-input{
 	width: 442px;
@@ -945,7 +950,7 @@ input[type="checkbox"]{
 .logup-input{
 	width: 387px;
 	padding-left: 180px;
-	height: 36px;
+	min-height: 36px !important;
 	float: left;
 	font-size: 16px;
 	margin-top: 30px;
@@ -1062,6 +1067,7 @@ input[type="checkbox"]{
 	padding-left: 200px;
 	width: 760px;
 	float: left;
+	padding-top: 20px;
 }
 
 /* end */
