@@ -17,10 +17,10 @@ class ApplicationController < ActionController::Base
 	end
 
   def google_auth_check
-    if current_user and current_user.google_auth
-      unless session[:google_auth]
-        redirect_to new_user_mfa_session_path
-      end
-    end
+    #if current_user and current_user.google_auth
+    #  unless session[:google_auth]
+     #   redirect_to new_user_mfa_session_path
+     # end
+    #end
   end
 end
