@@ -1,24 +1,6 @@
-<!-- / .devise-content
-/ 	.devise-welcome.float-left
-/ 		span
-/ 		 | Hi!欢迎加入我们，请先注册
-
-/ 	= simple_form_for resource, :as => resource_name, :url => registration_path(resource_name), :validate => true, :html => {:id => :user_new, :class => 'form-horizontal float-left margin-top-middle'} do |f|
-/ 		= f.input :username, :placeholder => "用户名", :input_html => { :class => 'devise-input devise-name'}, :required => true,  label: false
-/ 		= f.input :email,  :placeholder => "  注册邮箱", :input_html => { :class => 'devise-input devise-mail'}, :required => true, label: false
-/ 		= f.input :password,  :placeholder => "登录密码",:input_html => { :class => 'devise-input devise-key'}, :required => true , label: false
-/ 		= f.input :password_confirmation,  :placeholder => "确认密码", :input_html => { :class => 'devise-input devise-key'},:required => true , label: false
-/ 		.control-group
-/ 			.controls
-/ 			  button.devise-button 
-/ 			  	=t("devise.registrations.sign_up")
-/ 			  	img src=image_url("icon/loginbutton.png") -->
-
-
-<div class='devise-content'>
-	<div class='devise-welcome float-left'>
-		<span>Hi!欢迎加入我们，请先注册</span>
-		<%= simple_form_for resource, :as => resource_name, :url => registration_path(resource_name), :validate => true, :html => {:id => :user_new, :class => 'form-horizontal float-left margin-top-middle'} do |f| %>
+<div class="logup-left">
+		<span class="logup_welcome color-orange">Hi!欢迎加入我们，请先注册</span>
+		<%= simple_form_for resource, :as => resource_name, :url => registration_path(resource_name), :validate => true, :html => {:id => :user_new, :class => 'float-left margin-top-middle margin-left-50'} do |f| %>
 		  <%=f.input :username, :placeholder => "用户名", :input_html => { :class => 'devise-input devise-name'}, :required => true,  label: false%>
 		  <%= f.input :password,  :placeholder => "登录密码",:input_html => { :class => 'devise-input devise-key'}, :required => true , label: false%>
 		  <%= f.input :password_confirmation,  :placeholder => "确认密码", :input_html => { :class => 'devise-input devise-key'},:required => true , label: false%>
@@ -31,7 +13,24 @@
 		  	</div>
 		  </div>
 		<%end%>
-	</div>
+</div>
+<div class="logup-right">
+<span style="padding-left:20px;padding-right:248px;padding-top:20px;font-size:20px;">WHY CHOOSE US</span>
+<span style="padding-left:240px;padding-right:28px;padding-top:90px;">杰出的交易系统 <br />
+你会惊叹我们快速和高质量的下单</span>
+<span style="padding-left:45px;padding-right:223px;padding-top:55px;">
+	如金30分钟内到账<br />
+	交易者们都称赞我们快速的入金方式
+</span>
+<span style="padding-left:298px;padding-right:0px;padding-top:35px;width:220px;">
+	多种网络安全防护及身份验证系统<br />
+	提交了用户资金的安全性
+</span>
+<span style="padding-left:100px;padding-right:168px;padding-top:65px;">
+	更低廉的交易费 更快速有效的服务<br />
+	让你的雪球越滚越大
+</span>
+</div>
 </div>
 
 
