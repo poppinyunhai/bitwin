@@ -13,7 +13,42 @@
 		</ul>
 	</div>
 	<div class="tagcontent">
-		<legend>委托单管理</legend>
+		<div class="exchange-table-base">
+		<span class="exchange-table-top exchange-table-font-big">买单</span>
+			<table calss="exchange-table">
+				<tr>
+				<td>
+				<span class="background-green float-right" style="width:50px;"></span>
+				</td>
+				<td>2.000225</td>
+				<td>￥611.20</td>
+				</tr>
+			</table>
+		</div>
+		<div class="exchange-table-base exchange-padding">
+		<span class="exchange-table-top exchange-table-font-big">卖单</span>
+			<table calss="exchange-table">
+				<tr>
+				<td>￥611.20</td>
+				<td>2.000225</td>
+				<td>
+					<span class="background-orange" style="width:50px;"></span>
+				</td>
+				</tr>
+			</table>
+		</div>
+		<div class="exchange-table-base">
+		<span class="exchange-table-top exchange-table-font-middle">
+		最新成交价 ￥611.20
+		</span>
+			<table calss="exchange-table">
+				<tr>
+				<td>07:26:31</td>
+				<td>￥611.20</td>
+				<th>1.23235435B</th>
+				</tr>
+			</table>
+		</div>
 	</div>
 </div>
 
@@ -23,14 +58,53 @@
 <div class="exchange-floor">
 	<div class="left">
 	<div class="left-content">
-		<div class="exchange-table-base">
-			
+		<table calss="exchange-table">
+			<tr>
+			<td rowspan="2"><img src="/assets/exchange/lock.png" /></td>
+			<td class="color-gray">611.20 BTC</td>
+			<td rowspan="2"><img src="/assets/exchange/lock.png" /></td>
+			<th>1.232 BTC</th>
+			</tr>
+			<tr>
+			<td class="color-gray">611.20 CNY</td>
+			<th>1.2323 CNY</th>
+			</tr>
+		</table>
+		<div>
+		<label class="radio">
+				<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>			
+				定价委托
+			</label>
+			<label class="radio">
+				<input type="radio" class="margin-left-20" name="optionsRadios" id="optionsRadios2" value="option2">			
+				市价委托
+			</label>
+			<label class="checkbox">
+    		<input type="checkbox" /> 暗池交易
+  			</label>
 		</div>
-		<div class="exchange-table-base exchange-padding">
-			
+
+		<div>
+			<select id="select" style="margin-right:10px;">
+		 		<option>买入</option>
+		 		<option>卖出</option>
+		 	</select>
+		 	<input class="input-price-btc" /> 
 		</div>
-		<div class="exchange-table-base">
-			
+
+
+		<div>
+		<i class="icon-remove" style="margin-top:5px;margin-left:10px;margin-right:10px;"></i>
+		 	<input class="input-price-cny" /> 
+		</div>
+
+		<div>
+
+		 	<span class="span-result shadow-radius background-gray-deep">
+		 	<img src="images/exchange/calculator-white.png" />
+		 		-￥711.20</span>
+
+		 	<button class="submit-button">OK</button>
 		</div>
 	</div>
 	</div>
@@ -110,6 +184,24 @@
 		</div>
 			<div class="tagcontent">
 				<legend>委托单管理</legend>
+				<table class="exchange-table">
+					<tr>
+						<th>时间</th>
+						<th>类型</th>
+						<th>数量</th>
+						<th>价格总价</th>
+						<th>操作</th>
+					</tr>
+					<tr>
+						<td>2013.8.13<br />07.26</td>
+						<td>买入</td>
+						<td>5.121B</td>
+						<td>￥616.74</td>
+						<td>￥2365.2</td>
+						<td class="color-orange">X</td>
+					</tr>
+
+				</table>
 			</div>
 
 		</div>
