@@ -67,6 +67,7 @@ class UsersController < ApplicationController
       current_user.mobile = session[:mobile]
       @result_state = current_user.save!
       @info = "绑定成功！"
+      redirect_to 'account#celphone'
     else
       @error = "验证码有误, 绑定失败, 请重试!"
     end
@@ -77,6 +78,7 @@ class UsersController < ApplicationController
       current_user.mobile = nil
       current_user.save!
       @info = "解除绑定成功！"
+      redirect_to 'account#celphone'
     else
       @error = "验证码有误, 解除绑定失败, 请重试!"
     end
@@ -120,6 +122,7 @@ class UsersController < ApplicationController
         return render json: { :success => false, :message=>answer.errors.full_messages}
       end
     when 'trade'
+      return render json: { :success => false, :message=>'原交易密码输入不正确!'} if current_user.trade_hash && current_user.trade_password != params[:current_trade_password]
       return render json: { :success => false, :message=>'确认密码和密码不匹配!'} unless params[:trade_password] == params[:trade_password_confirm]
       current_user.trade_password = params[:trade_password]
       return render json: { :success => true, :message=>'交易密码设置成功！'} if current_user.save!

@@ -51,11 +51,14 @@ class PasswordSecuritySetting
         id: $question
         answer: $('#answer-input').val()
     @update_with_ajax(payload: payload, message: $message)
+
   update_trade_password: ()->
     $trade_password = $('#trade-password').val().trim()
     $trade_password_confirm = $('#trade-password-confirm').val().trim()
+    $current_trade_password = $('#current-trade-password').val().trim()
     $message = $('#trade-message')
-    return $message.text('交易密码不能为空') if $trade_password.length is 0
+    return $message.text('请输入原始密码！')  if !@$element.find('.current-trade-password').hasClass('hide') && $current_trade_password.length is 0
+    return $message.text('新输入的交易密码不能为空') if $trade_password.length is 0
     return $message.text('确认密码和密码不匹配') unless $trade_password == $trade_password_confirm 
 
     payload =
@@ -66,6 +69,7 @@ class PasswordSecuritySetting
         type: 'trade'
         trade_password: $trade_password
         trade_password_confirm: $trade_password_confirm
+        current_trade_password: $current_trade_password
     @update_with_ajax(payload: payload, message: $message)
 
 
