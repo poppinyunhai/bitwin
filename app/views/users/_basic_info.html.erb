@@ -32,7 +32,7 @@
 			<font class="personal-text">
 			实名认证:
 			</font>
-			<input class="devise-input" id='realname_input' value="<%=current_user.real_name%>" />
+			<input class="personal-input" id='realname_input' value="<%=current_user.real_name%>" />
 			<button class="personal-button margin-left-10 realname_btn" <%='disabled=disabled' unless current_user.real_name.blank?%> >确定</button>
 		</div>
 
