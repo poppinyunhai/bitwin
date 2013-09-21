@@ -180,11 +180,11 @@
 			<td rowspan="2"><img src="/assets/exchange/lock.png" /></td>
 			<td class="color-gray">611.20 BTC</td>
 			<td rowspan="2"><img src="/assets/exchange/lock.png" /></td>
-			<th>1.232 BTC</th>
+			<th><%=current_user.btc_operation.try :amount%> BTC</th>
 			</tr>
 			<tr>
 			<td class="color-gray">611.20 CNY</td>
-			<th>1.2323 CNY</th>
+			<th><%=current_user.cny%> CNY</th>
 			</tr>
 		</table>
 		<div class="left-line">
