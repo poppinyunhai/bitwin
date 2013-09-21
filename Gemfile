@@ -56,6 +56,8 @@ gem "mechanize", "~> 2.7.2"
 gem "nokogiri", "~> 1.6.0"
 gem 'binding_of_caller'
 
+gem "transitions", :require => ["transitions", "active_model/transitions"]
+
 group :development do
   gem 'capistrano'
   gem 'rvm-capistrano'

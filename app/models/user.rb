@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
 
   has_many :images, -> { where image: true  }, :as => :attachmentable, class_name: 'Attachment'
 
+  has_many :account_operations, dependent: :destroy
+  has_one :btc_operation, -> { where currency: Currency.find_by_code('btc') }, class_name: 'AccountOperation'
+
   has_one :answer, dependent: :destroy
   has_one :question,  :through => :answer, :source => :question
 
