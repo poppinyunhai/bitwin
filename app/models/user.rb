@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
   has_many :account_operations, dependent: :destroy
   has_one :btc_operation, -> { where currency: Currency.find_by_code('btc') }, class_name: 'AccountOperation'
 
+  has_many :blank_operations
+  has_one :cny_operation, -> { where blank_currency: BlankCurrency.find_by_code('cny') }, class_name: 'BlankOperation'
+
   has_one :answer, dependent: :destroy
   has_one :question,  :through => :answer, :source => :question
 

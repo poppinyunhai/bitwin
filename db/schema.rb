@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130921104137) do
+ActiveRecord::Schema.define(version: 20130921115039) do
 
   create_table "account_operations", force: true do |t|
     t.integer  "user_id",                                            null: false
@@ -75,6 +75,27 @@ ActiveRecord::Schema.define(version: 20130921104137) do
     t.datetime "updated_at"
   end
 
+  create_table "blank_currencies", force: true do |t|
+    t.string   "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blank_operations", force: true do |t|
+    t.integer  "user_id",                                                  null: false
+    t.string   "blank_currency_id",                                        null: false
+    t.decimal  "amount",            precision: 16, scale: 8, default: 0.0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "coin_markets", force: true do |t|
+    t.integer  "currency_id"
+    t.integer  "blank_currency_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "currencies", force: true do |t|
     t.string   "code"
     t.datetime "created_at"
@@ -126,15 +147,15 @@ ActiveRecord::Schema.define(version: 20130921104137) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                                           default: "",  null: false
-    t.string   "encrypted_password",                              default: "",  null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.string   "confirmation_token"
     t.datetime "confirmation_sent_at"
     t.datetime "reset_password_sent_at"
     t.datetime "locked_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                                   default: 0
+    t.integer  "sign_in_count",          default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -148,7 +169,6 @@ ActiveRecord::Schema.define(version: 20130921104137) do
     t.string   "google_secret"
     t.string   "trade_hash"
     t.boolean  "google_auth"
-    t.decimal  "cny",                    precision: 16, scale: 8, default: 0.0, null: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
