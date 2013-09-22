@@ -1,6 +1,6 @@
 development:
-  username: songjiayang
-  password: liushan1314
+  username: bitcoin-admin
+  password: bitcoin-admin
   url: http://localhost:8332/
   donations: 1FXWhKPChEcUnSEoFQ3DGzxKe44MDbatz
   

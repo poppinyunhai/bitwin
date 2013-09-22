@@ -1,44 +1,69 @@
-<div class="personal-content">
-<div class="accordion" id="personal-center">
-	
-	<%= render  :partial=>'users/basic_info'%>
-	<%= render  :partial=>'users/password_security_settings'%>
-	<!-- google auth start-->
-	<%= render_cell :user, :google_auth, user: current_user %>
-	<!-- google auth end -->
 
-	<!-- sms -->
-	<%= render_cell :user, :sms, user: current_user %>
-	<!-- sms end -->
-	<!-- ips -->
-	<%= render_cell :user, :ips, user: current_user %>
-	<!-- ips -->
+<div class="personal-left">
+	<div class="personal-nav">
+	<ul class="personal-nav-ul" id="personal-nav">
+		<li class="personal-nav-li personal-nav-li-active" id="nav1">
+			<span>
+				<img src="/assets/user/personal-information.png" />	
+			</span>
+			<a>基本资料</a>
+		</li>
+		<li class="personal-nav-li" id="nav2">
+			<span>
+				<img src="/assets/user/despoit.png" />	
+			</span>
+			<a>账户充值</a>
+		</li>
+		<li class="personal-nav-li" id="nav3"> 
+			<span>
+				<img src="/assets/user/withdrawal.png" />	
+			</span>
+			<a>账户提现</a>
+		</li>
+		<li class="personal-nav-li" id="nav4">
+			<span>
+				<img src="/assets/user/user-password.png" />	
+			</span>
+			<a>密码设置</a>
+		</li>
+		<li class="personal-nav-li" id="nav5">
+			<span>
+				<img src="/assets/user/iphone.png" />	
+			</span>
+			<a>Google验证</a>
+		</li>
+		<li class="personal-nav-li" id="nav6">
+			<span>
+				<img src="/assets/user/sms.png" />	
+			</span>
+			<a>短信验证</a>
+		</li>
+		<li class="personal-nav-li" id="nav7">
+			<span>
+				<img src="/assets/user/ip.png" />	
+			</span>
+			<a>IP记录</a>
+		</li>
+	</ul>
+	</div>
 </div>
+
+<div class="personal-right" id="personal-right">
+	<%= render 'users/basic_info' %>
+	<%= render 'users/recharge' %>
+	<%= render 'users/withdraw' %>
 </div>
 
 
-
-<div >
-<div class="tabbable tabs-left" id="tabs-58623">
-				<ul class="nav nav-tabs">
-					<li class="active">
-						<a href="#panel-940677" data-toggle="tab">第一部分</a>
-					</li>
-					<li>
-						<a href="#panel-129523" data-toggle="tab">第二部分</a>
-					</li>
-				</ul>
-				<div class="tab-content">
-					<div class="tab-pane active" id="panel-940677">
-						<p>
-							第一部分内容.
-						</p>
-					</div>
-					<div class="tab-pane" id="panel-129523">
-						<p>
-							第二部分内容.
-						</p>
-					</div>
-				</div>
-			</div>
-</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#personal-nav li").click(function() {
+		/* Act on the event */
+		$("#personal-nav li").removeClass('personal-nav-li-active');
+		$(this).addClass('personal-nav-li-active');
+		var id = $(this).attr('id');
+		$("div.personal-id").css('display','none');
+		$("div#"+id).css('display','block');
+	}); 
+});
+</script>

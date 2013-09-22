@@ -26,6 +26,8 @@ doc/
 coverage/
 
 /config/application.yml
+config/coins/*.yml
+
 
 /config/coins/*.yml
 

@@ -2,6 +2,7 @@
 		<span class="logup_welcome color-orange">Hi!欢迎加入我们，请先注册</span>
 		<%= simple_form_for resource, :as => resource_name, :url => registration_path(resource_name), :validate => true, :html => {:id => :user_new, :class => 'float-left margin-top-middle margin-left-50'} do |f| %>
 		  <%=f.input :username, :placeholder => "用户名", :input_html => { :class => 'devise-input devise-name'}, :required => true,  label: false%>
+		  <%= f.input :email,  :placeholder => "注册邮箱", :input_html => { :class => 'devise-input devise-mail'}, :required => true, label: false %>
 		  <%= f.input :password,  :placeholder => "登录密码",:input_html => { :class => 'devise-input devise-key'}, :required => true , label: false%>
 		  <%= f.input :password_confirmation,  :placeholder => "确认密码", :input_html => { :class => 'devise-input devise-key'},:required => true , label: false%>
 		  <div class='control-group'>
@@ -16,9 +17,9 @@
 </div>
 <div class="logup-right">
 <span style="padding-left:20px;padding-right:248px;padding-top:20px;font-size:20px;">WHY CHOOSE US</span>
-<span style="padding-left:240px;padding-right:28px;padding-top:90px;">杰出的交易系统 <br />
+<span style="padding-left:240px;padding-right:28px;padding-top:92px;">杰出的交易系统 <br />
 你会惊叹我们快速和高质量的下单</span>
-<span style="padding-left:45px;padding-right:223px;padding-top:55px;">
+<span style="padding-left:45px;padding-right:223px;padding-top:52px;">
 	如金30分钟内到账<br />
 	交易者们都称赞我们快速的入金方式
 </span>
