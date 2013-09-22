@@ -4,6 +4,6 @@ class AccountOperation < ActiveRecord::Base
 	belongs_to :currency
 
 	validates :address, 
-					:presence => true ,
-					:uniqueness => true
+					:presence => true 
+					# :uniqueness => true
 end
