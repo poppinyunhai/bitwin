@@ -17,7 +17,7 @@
 				<span class="color-orange"><%=current_user.btc_operation.try :address%></span>
 			</div>
 			<div class="recharge-right">
-				<img src ="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<%=current_user.btc_operation.try :address%>&choe=UTF-8" title=''>
+				<img src ="<%=Bitwin::QrCode.generate(current_user.btc_operation.try :address)%>" title=''>
 			</div>
 		</div>
 	</div>
