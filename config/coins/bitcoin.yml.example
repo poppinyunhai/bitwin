@@ -1,0 +1,11 @@
+development:
+  username: songjiayang
+  password: liushan1314
+  url: http://localhost:8332/
+  donations: 1FXWhKPChEcUnSEoFQ3DGzxKe44MDbatz
+  
+test:
+  username: bitcoin-admin
+  password: 5MLpeupM46
+  url: http://localhost:8332/
+  donations: 1FXWhKPChEcUnSEoFQ3DGzxKe44MDbatz
