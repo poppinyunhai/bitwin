@@ -22,6 +22,9 @@ class User < ActiveRecord::Base
   has_one :answer, dependent: :destroy
   has_one :question,  :through => :answer, :source => :question
 
+
+  after_create :create_account_and_blank_operations
+
   def avatar
   	self.images.last.try(:attachment).try(:url) || "/uploads/attachment/default/user.png"
   end
@@ -39,4 +42,24 @@ class User < ActiveRecord::Base
     "#{self.username}@snowball.io"
   end
 
+
+
+  protected
+
+  def create_account_and_blank_operations
+    Currency.all.each do |currency|
+      ao = AccountOperation.new
+      ao.currency = currency
+      ao.user = self
+      ao.address = Bitcoin::Client.instance.getnewaddress
+      ao.save!
+    end
+
+    BlankCurrency.all.each do |bc|
+      bo = BlankOperation.new
+      bo.user = self
+      bo.blank_currency = bc
+      bo.save!
+    end
+  end
 end

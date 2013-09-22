@@ -60,6 +60,7 @@ gem "nokogiri", "~> 1.6.0"
 gem 'binding_of_caller'
 
 gem "transitions", :require => ["transitions", "active_model/transitions"]
+gem 'addressable'
 
 group :development do
   gem 'capistrano'
