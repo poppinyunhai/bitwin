@@ -1,53 +1,69 @@
 
 <div class="personal-left">
 	<div class="personal-nav">
-	<ul class="personal-nav-ul">
-		<li class="personal-nav-li">
+	<ul class="personal-nav-ul" id="personal-nav">
+		<li class="personal-nav-li personal-nav-li-active" id="nav1">
 			<span>
 				<img src="/assets/user/personal-information.png" />	
 			</span>
-			<a href="#">基本资料</a>
+			<a>基本资料</a>
 		</li>
-		<li class="personal-nav-li personal-nav-li-active">
+		<li class="personal-nav-li" id="nav2">
 			<span>
 				<img src="/assets/user/despoit.png" />	
 			</span>
-			<a href="#">账户充值</a>
+			<a>账户充值</a>
 		</li>
-		<li class="personal-nav-li">
+		<li class="personal-nav-li" id="nav3"> 
 			<span>
 				<img src="/assets/user/withdrawal.png" />	
 			</span>
-			<a href="#">账户提现</a>
+			<a>账户提现</a>
 		</li>
-		<li class="personal-nav-li">
+		<li class="personal-nav-li" id="nav4">
 			<span>
 				<img src="/assets/user/user-password.png" />	
 			</span>
-			<a href="#">密码设置</a>
+			<a>密码设置</a>
 		</li>
-		<li class="personal-nav-li">
+		<li class="personal-nav-li" id="nav5">
 			<span>
 				<img src="/assets/user/iphone.png" />	
 			</span>
-			<a href="#">Google验证</a>
+			<a>Google验证</a>
 		</li>
-		<li class="personal-nav-li">
+		<li class="personal-nav-li" id="nav6">
 			<span>
 				<img src="/assets/user/sms.png" />	
 			</span>
-			<a href="#">短信验证</a>
+			<a>短信验证</a>
 		</li>
-		<li class="personal-nav-li">
+		<li class="personal-nav-li" id="nav7">
 			<span>
 				<img src="/assets/user/ip.png" />	
 			</span>
-			<a href="#">IP记录</a>
+			<a>IP记录</a>
 		</li>
 	</ul>
 	</div>
 </div>
 
-<div class="personal-right">
+<div class="personal-right" id="personal-right">
 	<%= render 'users/basic_info' %>
+	<%= render 'users/recharge' %>
+	<%= render 'users/withdraw' %>
 </div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#personal-nav li").click(function() {
+		/* Act on the event */
+		$("#personal-nav li").removeClass('personal-nav-li-active');
+		$(this).addClass('personal-nav-li-active');
+		var id = $(this).attr('id');
+		$("div.personal-id").css('display','none');
+		$("div#"+id).css('display','block');
+	}); 
+});
+</script>

@@ -81,7 +81,7 @@ input[type="checkbox"]{
 }
 
 .bitwin-btn{
-	border: #00673d 2px solid !important;
+	border: #00673d 1px solid !important;
 	color: #FFFFFF !important;
 	background-color: #8bc656 !important;
 	height: 30px !important;
@@ -92,8 +92,6 @@ input[type="checkbox"]{
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	font-family: "微软雅黑";
-	padding-left: 20px;
-	padding-right: 20px;
 	margin: 0px;
 }
 
@@ -1212,6 +1210,7 @@ input[type="checkbox"]{
 	border-bottom: #bbbdbf 1px solid;
 	padding-top: 5px;
 	padding-bottom: 2px;
+	cursor: pointer;
 }
 
 .personal-nav-li-active,.personal-nav-ul li:hover{
@@ -1219,8 +1218,18 @@ input[type="checkbox"]{
 	width: 198px;
 	padding-left: 0px !important;
 	border-left: #f26834 2px solid;
-	border-right:#FFFFFF 1px solid; 
 	z-index: 1000;
+}
+
+.personal-nav-li-active{
+	border-top: #bbbdbf 1px solid;
+	margin-top: -1px;
+	border-right:#FFFFFF 1px solid;
+	height: 41px;
+}
+
+.personal-nav-ul li:hover{
+	border-right:0px; 
 }
 
 .personal-nav-ul li span{
@@ -1358,115 +1367,112 @@ input[type="checkbox"]{
 	border: #666 2px solid !important;
 	background: #F7F7F9;
 }
+
+.personal-id{
+	display: none;
+}
+
 /* end */
 
 
 
 /* 提现 */
-.wide-base{
-	width: 958px;
-	box-shadow: 0 1px 4px rgba(0,0,0,0.065);
-	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
-	-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
-	border-radius: 4px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	background: #FFFFFF;
-	float: left;
+.font-big{
+	font-size: 18px;
+	line-height: 40px;
+}
+
+.recharge-selct{
+	width: 150px;
+	padding-left: 30px;
+	background: url(/assets/exchange/btc.png) no-repeat;
+	background-position: 3px 3px; 
+}
+
+.recharge-left{
+	width: 400px;
 	height: auto;
-	border: #bbbdbf 1px solid;
+	float: left;
+	padding-left: 60px;
+	padding-top: 20px;
 }
 
-.wide-table{
-	width: 100%;
-}
-
-.wide-table th{
-	font-size: 15px;
-	line-height: 36px;
+.recharge-left span{
+	width: 400px;
 	text-align: center;
-}
-
-.wide-table td{
-	font-size: 13px;
-	line-height: 30px;
-	text-align: center;
-}
-
-.wide-table td a{
-	text-decoration: none;
-}
-
-.wide-table td a:hover{
-	text-decoration: none;
-}
-
-.wide-top{
-	width: 938px;
-	padding-left: 10px;
-	padding-right: 10px;
-	background: #f1f1f2;
-	border-bottom: #bbbdbf 1px solid;
 	line-height: 40px;
 	float: left;
+	font-size: 16px;
+}
+
+.recharge-right{
+	width: 100px;
+	padding-right: 100px;
+	padding-left: 30px;
+	float: left;
+	height: auto;
+}
+
+.recharge-right img{
+	height: 100px;
+	width: 100px;
+}
+
+
+.withdraw-title{
+	width: 100%;
 	height: 40px;
 }
 
-.wide-top-tittle{
-	font-size: 18px;
-	font-weight: 700px;
+.withdraw-title span{
+	width: auto;
 	line-height: 40px;
-	margin-right: 10px;
-	margin-left: 10px;
-}
-
-
-.wide-top-select{
-	border: 1px #000 solid;
-	font-family: "微软雅黑";
-	color: #000;
-	width: 100px;
-	font-size: 16px;
-	font-weight: 300px;
-	line-height: 32px;
-	height: 32px;
-	box-shadow: 0 1px 4px rgba(0,0,0,0.065);
-	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
-	-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
-	border-radius: 4px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	padding-left: 6px;
-	margin: 0px;
-	margin-top: -10px;
-}
-
-.wide-content{
-	width: 900px;
-	height: auto;
-	padding: 29px;
-	float: left;
-}
-
-.wide-content-left{
-	width: 400px;
-	padding-left: 100px;
-	float: left;
-	text-align: center;
-	font-size: 16px;
-	line-height: 50px;
-}
-
-.wide-content-right{
-	width: 300px;
-	float: left;
-	padding-right: 100px;
-}
-
-
-.font-big{
 	font-size: 20px;
+	float: left;
 }
 
+.withdraw-title select{
+	float: right;
+	border: 0px !important;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	border-radius: 0px;
+	margin-top: 10px;
+	width: auto !important;
+}
 
+.withdraw-table{
+	max-height: 400px;
+	overflow: auto;
+}
+
+.withdraw-line{
+	width: 720px;
+	height: 40px;
+	float: left;
+}
+
+.withdraw-line span{
+	width: 200px;
+	text-align: right;
+	padding-right: 20px;
+	float: left;
+	line-height: 30px;
+}
+
+.withdraw-line input{
+	border-radius: 0px;
+	float: left;
+	margin-right: 20px;
+}
+
+.withdraw-line a{
+	line-height: 30px;
+}
+
+.withdraw-line a:hover{
+	text-decoration: none;
+	float: left;
+}
 /* end */
