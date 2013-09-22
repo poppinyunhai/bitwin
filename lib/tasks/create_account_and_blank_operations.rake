@@ -6,7 +6,11 @@ task 'create_user_operations' => :environment do
       ao = AccountOperation.new
       ao.currency = currency
       ao.user = user
-      ao.address = Bitcoin::Client.instance.getnewaddress
+      if Rails.env.development?
+        ao.address = "1D5CPeiFzLH29bxt3KtRrg1vDddDq7ybSr"
+      else
+        ao.address = Bitcoin::Client.instance.getnewaddress
+      end
       ao.save!
     end
 
