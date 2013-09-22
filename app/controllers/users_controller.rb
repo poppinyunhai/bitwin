@@ -60,6 +60,11 @@ class UsersController < ApplicationController
   def seed_sms_code
     session[:mobile] = params[:user][:mobile] unless params[:user].to_s.empty?
     @seed_state = Authentication::SmsAuth.new(mobile: current_user.mobile||params[:user][:mobile]||session[:mobile], email: current_user.email)
+    if @seed_state
+      @info = "发送成功"
+    else
+      @error = "发送失败"
+    end
   end
 
   def sms_bind
