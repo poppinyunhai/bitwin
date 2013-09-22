@@ -39,6 +39,9 @@ gem 'china_sms'
 # gem cells
 gem 'cells'
 
+# state_machine
+gem 'state_machine'
+
 # resque and extends
 gem 'resque'
 gem 'resque_mailer'
