@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130921115039) do
+ActiveRecord::Schema.define(version: 20130922132514) do
 
   create_table "account_operations", force: true do |t|
     t.integer  "user_id",                                            null: false
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20130921115039) do
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "blocked",     precision: 16, scale: 8, default: 0.0, null: false
   end
 
   create_table "active_admin_comments", force: true do |t|
@@ -87,6 +88,7 @@ ActiveRecord::Schema.define(version: 20130921115039) do
     t.decimal  "amount",            precision: 16, scale: 8, default: 0.0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "blocked",           precision: 16, scale: 8, default: 0.0, null: false
   end
 
   create_table "coin_markets", force: true do |t|
