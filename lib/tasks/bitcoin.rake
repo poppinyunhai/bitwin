@@ -1,9 +1,9 @@
 #encoding : utf-8
 namespace :bitcoin do
-  desc "Synchronizes the transactions in the client with the transactions stored in the database"
+  desc "同步钱包客户端中的交易信息，并将交易信息存储到数据库中"
   task :synchronize_transactions => :environment do
     Lockfile.lock(:synchronize_transactions) do
-      BitcoinTransfer.synchronize_transactions!
+      Operation.synchronize_transactions!('btc')
     end
   end
 

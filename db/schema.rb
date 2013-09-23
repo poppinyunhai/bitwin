@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130923123016) do
+ActiveRecord::Schema.define(version: 20130923132227) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -117,6 +117,21 @@ ActiveRecord::Schema.define(version: 20130923123016) do
 
   create_table "news", force: true do |t|
     t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "operations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "category"
+    t.decimal  "amount",        precision: 16, scale: 8, default: 0.0, null: false
+    t.integer  "confirmations"
+    t.string   "blockhash"
+    t.datetime "blocktime"
+    t.datetime "timereceived"
+    t.string   "txid"
+    t.string   "type"
+    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

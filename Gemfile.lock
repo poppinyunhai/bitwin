@@ -111,6 +111,8 @@ GEM
     em-websocket (0.5.0)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.5.3)
+    enumerate_it (1.2.0)
+      activesupport (>= 3.0.0)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.1)
@@ -384,6 +386,7 @@ DEPENDENCIES
   devise (~> 3.0.3)
   devise-async
   devise-encryptable
+  enumerate_it
   factory_girl_rails
   google-authenticator-rails
   guard-bundler (~> 1.0.0)

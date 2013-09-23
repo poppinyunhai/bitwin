@@ -62,6 +62,8 @@ gem 'binding_of_caller'
 gem "transitions", :require => ["transitions", "active_model/transitions"]
 gem 'addressable'
 
+gem 'enumerate_it'
+
 group :development do
   gem 'capistrano'
   gem 'rvm-capistrano'

@@ -18,9 +18,13 @@ class User < ActiveRecord::Base
 
   has_many :blank_accounts
   has_one :cny_account, -> { where blank_currency: BlankCurrency.find_by_code('cny') }, class_name: 'BlankAccount'
-
+  
+  has_many :operations
+  has_many :bic_operations,  -> { where type: 'btc' }, class_name: 'Operation'
+  
   has_one :answer, dependent: :destroy
   has_one :question,  :through => :answer, :source => :question
+
 
 
   after_create :create_account_and_blank_operations
@@ -54,7 +58,7 @@ class User < ActiveRecord::Base
       if Rails.env.development?
         ao.address = "1D5CPeiFzLH29bxt3KtRrg1vDddDq7ybSr"
       else
-        ao.address = Bitcoin::Client.instance.getnewaddress(self.id.to_s)
+        ao.address = Bitcoin::Client.instance.getnewaddress(currency.code+self.id.to_s)
       end
       ao.save!
     end
