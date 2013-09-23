@@ -11,15 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130922131933) do
+ActiveRecord::Schema.define(version: 20130923010144) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "account_operations", force: true do |t|
     t.integer  "user_id",                                            null: false
-    t.string   "currency_id",                                        null: false
     t.decimal  "amount",      precision: 16, scale: 8, default: 0.0, null: false
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "blocked",     precision: 16, scale: 8, default: 0.0, null: false
+    t.integer  "currency_id"
   end
 
   create_table "active_admin_comments", force: true do |t|
@@ -83,11 +87,11 @@ ActiveRecord::Schema.define(version: 20130922131933) do
 
   create_table "blank_operations", force: true do |t|
     t.integer  "user_id",                                                  null: false
-    t.string   "blank_currency_id",                                        null: false
     t.decimal  "amount",            precision: 16, scale: 8, default: 0.0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "blocked",           precision: 16, scale: 8, default: 0.0, null: false
+    t.integer  "blank_currency_id"
   end
 
   create_table "coin_markets", force: true do |t|
