@@ -1,4 +1,4 @@
-#encoding :utf-8
+#encoding : utf-8
 namespace :bitcoin do
   desc "Synchronizes the transactions in the client with the transactions stored in the database"
   task :synchronize_transactions => :environment do

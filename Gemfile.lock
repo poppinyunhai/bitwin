@@ -328,6 +328,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    state_machine (1.2.0)
     subexec (0.2.3)
     taobao_geoip (0.0.2)
     temple (0.6.6)
@@ -415,6 +416,7 @@ DEPENDENCIES
   slim (~> 2.0.1)
   spork
   spork-rails!
+  state_machine
   taobao_geoip
   transitions
   turn

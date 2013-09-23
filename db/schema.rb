@@ -15,12 +15,12 @@ ActiveRecord::Schema.define(version: 20130922132514) do
 
   create_table "account_operations", force: true do |t|
     t.integer  "user_id",                                            null: false
-    t.string   "currency_id",                                        null: false
     t.decimal  "amount",      precision: 16, scale: 8, default: 0.0, null: false
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "blocked",     precision: 16, scale: 8, default: 0.0, null: false
+    t.integer  "currency_id"
   end
 
   create_table "active_admin_comments", force: true do |t|
@@ -84,11 +84,11 @@ ActiveRecord::Schema.define(version: 20130922132514) do
 
   create_table "blank_operations", force: true do |t|
     t.integer  "user_id",                                                  null: false
-    t.string   "blank_currency_id",                                        null: false
     t.decimal  "amount",            precision: 16, scale: 8, default: 0.0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "blocked",           precision: 16, scale: 8, default: 0.0, null: false
+    t.integer  "blank_currency_id"
   end
 
   create_table "coin_markets", force: true do |t|
@@ -144,6 +144,32 @@ ActiveRecord::Schema.define(version: 20130922132514) do
     t.float    "volume"
     t.float    "lowest_sell"
     t.float    "high_buy"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trade_orders", force: true do |t|
+    t.integer  "account_operation_id"
+    t.integer  "user_id"
+    t.decimal  "amount",                    precision: 16, scale: 8, default: 0.0
+    t.decimal  "ppc",                       precision: 16, scale: 8, default: 0.0
+    t.string   "category"
+    t.string   "state"
+    t.boolean  "dark_pool"
+    t.boolean  "dark_pool_exclusive_match"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trades", force: true do |t|
+    t.integer  "account_operation_id"
+    t.integer  "purchase_order_id"
+    t.integer  "sale_order_id"
+    t.integer  "seller_id"
+    t.integer  "buyer_id"
+    t.decimal  "ppc",                  precision: 16, scale: 8, default: 0.0
+    t.decimal  "traded_btc",           precision: 16, scale: 8, default: 0.0
+    t.decimal  "traded_currency",      precision: 16, scale: 8, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

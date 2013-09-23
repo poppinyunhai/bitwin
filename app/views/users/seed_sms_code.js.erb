@@ -1,2 +1,5 @@
-$("#content").hide();
-$("#validate_code").show();
+<% if @error %>
+	$("#message").replaceWith('<%= escape_javascript(render_cell :message, :error, error: @error) %>')
+<% else %>
+	$("#message").replaceWith('<%= escape_javascript(render_cell :message, :info, info: @info) %>')
+<% end %>

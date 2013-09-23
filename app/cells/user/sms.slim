@@ -28,10 +28,8 @@
                 select#area.personal-area
                   option +86 中国
                   input type="text" name="user[mobile]" id="mobile"
-                button.bitwin-btn.bind style="margin-top:-10px;" 绑定手机
-          #validate_code.hide
-            .message
-            a data-method="post" data-remote="true" href="/users/seed_sms_code.js" rel="nofollow" 重发验证码
+                button.bitwin-btn.bind style="margin-top:-10px;" 获取验证码
+          #validate_code
             = form_tag sms_bind_users_path(format: :js), remote: true, method: "post" do
               .personal-line
                 input.input-short.pull-right placeholder="输入验证信息" type="text" name="user[code]"
