@@ -2,8 +2,6 @@ class TradeOrder < ActiveRecord::Base
 
 	default_scope order("created_at DESC")
 
-  attr_accessible :amount, :currency, :category, :dark_pool, :ppc
-
 	belongs_to :user
 
   has_many :sale_trades,
