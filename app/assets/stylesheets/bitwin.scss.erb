@@ -15,6 +15,7 @@ html,body{
 }
 
 /* 标签定义 */
+
 select{
 	border: 1px #000 solid;
 	font-family: "微软雅黑";
@@ -177,6 +178,10 @@ input[type="checkbox"]{
 	text-align: center;
 }
 
+.margin-top-15{
+	margin-top: 15px;
+}
+
 .margin-top-short{
 	margin-top: 20px;
 }
@@ -236,6 +241,13 @@ input[type="checkbox"]{
 	text-align: right !important;
 }
 
+.top-line{
+	border-top:#eeeeee 2px solid;
+}
+
+.line-left{
+	border-left:#eeeeee 2px solid;
+}
 /* 公共 */
 .tittle{
 	width: 100%;
@@ -639,6 +651,25 @@ input[type="checkbox"]{
 
 /* 交易页面 */
 
+.active a{
+	border-top: #f26834 2px solid !important;
+	padding-top: 7px !important;
+}
+
+.active a:hover{
+
+}
+.nav-exchange-li{
+	margin: 0px;
+}
+
+.nav-exchange-li li a{
+	margin-right: -1px;
+	border-radius: 0px;
+	padding-left: 20px;
+	padding-left: 20px;
+}
+
 .left{
 	width: 298px;
 	float: left;
@@ -773,22 +804,27 @@ input[type="checkbox"]{
 }
 
 
-.nav-tabs{
+.nav-exchange-li{
 	border-bottom: #bbbdbf 1px solid; 
 }
 
-.nav-tabs li a:hover{
+.nav-exchange-li li a:hover{
 	background: none;
 	border-bottom: 0px;
 	border: #bbbdbf 1px solid;
 }
 
-.nav-tabs li a{
+.nav-exchange-li li a{
 	border: #bbbdbf 1px solid;
 	border-bottom: 0px; 
+	color: #333333;
 }
 
-.nav-tabs .active a{
+.nav-exchange-li li a:hover{
+	background: #EEEEEE;
+}
+
+.nav-exchange-li .active a{
 	border: #bbbdbf 1px solid;
 	border-bottom-color: transparent;
 }
@@ -808,7 +844,14 @@ input[type="checkbox"]{
 	padding-top: 10px;
 	padding-bottom: 10px;
 	float: left;
+	height: auto;
 	background: #FFFFFF;
+	
+}
+
+.tag-height{
+	max-height: 300px;
+	overflow: auto;
 }
 
 .tagcontent-wide{
@@ -829,18 +872,17 @@ input[type="checkbox"]{
 }
 
 .exchange-table-base{
-	width: 305px;
+	width: 312px;
 	height:auto;
 	float: left;
+
 }
 
-.exchange-padding{
-	margin-left: 9px;
-	margin-right: 9px;
-}
 
 .exchange-table-top{
-	width: 100%;
+	width: 292px;
+	margin-left: 10px;
+	margin-right: 10px;
 	height: 36px;
 	line-height: 36px;
 	border-bottom: #666 2px solid;
@@ -860,6 +902,7 @@ input[type="checkbox"]{
 
 .exchange-table{
 	width: 100% !important;
+	float: left;
 }
 
 
@@ -880,7 +923,6 @@ input[type="checkbox"]{
 	width: 100%;
 	float: left;
 	height: auto;
-	margin-bottom: 15px;
 }
 
 
@@ -889,9 +931,19 @@ input[type="checkbox"]{
 }
 
 .exchange-table-content{
-	height: 200px;
-	width: 100%;
+	max-height: 200px;
+	width: 300px;
 	overflow: auto;
+	float: left;
+	padding-left: 6px;
+	padding-right: 6px;
+	margin-top: 6px;
+	padding-bottom: 10px !important;
+}
+
+.exchange-select{
+	width: 100px;
+	height: 25px;
 }
 
 
@@ -1474,5 +1526,39 @@ input[type="checkbox"]{
 .withdraw-line a:hover{
 	text-decoration: none;
 	float: left;
+}
+/* end */
+
+
+/* password_setting */
+.paset-head{
+	width: 100%;
+	height: 40px;
+	float: left;
+	line-height: 40px;
+}
+
+.pa-btn{
+	height: 25px !important;
+	margin-left: 20px;
+}
+
+
+
+.paset-content{
+	min-height: 60px;
+	padding-top: 40px;
+	float: left;
+}
+
+.paset-line{
+	min-height: 40px;
+}
+
+.paset-input{
+	border-radius: 0px;
+	float: left;
+	height: 30px;
+	margin-left: 20px;
 }
 /* end */

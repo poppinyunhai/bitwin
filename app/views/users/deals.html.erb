@@ -1,7 +1,7 @@
 
 <div class="exchange-floor">
-	<div class="margin-top-short tagpage">
-		<ul class="nav nav-tabs" style="margin:0px;">
+	<div class="tagpage">
+		<ul class="nav nav-tabs nav-exchange-li">
 			<li class="active">
 				<a href="#">Order</a>
 			</li>
@@ -12,6 +12,11 @@
 				<a href="#">深度表</a>
 			</li>
 		</ul>
+
+		<select class="exchange-select pull-right" style="margin-top:-35px;">
+			<option>BitcCoin</option>
+			<option>Cny</option>
+		</select>
 	</div>
 	<div class="tagcontent-wide">
 		<div class="exchange-table-base">
@@ -67,11 +72,46 @@
 					<td>2.000225</td>
 					<td>￥611.20</td>
 				</tr>
+				<tr>
+					<td>
+						<span class="jindutiao background-green float-right" style="width:150px;"></span>
+					</td>
+					<td>2.000225</td>
+					<td>￥611.20</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="jindutiao background-green float-right" style="width:150px;"></span>
+					</td>
+					<td>2.000225</td>
+					<td>￥611.20</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="jindutiao background-green float-right" style="width:150px;"></span>
+					</td>
+					<td>2.000225</td>
+					<td>￥611.20</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="jindutiao background-green float-right" style="width:150px;"></span>
+					</td>
+					<td>2.000225</td>
+					<td>￥611.20</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="jindutiao background-green float-right" style="width:150px;"></span>
+					</td>
+					<td>2.000225</td>
+					<td>￥611.20</td>
+				</tr>
 
 			</table>
 			</div>
 		</div>
-		<div class="exchange-table-base exchange-padding">
+		<div class="exchange-table-base">
 		<span class="exchange-table-top exchange-table-font-big">卖单</span>
 			<div class="exchange-table-content">
 			<table class="exchange-table">
@@ -131,7 +171,7 @@
 		<span class="exchange-table-top exchange-table-font-middle">
 		最新成交价 <font class="color-green-deep">￥611.20</font>
 		</span>
-		<div class="exchange-table-content">
+		<div class="exchange-table-content line-left">
 			<table class="exchange-table">
 				<tr>
 				<td>07:26:31</td>
@@ -172,14 +212,14 @@
 
 
 
-<div class="exchange-floor">
+<div class="exchange-floor margin-top-short">
 	<div class="left">
 	<div class="left-content">
 		<table class="exchange-table">
 			<tr>
-			<td rowspan="2"><img src="/assets/exchange/lock.png" /></td>
+			<td rowspan="2"><img src="/assets/exchange/lock.png" class="pull-right"/></td>
 			<td class="color-gray"><%=current_user.btc_operation.try :blocked%> BTC</td>
-			<td rowspan="2"><img src="/assets/exchange/unlock.png" /></td>
+			<td rowspan="2"><img src="/assets/exchange/unlock.png" class="pull-right"/></td>
 			<th><%=current_user.btc_operation.try :amount%> BTC</th>
 			</tr>
 			<tr>
@@ -211,7 +251,8 @@
 
 
 		<div class="left-line text-right">
-		单价
+		<img src="/assets/exchange/del.png" width="10" height="10" />
+		<font>单价</font>
 		 <input class="input-price-cny" style="margin-right:10px;" /> 
 		</div>
 
@@ -228,7 +269,7 @@
 
 	<div class="right">
 			<div class="tagpage">
-			<ul class="nav nav-tabs" style="margin:0px;">
+			<ul class="nav nav-tabs nav-exchange-li">
 				<li class="active">
 					<a href="#">委托管理</a>
 				</li>
@@ -247,6 +288,7 @@
 			</ul>
 		</div>
 			<div class="tagcontent">
+			<div class="tag-height">
 				<table class="exchange-table">
 					<tr>
 						<th>时间</th>
@@ -257,41 +299,81 @@
 						<th>操作</th>
 					</tr>
 					<tr>
-						<td>2013.8.13<br />07.26</td>
+						<td>2013.8.13 &nbsp; 07.26</td>
 						<td>买入</td>
 						<td>5.121B</td>
 						<td>￥616.74</td>
 						<td>￥2365.2</td>
-						<td><a href="#"><img src="/assets/exchange/del.png" /></a></td>
+						<td><a href="#"><img src="/assets/exchange/delwithdrawal.png" /></a></td>
 					</tr>
 					<tr>
-						<td>2013.8.13<br />07.26</td>
+						<td>2013.8.13 &nbsp; 07.26</td>
 						<td>买入</td>
 						<td>5.121B</td>
 						<td>￥616.74</td>
 						<td>￥2365.2</td>
-						<td><a href="#"><img src="/assets/exchange/del.png" /></a></td>
+						<td><a href="#"><img src="/assets/exchange/delwithdrawal.png" /></a></td>
 					</tr>
 					<tr>
-						<td>2013.8.13<br />07.26</td>
+						<td>2013.8.13 &nbsp; 07.26</td>
 						<td>买入</td>
 						<td>5.121B</td>
 						<td>￥616.74</td>
 						<td>￥2365.2</td>
-						<td><a href="#"><img src="/assets/exchange/del.png" /></a></td>
+						<td><a href="#"><img src="/assets/exchange/delwithdrawal.png" /></a></td>
 					</tr>
 					<tr>
-						<td>2013.8.13<br />07.26</td>
+						<td>2013.8.13 &nbsp; 07.26</td>
 						<td>买入</td>
 						<td>5.121B</td>
 						<td>￥616.74</td>
 						<td>￥2365.2</td>
-						<td><a href="#"><img src="/assets/exchange/del.png" /></a></td>
+						<td><a href="#"><img src="/assets/exchange/delwithdrawal.png" /></a></td>
+					</tr>
+					<tr>
+						<td>2013.8.13 &nbsp; 07.26</td>
+						<td>买入</td>
+						<td>5.121B</td>
+						<td>￥616.74</td>
+						<td>￥2365.2</td>
+						<td><a href="#"><img src="/assets/exchange/delwithdrawal.png" /></a></td>
+					</tr>
+					<tr>
+						<td>2013.8.13 &nbsp; 07.26</td>
+						<td>买入</td>
+						<td>5.121B</td>
+						<td>￥616.74</td>
+						<td>￥2365.2</td>
+						<td><a href="#"><img src="/assets/exchange/delwithdrawal.png" /></a></td>
+					</tr>
+					<tr>
+						<td>2013.8.13 &nbsp; 07.26</td>
+						<td>买入</td>
+						<td>5.121B</td>
+						<td>￥616.74</td>
+						<td>￥2365.2</td>
+						<td><a href="#"><img src="/assets/exchange/delwithdrawal.png" /></a></td>
+					</tr>
+					<tr>
+						<td>2013.8.13 &nbsp; 07.26</td>
+						<td>买入</td>
+						<td>5.121B</td>
+						<td>￥616.74</td>
+						<td>￥2365.2</td>
+						<td><a href="#"><img src="/assets/exchange/delwithdrawal.png" /></a></td>
+					</tr>
+					<tr>
+						<td>2013.8.13 &nbsp; 07.26</td>
+						<td>买入</td>
+						<td>5.121B</td>
+						<td>￥616.74</td>
+						<td>￥2365.2</td>
+						<td><a href="#"><img src="/assets/exchange/delwithdrawal.png" /></a></td>
 					</tr>
 
 				</table>
 			</div>
-
+			</div>
 		</div>
 	</div>
 </div>
