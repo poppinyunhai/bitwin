@@ -7,17 +7,17 @@
 
 			</select>
 
-			<img src="/assets/exchange/unlock.png" class="margin-left-20" /> <font class="margin-left-10">可用  <%=current_user.btc_operation.try :amount%>BTC</font>
+			<img src="/assets/exchange/unlock.png" class="margin-left-20" /> <font class="margin-left-10">可用  <%=current_user.btc_account.try :amount%>BTC</font>
 			<img src="/assets/exchange/lock.png" class="margin-left-10" />	
-			<font class="color-gray margin-left-10">锁定  <%=current_user.btc_operation.try :blocked%>BTC</font>
+			<font class="color-gray margin-left-10">锁定  <%=current_user.btc_account.try :blocked%>BTC</font>
 		</div>
 		<div class="margin-top-middle float-left">
 			<div class="recharge-left">
 				<span>充值比特币到一下地址</span>
-				<span class="color-orange"><%=current_user.btc_operation.try :address%></span>
+				<span class="color-orange"><%=current_user.btc_account.try :address%></span>
 			</div>
 			<div class="recharge-right">
-				<img src ="<%=Bitwin::QrCode.generate(current_user.btc_operation.try :address)%>" title=''>
+				<img src ="<%=Bitwin::QrCode.generate(current_user.btc_account.try :address)%>" title=''>
 			</div>
 		</div>
 	</div>

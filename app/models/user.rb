@@ -13,11 +13,11 @@ class User < ActiveRecord::Base
 
   has_many :images, -> { where image: true  }, :as => :attachmentable, class_name: 'Attachment'
 
-  has_many :account_operations, dependent: :destroy
-  has_one :btc_operation, -> { where currency: Currency.find_by_code('btc') }, class_name: 'AccountOperation'
+  has_many :coin_accounts, dependent: :destroy
+  has_one :btc_account, -> { where currency: Currency.find_by_code('btc') }, class_name: 'CoinAccount'
 
-  has_many :blank_operations
-  has_one :cny_operation, -> { where blank_currency: BlankCurrency.find_by_code('cny') }, class_name: 'BlankOperation'
+  has_many :blank_accounts
+  has_one :cny_account, -> { where blank_currency: BlankCurrency.find_by_code('cny') }, class_name: 'BlankAccount'
 
   has_one :answer, dependent: :destroy
   has_one :question,  :through => :answer, :source => :question
@@ -48,19 +48,19 @@ class User < ActiveRecord::Base
 
   def create_account_and_blank_operations
     Currency.all.each do |currency|
-      ao = AccountOperation.new
+      ao = CoinAccount.new
       ao.currency = currency
       ao.user = self
       if Rails.env.development?
         ao.address = "1D5CPeiFzLH29bxt3KtRrg1vDddDq7ybSr"
       else
-        ao.address = Bitcoin::Client.instance.getnewaddress
+        ao.address = Bitcoin::Client.instance.getnewaddress(self.id.to_s)
       end
       ao.save!
     end
 
     BlankCurrency.all.each do |bc|
-      bo = BlankOperation.new
+      bo = BlankAccount.new
       bo.user = self
       bo.blank_currency = bc
       bo.save!
