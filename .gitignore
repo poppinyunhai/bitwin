@@ -29,5 +29,7 @@ coverage/
 config/coins/*.yml
 
 
+/config/coins/*.yml
+
 /public/uploads/attachment/attachment/
 /public/uploads/tmp/
