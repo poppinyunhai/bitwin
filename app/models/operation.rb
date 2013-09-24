@@ -15,8 +15,8 @@ class Operation < ActiveRecord::Base
 
   def self.btc_synchronize!
     User.all.each do |user|
-      # transactions = Bitcoin::Client.instance.list_transactions('btc' + user.id.to_s)
-      transactions = Bitcoin::Client.instance.list_transactions()
+      transactions = Bitcoin::Client.instance.list_transactions('btc' + user.id.to_s)
+      # transactions = Bitcoin::Client.instance.list_transactions()
       transactions = transactions.select do |tx|
         ["receive", "generated"].include? tx["category"]
       end
@@ -26,17 +26,19 @@ class Operation < ActiveRecord::Base
         if o 
           o.update_attribute(:confirmations, tx["confirmations"]) if o.status == OperationStatus::NEW
         else
-          o = Operation.new
-          o.user = user
-          o.category = (tx["category"]=='receive' ? OperationCategory::RECEIVE : OperationCategory::GENERATED)
-          o.amount = tx['amount']
-          o.confirmations = tx['confirmations']
-          o.blockhash = tx['blockhash']
-          o.blocktime = tx['blocktime']
-          o.timereceived = tx['timereceived']
-          o.txid = tx['txid']
-          o.currency_str = 'btc'
-          o.save!
+          Operation.transaction do 
+            o = Operation.new
+            o.user = user
+            o.category = (tx["category"]=='receive' ? OperationCategory::RECEIVE : OperationCategory::GENERATED)
+            o.amount = tx['amount']
+            o.confirmations = tx['confirmations']
+            o.blockhash = tx['blockhash']
+            o.blocktime = tx['blocktime']
+            o.timereceived = tx['timereceived']
+            o.txid = tx['txid']
+            o.currency_str = 'btc'
+            o.save!
+          end
         end
       end
     end
@@ -45,11 +47,13 @@ class Operation < ActiveRecord::Base
   protected
 
   def synchronize_account
-    if self.currency_str =='btc' && self.confirmations > 1 && self.status != OperationStatus::OVER_TIME
+    CoinAccount.transaction do 
+      if self.currency_str =='btc' && self.confirmations > 1 && self.status != OperationStatus::OVER_TIME
         self.status = OperationStatus::OVER_TIME
         btc_account = self.user.btc_account
         btc_account.amount += self.amount
         btc_account.save!
+      end
     end
   end
 end
