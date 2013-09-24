@@ -52,6 +52,9 @@
 	<%= render 'users/basic_info' %>
 	<%= render 'users/recharge' %>
 	<%= render 'users/withdraw' %>
+	<%= render_cell :user, :ips, user: current_user %>
+	<%= render_cell :user, :sms, user: current_user %>
+	<%= render_cell :user, :google_auth, user: current_user %>
 </div>
 
 
