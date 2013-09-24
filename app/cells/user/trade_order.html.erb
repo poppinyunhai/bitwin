@@ -1,0 +1,22 @@
+<div class="tag-height">
+	<table class="exchange-table">
+		<tr>
+			<th>时间</th>
+			<th>类型</th>
+			<th>数量</th>
+			<th>价格</th>
+			<th>总价</th>
+			<th>操作</th>
+		</tr>
+		<% user.trade_orders.each do |trade| %>
+			<tr>
+				<td><%= trade.created_at %></td>
+				<td><%= t("trade_order.category.#{trade.category}") %></td>
+				<td><%= trade.amount %>B</td>
+				<td>￥<%= trade.ppc %></td>
+				<td>￥<%= trade.ppc * trade.amount %></td>
+				<td><a href="#"><img src="/assets/exchange/delwithdrawal.png" /></a></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
