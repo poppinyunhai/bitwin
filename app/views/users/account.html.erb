@@ -4,43 +4,43 @@
 	<ul class="personal-nav-ul" id="personal-nav">
 		<li class="personal-nav-li personal-nav-li-active" id="nav1">
 			<span>
-				<img src="/assets/user/personal-information.png" />	
+				<img src="<%=image_url "user/personal-information.png"%>" />
 			</span>
 			<a>基本资料</a>
 		</li>
 		<li class="personal-nav-li" id="nav2">
 			<span>
-				<img src="/assets/user/despoit.png" />	
+				<img src="<%=image_url "user/despoit.png"%>" />
 			</span>
 			<a>账户充值</a>
 		</li>
-		<li class="personal-nav-li" id="nav3"> 
+		<li class="personal-nav-li" id="nav3">
 			<span>
-				<img src="/assets/user/withdrawal.png" />	
+				<img src="<%=image_url "user/withdrawal.png"%>" />
 			</span>
 			<a>账户提现</a>
 		</li>
 		<li class="personal-nav-li" id="nav4">
 			<span>
-				<img src="/assets/user/user-password.png" />	
+				<img src="<%=image_url "user/user-password.png"%>" />
 			</span>
 			<a>密码设置</a>
 		</li>
 		<li class="personal-nav-li" id="nav5">
 			<span>
-				<img src="/assets/user/iphone.png" />	
+				<img src="<%=image_url "user/iphone.png"%>" />
 			</span>
 			<a>Google验证</a>
 		</li>
 		<li class="personal-nav-li" id="nav6">
 			<span>
-				<img src="/assets/user/sms.png" />	
+				<img src="<%=image_url "user/sms.png"%>" />
 			</span>
 			<a>短信验证</a>
 		</li>
 		<li class="personal-nav-li" id="nav7">
 			<span>
-				<img src="/assets/user/ip.png" />	
+				<img src="<%=image_url "user/ip.png"%>" />
 			</span>
 			<a>IP记录</a>
 		</li>
@@ -68,6 +68,6 @@ $(document).ready(function(){
 		var id = $(this).attr('id');
 		$("div.personal-id").css('display','none');
 		$("div#"+id).css('display','block');
-	}); 
+	});
 });
 </script>
