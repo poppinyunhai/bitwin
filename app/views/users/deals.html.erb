@@ -15,156 +15,19 @@
 	</div>
 	<div class="tagcontent-wide">
 		<div class="exchange-table-base">
-		<span class="exchange-table-top exchange-table-font-big ">买单</span>
-		<div class="exchange-table-content">
-			<table class="exchange-table">
-				<tr>
-					<td>
-						<span class="jindutiao background-green float-right" style="width:50px;"></span>
-					</td>
-					<td>2.000225</td>
-					<td>￥611.20</td>
-				</tr>
-				<tr>
-					<td>
-						<span class="jindutiao background-green float-right" style="width:50px;"></span>
-					</td>
-					<td>2.000225</td>
-					<td>￥611.20</td>
-				</tr>
-				<tr>
-					<td>
-						<span class="jindutiao background-green float-right" style="width:120px;"></span>
-					</td>
-					<td>2.000225</td>
-					<td>￥611.20</td>
-				</tr>
-				<tr>
-					<td>
-						<span class="jindutiao background-green float-right" style="width:50px;"></span>
-					</td>
-					<td>2.000225</td>
-					<td>￥611.20</td>
-				</tr>
-				<tr>
-					<td>
-						<span class="jindutiao background-green float-right" style="width:80px;"></span>
-					</td>
-					<td>2.000225</td>
-					<td>￥611.20</td>
-				</tr>
-				<tr>
-					<td>
-						<span class="jindutiao background-green float-right" style="width:30px;"></span>
-					</td>
-					<td>2.000225</td>
-					<td>￥611.20</td>
-				</tr>
-				<tr>
-					<td>
-						<span class="jindutiao background-green float-right" style="width:150px;"></span>
-					</td>
-					<td>2.000225</td>
-					<td>￥611.20</td>
-				</tr>
-
-			</table>
-			</div>
+			<!-- 买单 -->
+			<%= render_cell :trade, :purchase_trade %>
+			<!-- 买单end -->
 		</div>
 		<div class="exchange-table-base exchange-padding">
-		<span class="exchange-table-top exchange-table-font-big">卖单</span>
-			<div class="exchange-table-content">
-			<table class="exchange-table">
-				<tr>
-					<td>￥611.20</td>
-					<td>2.000225</td>
-					<td>
-						<span class="jindutiao background-orange float-left" style="width:150px;"></span>
-					</td>
-				</tr>
-				<tr>
-					<td>￥611.20</td>
-					<td>2.000225</td>
-					<td>
-						<span class="jindutiao background-orange float-left" style="width:50px;"></span>
-					</td>
-				</tr>
-				<tr>
-					<td>￥611.20</td>
-					<td>2.000225</td>
-					<td>
-						<span class="jindutiao background-orange float-left" style="width:60px;"></span>
-					</td>
-				</tr>
-				<tr>
-					<td>￥611.20</td>
-					<td>2.000225</td>
-					<td>
-						<span class="jindutiao background-orange float-left" style="width:20px;"></span>
-					</td>
-				</tr>
-				<tr>
-					<td>￥611.20</td>
-					<td>2.000225</td>
-					<td>
-						<span class="jindutiao background-orange float-left" style="width:10px;"></span>
-					</td>
-				</tr>
-				<tr>
-					<td>￥611.20</td>
-					<td>2.000225</td>
-					<td>
-						<span class="jindutiao background-orange float-left" style="width:50px;"></span>
-					</td>
-				</tr>
-				<tr>
-					<td>￥611.20</td>
-					<td>2.000225</td>
-					<td>
-						<span class="jindutiao background-orange float-left" style="width:50px;"></span>
-					</td>
-				</tr>
-			</table>
-			</div>
+			<!-- 卖单 -->
+			<%= render_cell :trade, :sale_trade %>
+			<!-- 卖单 end -->
 		</div>
 		<div class="exchange-table-base">
-		<span class="exchange-table-top exchange-table-font-middle">
-		最新成交价 <font class="color-green-deep">￥611.20</font>
-		</span>
-		<div class="exchange-table-content">
-			<table class="exchange-table">
-				<tr>
-				<td>07:26:31</td>
-				<td class="color-orange">￥611.20</td>
-				<th>1.23235435B</th>
-				</tr>
-				<tr>
-				<td>07:26:31</td>
-				<td class="color-orange">￥611.20</td>
-				<th>1.23235435B</th>
-				</tr>
-				<tr>
-				<td>07:26:31</td>
-				<td class="color-orange">￥611.20</td>
-				<th>1.23235435B</th>
-				</tr>
-				<tr>
-				<td>07:26:31</td>
-				<td class="color-green-deep">￥611.20</td>
-				<th>1.23235435B</th>
-				</tr>
-				<tr>
-				<td>07:26:31</td>
-				<td class="color-orange">￥611.20</td>
-				<th>1.23235435B</th>
-				</tr>
-				<tr>
-				<td>07:26:31</td>
-				<td class="color-orange">￥611.20</td>
-				<th>1.23235435B</th>
-				</tr>
-			</table>
-			</div>
+			<!-- 成交 -->
+			<%= render_cell :trade, :newest_trade %>
+			<!-- 成交end -->
 		</div>
 	</div>
 </div>
