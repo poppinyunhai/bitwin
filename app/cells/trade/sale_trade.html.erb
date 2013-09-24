@@ -1,0 +1,14 @@
+<span class="exchange-table-top exchange-table-font-big">卖单</span>
+<div class="exchange-table-content">
+<table class="exchange-table">
+	<% @sale_trades.each do |trade|%>
+		<tr>
+			<td>￥<%= trade.ppc%></td>
+			<td><%= trade.amount%></td>
+			<td>
+				<span class="jindutiao background-orange float-left" style="width:160px;"></span>
+			</td>
+		</tr>
+	<% end %>
+</table>
+</div>

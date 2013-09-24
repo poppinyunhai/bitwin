@@ -1,37 +1,31 @@
-.accordion-group
-  .accordion-heading
-    a.accordion-toggle data-parent="#personal-center" data-toggle="collapse" href="#authentication"
-      span
-        img src=image_url("user/iphone.png")
-      | Google身份验证
-  #authentication.accordion-body.collapse
-    .accordion-inner
-      div style="height:140px;"
-        .personal-password-safe-half.personal-mobile
-          a href="#"
-            span
-              img src=image_url("user/apple.png")
-              p Apple
-          a href="#"
-            span
-              img src=image_url("user/android.png")
-              p Android
-        .personal-password-safe-half
-          - if user.google_secret
-            img.personal-weixinimg src=user.google_qr_uri
-            br    
-            = "您的认证密钥: #{user.google_secret}"
-            - unless user.google_auth
-              form
-              = form_tag google_auth_users_path, method: "post" do
-                input.input-short placeholder="输入验证信息" type="text" name="user[google_code]"
-                button.bitwin-btn.bitwin-btn-longth 确认开通
-            - else
-              form
-              = form_tag close_google_auth_users_path, method: "post" do
-                input.input-short placeholder="输入验证信息" type="text" name="user[google_code]"
-                button.bitwin-btn.bitwin-btn-longth 确认关闭google认证
-
+div class="personal-id" id="nav5"
+  div class="personal-content" style="padding-bottom:50px;"
+    div style="height:140px;"
+      .personal-password-safe-half.personal-mobile
+        a href="#"
+          span
+            img src=image_url("user/apple.png")
+            p Apple
+        a href="#"
+          span
+            img src=image_url("user/android.png")
+            p Android
+      .personal-password-safe-half
+        - if user.google_secret
+          img.personal-weixinimg src=user.google_qr_uri
+          br    
+          = "您的认证密钥: #{user.google_secret}"
+          - unless user.google_auth
+            form
+            = form_tag google_auth_users_path, method: "post" do
+              input.input-short placeholder="输入验证信息" type="text" name="user[google_code]"
+              button.bitwin-btn.bitwin-btn-longth 确认开通
           - else
-            = link_to "设置认证密钥", set_google_auth_users_path, class: "bitwin-btn"
-            
+            form
+            = form_tag close_google_auth_users_path, method: "post" do
+              input.input-short placeholder="输入验证信息" type="text" name="user[google_code]"
+              button.bitwin-btn.bitwin-btn-longth 确认关闭google认证
+
+        - else
+          = link_to "设置认证密钥", set_google_auth_users_path, class: "bitwin-btn"
+          
