@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130922132514) do
+ActiveRecord::Schema.define(version: 20130923030143) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "account_operations", force: true do |t|
     t.integer  "user_id",                                            null: false
@@ -159,6 +162,7 @@ ActiveRecord::Schema.define(version: 20130922132514) do
     t.boolean  "dark_pool_exclusive_match"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "blank_operation_id"
   end
 
   create_table "trades", force: true do |t|
@@ -169,9 +173,9 @@ ActiveRecord::Schema.define(version: 20130922132514) do
     t.integer  "buyer_id"
     t.decimal  "ppc",                  precision: 16, scale: 8, default: 0.0
     t.decimal  "traded_btc",           precision: 16, scale: 8, default: 0.0
-    t.decimal  "traded_currency",      precision: 16, scale: 8, default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "blank_operation_id"
   end
 
   create_table "users", force: true do |t|
