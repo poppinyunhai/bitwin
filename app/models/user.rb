@@ -13,8 +13,17 @@ class User < ActiveRecord::Base
 
   has_many :images, -> { where image: true  }, :as => :attachmentable, class_name: 'Attachment'
 
+  has_many :account_operations, dependent: :destroy
+  has_one :btc_operation, -> { where currency: Currency.find_by_code('btc') }, class_name: 'AccountOperation'
+
+  has_many :blank_operations
+  has_one :cny_operation, -> { where blank_currency: BlankCurrency.find_by_code('cny') }, class_name: 'BlankOperation'
+
   has_one :answer, dependent: :destroy
   has_one :question,  :through => :answer, :source => :question
+
+
+  after_create :create_account_and_blank_operations
 
   def avatar
   	self.images.last.try(:attachment).try(:url) || "/uploads/attachment/default/user.png"
@@ -33,4 +42,28 @@ class User < ActiveRecord::Base
     "#{self.username}@snowball.io"
   end
 
+
+
+  protected
+
+  def create_account_and_blank_operations
+    Currency.all.each do |currency|
+      ao = AccountOperation.new
+      ao.currency = currency
+      ao.user = self
+      if Rails.env.development?
+        ao.address = "1D5CPeiFzLH29bxt3KtRrg1vDddDq7ybSr"
+      else
+        ao.address = Bitcoin::Client.instance.getnewaddress
+      end
+      ao.save!
+    end
+
+    BlankCurrency.all.each do |bc|
+      bo = BlankOperation.new
+      bo.user = self
+      bo.blank_currency = bc
+      bo.save!
+    end
+  end
 end

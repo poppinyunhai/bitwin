@@ -39,6 +39,9 @@ gem 'china_sms'
 # gem cells
 gem 'cells'
 
+# state_machine
+gem 'state_machine'
+
 # resque and extends
 gem 'resque'
 gem 'resque_mailer'
@@ -55,6 +58,9 @@ gem "mini_magick"
 gem "mechanize", "~> 2.7.2"
 gem "nokogiri", "~> 1.6.0"
 gem 'binding_of_caller'
+
+gem "transitions", :require => ["transitions", "active_model/transitions"]
+gem 'addressable'
 
 group :development do
   gem 'capistrano'
