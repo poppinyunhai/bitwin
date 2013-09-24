@@ -23,15 +23,15 @@ BlankCurrency.find_or_create_by(code: "cny")
 if TradeOrder.count == 0
 	1.upto(14).each do |item|
 		if item%2 == 0
-			TradeOrder.create(account_operation: AccountOperation.last, user: AccountOperation.last.user, amount: 1.0002, ppc: 754.00, category: 'sale', dark_pool: false, dark_pool_exclusive_match: false, state: 'active', blank_operation: BlankOperation.find_by(user: AccountOperation.last.user))
+			TradeOrder.create(coin_account: CoinAccount.last, user: CoinAccount.last.user, amount: 1.0002, ppc: 754.00, category: 'sale', dark_pool: false, dark_pool_exclusive_match: false, state: 'active', blank_account: BlankAccount.find_by(user: CoinAccount.last.user))
 		else
-			TradeOrder.create(account_operation: AccountOperation.last, user: AccountOperation.last.user, amount: 1.0002, ppc: 754.00, category: 'purchase', dark_pool: false, dark_pool_exclusive_match: false, state: 'active', blank_operation: BlankOperation.find_by(user: AccountOperation.last.user))
+			TradeOrder.create(coin_account: CoinAccount.last, user: CoinAccount.last.user, amount: 1.0002, ppc: 754.00, category: 'purchase', dark_pool: false, dark_pool_exclusive_match: false, state: 'active', blank_account: BlankAccount.find_by(user: CoinAccount.last.user))
 		end
 	end
 end
 
 if Trade.count ==0
 	7.times {
-		Trade.create(account_operation: AccountOperation.last, sale_order: TradeOrder.sale_trade.first, purchase_order: TradeOrder.purchase_trade.first, seller: User.last, buyer: User.first, ppc: 740.00, traded_btc: 2.00, blank_operation: BlankOperation.find_by(user: AccountOperation.last.user))
+		Trade.create(coin_account: CoinAccount.last, sale_order: TradeOrder.sale_trade.first, purchase_order: TradeOrder.purchase_trade.first, seller: User.last, buyer: User.first, ppc: 740.00, traded_btc: 2.00, blank_account: BlankAccount.find_by(user: CoinAccount.last.user))
 	}
 end

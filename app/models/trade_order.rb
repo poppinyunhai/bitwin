@@ -3,8 +3,8 @@ class TradeOrder < ActiveRecord::Base
 	default_scope { order("created_at DESC") }
 
 	belongs_to :user
-  belongs_to :account_operation
-  belongs_to :blank_operation
+  belongs_to :coin_account
+  belongs_to :blank_account
 
   has_many :sale_trades,
 			     :class_name => "Trade",
