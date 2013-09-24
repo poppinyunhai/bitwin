@@ -45,9 +45,9 @@
 	<div class="left-content">
 		<table class="exchange-table">
 			<tr>
-			<td rowspan="2"><img src="/assets/exchange/lock.png" class="pull-right"/></td>
+			<td rowspan="2"><img src="<%=image_url "exchange/lock.png"%>" class="pull-right"/></td>
 			<td class="color-gray"><%=current_user.btc_account.try :blocked%> BTC</td>
-			<td rowspan="2"><img src="/assets/exchange/unlock.png" class="pull-right"/></td>
+			<td rowspan="2"><img src="<%=image_url "exchange/unlock.png"%>" class="pull-right"/></td>
 			<th><%=current_user.btc_account.try :amount%> BTC</th>
 			</tr>
 			<tr>
@@ -79,14 +79,14 @@
 
 
 		<div class="left-line text-right">
-		<img src="/assets/exchange/del.png" width="10" height="10" />
+		<img src="<%=image_url "exchange/del.png"%>" width="10" height="10" />
 		<font>单价</font>
 		 <input class="input-price-cny" style="margin-right:10px;" />
 		</div>
 
 		<div class="left-line">
 		 	<span class="span-result shadow-radius background-gray-deep float-left">
-		 	<img src="/assets/exchange/calculator-white.png" class="float-left" style="margin-left:3px;margin-top:2px;" />
+		 	<img src="<%=image_url "exchange/calculator-white.png"%>" class="float-left" style="margin-left:3px;margin-top:2px;" />
 		 		-￥711.20</span>
 		 	<button class="submit-button float-left">OK</button>
 		</div>
