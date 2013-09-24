@@ -15,8 +15,8 @@ class Operation < ActiveRecord::Base
 
   def self.btc_synchronize!
     User.all.each do |user|
-      transactions = Bitcoin::Client.instance.list_transactions('btc' + user.id.to_s)
-      # transactions = Bitcoin::Client.instance.list_transactions()
+      # transactions = Bitcoin::Client.instance.list_transactions('btc' + user.id.to_s)
+      transactions = Bitcoin::Client.instance.list_transactions()
       transactions = transactions.select do |tx|
         ["receive", "generated"].include? tx["category"]
       end
