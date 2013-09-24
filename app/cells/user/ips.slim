@@ -1,21 +1,14 @@
-.accordion-group
-  .accordion-heading
-    a.accordion-toggle data-parent="#personal-center" data-toggle="collapse" href="#IP-adress"
-      span
-        img src=image_url("user/ip.png")
-      | IP地址登入历史查询
-  #IP-adress.accordion-body.collapse
-    .accordion-inner
-      .personal-line
-        table.table
-          tr
-            th style="border-top:0px;"  Data And Time
-            th style="border-top:0px;"  IP Adress
-            th style="border-top:0px;"  Action
-            th style="border-top:0px;"  Adress
-          - ips.each do |item|
-            tr
-              td = item.created_at
-              td = item.ip_address
-              td = item.action_type
-              th = item.area
+div class="personal-id" id="nav7"
+  div class="personal-content" style="padding-bottom:50px;"
+    table.table
+      tr
+        th style="border-top:0px;"  Data And Time
+        th style="border-top:0px;"  IP Adress
+        th style="border-top:0px;"  Action
+        th style="border-top:0px;"  Adress
+      - ips.each do |item|
+        tr
+          td = item.created_at
+          td = item.ip_address
+          td = item.action_type
+          th = item.area
