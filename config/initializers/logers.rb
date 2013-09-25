@@ -1,0 +1,1 @@
+RESQUE_LOGGER = Logger.new 'log/resque.log'

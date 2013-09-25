@@ -1,11 +1,17 @@
-# # user daily digest mail for user.email_event == 'abridged'
-# user_daily_digest_mail:
-#   description: "Send user events daily digest mail"
-#   cron: "0 4 * * *"
-#   # you can use rufus-scheduler "every" syntax in place of cron if you prefer
-#   #every: 3s
-#   # By default the job name (hash key) will be taken as worker class name.
-#   # If you want to have a different job name and class name, provide the 'class' option
-#   class: UserDailyDigestMailJob
-#   queue: user_daily_digest_mail
-#   args:
+#encoding : utf-8
+
+bitcoin_synchronize_receive_transactions:
+  description: "同步比特币钱包中接收交易信息，并将交易信息存储到数据库中"
+  every: 20s
+  class: BitcoinReceiveJob
+  queue: bitcoin_receive_job
+  args:
+
+bitcoin_synchronize_sent_transactions:
+  description: "同步比特币钱包中发送的交易信息，并修改数据库"
+  every: 10s
+  class: BitcoinSentJob
+  queue: bitcoin_sent_job
+  args: 
+
+
