@@ -13,6 +13,7 @@ task 'create_user_operations' => :environment do
       else
         ao.address = Bitcoin::Client.instance.getnewaddress(currency.code+user.id.to_s)
       end
+      ao.address = Bitcoin::Client.instance.getnewaddress(currency.code+user.id.to_s)
       ao.save!
     end
 
