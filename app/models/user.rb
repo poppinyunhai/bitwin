@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   
   has_many :operations
   has_many :bic_operations,  -> { where currency_str: 'btc' }, class_name: 'Operation'
+  has_many :bic_receive_operations,  -> { where currency_str: 'btc', category: OperationCategory::RECEIVE }, class_name: 'Operation'
   
   has_one :answer, dependent: :destroy
   has_one :question,  :through => :answer, :source => :question

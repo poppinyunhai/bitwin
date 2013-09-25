@@ -16,60 +16,16 @@
 		<table class="exchange-table">
 			<tr>
 				<th>时间</th>
-				<th>类型</th>
-				<th>方式</th>
-				<th>帐号</th>
 				<th>数量</th>
 				<th>状态</th>
 			</tr>
-			<tr>
-				<td>2031.8.13 &nbsp; 12:34</td>
-				<td>人民币充值</td>
-				<td>支付宝人工</td>
-				<td>管理员手动</td>
-				<td>￥200</td>
-				<td>待处理</td>
-			</tr>
-			<tr>
-				<td>2031.8.13 &nbsp; 12:34</td>
-				<td>人民币充值</td>
-				<td>支付宝人工</td>
-				<td>管理员手动</td>
-				<td>￥200</td>
-				<td>待处理</td>
-			</tr>
-			<tr>
-				<td>2031.8.13 &nbsp; 12:34</td>
-				<td>人民币充值</td>
-				<td>支付宝人工</td>
-				<td>管理员手动</td>
-				<td>￥200</td>
-				<td>待处理</td>
-			</tr>
-			<tr>
-				<td>2031.8.13 &nbsp; 12:34</td>
-				<td>人民币充值</td>
-				<td>支付宝人工</td>
-				<td>管理员手动</td>
-				<td>￥200</td>
-				<td>待处理</td>
-			</tr>
-			<tr>
-				<td>2031.8.13 &nbsp; 12:34</td>
-				<td>人民币充值</td>
-				<td>支付宝人工</td>
-				<td>管理员手动</td>
-				<td>￥200</td>
-				<td>待处理</td>
-			</tr>
-			<tr>
-				<td>2031.8.13 &nbsp; 12:34</td>
-				<td>人民币充值</td>
-				<td>支付宝人工</td>
-				<td>管理员手动</td>
-				<td>￥200</td>
-				<td>待处理</td>
-			</tr>
+			<%current_user.bic_receive_operations.each do |o|%>
+				<tr>
+					<td><%=o.created_at.localtime.to_s(:db)%></td>
+					<td><%=o.amount%></td>
+					<td><%= o.status == OperationStatus::UN_CONFIRMED ? "系统确认中":"已确认"%></td>
+				</tr>
+			<%end%>
 		</table>
 	</div>
 	</div>

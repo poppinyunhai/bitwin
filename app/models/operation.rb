@@ -6,13 +6,6 @@ class Operation < ActiveRecord::Base
 
   before_save :synchronize_account
 
-  def self.synchronize_transactions!(ops={})
-    if ops[:currency] == 'btc'
-      btc_synchronize! ops[:type]
-    end
-  end
-
-
   def self.btc_synchronize!(type='receive')
     if type == 'receive'
       User.all.each do |user|
@@ -95,7 +88,6 @@ class Operation < ActiveRecord::Base
     CoinAccount.transaction do 
       if self.currency_str == 'btc' && self.confirmations > 0 && self.status == OperationStatus::UN_CONFIRMED && self.category == OperationCategory::RECEIVE 
         self.status = OperationStatus::CONFIRMED
-        puts "do some thing"
         btc_account = self.user.btc_account
         btc_account.amount += self.amount
         btc_account.save!
