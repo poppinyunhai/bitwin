@@ -55,41 +55,7 @@
 			<th><%=current_user.cny_account.try :amount%> CNY</th>
 			</tr>
 		</table>
-		<div class="left-line">
-		<label class="radio float-left">
-				<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-				定价委托
-			</label>
-			<label class="radio float-left margin-left-10">
-				<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-				市价委托
-			</label>
-			<label class="checkbox float-left margin-left-10">
-    		<input type="checkbox" /> 暗池交易
-  			</label>
-		</div>
-
-		<div class="left-line">
-			<select id="select" style="margin-right:10px;">
-		 		<option>买入</option>
-		 		<option>卖出</option>
-		 	</select>
-		 	<input class="input-price-btc" />
-		</div>
-
-
-		<div class="left-line text-right">
-		<img src="<%=image_url "exchange/del.png"%>" width="10" height="10" />
-		<font>单价</font>
-		 <input class="input-price-cny" style="margin-right:10px;" />
-		</div>
-
-		<div class="left-line">
-		 	<span class="span-result shadow-radius background-gray-deep float-left">
-		 	<img src="<%=image_url "exchange/calculator-white.png"%>" class="float-left" style="margin-left:3px;margin-top:2px;" />
-		 		-￥711.20</span>
-		 	<button class="submit-button float-left">OK</button>
-		</div>
+		<%= render_cell :trade, :new_trade %>
 	</div>
 	</div>
 
