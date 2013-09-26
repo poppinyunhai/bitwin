@@ -1,14 +1,14 @@
 
 <div class="exchange-floor">
 	<div class="tagpage">
-		<ul class="nav nav-tabs nav-exchange-li">
-			<li class="active">
-				<a href="#">Order</a>
+		<ul class="nav nav-tabs nav-exchange-li" id="deals-higher">
+			<li class="active" id="OrderBook" >
+				<a href="#">Order Book</a>
 			</li>
-			<li>
+			<li id="QuotesFigure">
 				<a href="#">行情图</a>
 			</li>
-			<li>
+			<li id="Depthgauge">
 				<a href="#">深度表</a>
 			</li>
 		</ul>
@@ -18,7 +18,7 @@
 			<option>Cny</option>
 		</select>
 	</div>
-	<div class="tagcontent-wide">
+	<div class="tagcontent-wide" id="OrderBook" style="display:block;">
 		<div class="exchange-table-base">
 			<!-- 买单 -->
 			<%= render_cell :trade, :purchase_trade %>
@@ -35,6 +35,16 @@
 			<!-- 成交end -->
 		</div>
 	</div>
+
+
+	<div class="tagcontent-wide" id="QuotesFigure">
+	行情图
+	</div>
+
+	<div class="tagcontent-wide" id="Depthgauge">
+	深度表
+	</div>
+
 </div>
 
 
@@ -63,29 +73,69 @@
 
 	<div class="right">
 			<div class="tagpage">
-			<ul class="nav nav-tabs nav-exchange-li">
-				<li class="active">
+			<ul class="nav nav-tabs nav-exchange-li" id="deals-lower">
+				<li class="active" id="EntrustedManagement">
 					<a href="#">委托管理</a>
 				</li>
-				<li>
+				<li id="TransactionRecords">
 					<a href="#">交易记录</a>
 				</li>
-				<li>
+				<li id="Recharge">
 					<a href="#">充值</a>
 				</li>
-				<li>
+				<li id="Withdraw">
 					<a href="#">提现</a>
 				</li>
-				<li>
+				<li id="RechargeRecord">
 					<a href="#">充值记录</a>
 				</li>
 			</ul>
 		</div>
-			<div class="tagcontent">
+
+			<div class="tagcontent" id="EntrustedManagement" style="display:block;">
 				<!-- 委托 -->
 				<%= render_cell :user, :trade_order, user: current_user %>
 				<!-- 委托 end -->
+
 			</div>
+
+			<div class="tagcontent" id="TransactionRecords">
+			交易记录
+			</div>
+			<div class="tagcontent" id="Recharge">
+			充值
+			</div>
+			<div class="tagcontent" id="Withdraw">
+			提现
+			</div>
+			<div class="tagcontent" id="RechargeRecord">
+			充值记录
+			</div>
+
+
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#deals-higher li").click(function() {
+		/* Act on the event */
+		$("#deals-higher li").removeClass('active');
+		$(this).addClass('active');
+		var id = $(this).attr('id');
+		$("div.tagcontent-wide").css('display','none');
+		$("div#"+id).css('display','block');
+	});
+});
+
+$(document).ready(function(){
+	$("#deals-lower li").click(function() {
+		/* Act on the event */
+		$("#deals-lower li").removeClass('active');
+		$(this).addClass('active');
+		var id = $(this).attr('id');
+		$("div.tagcontent").css('display','none');
+		$("div#"+id).css('display','block');
+	});
+});
+</script>
