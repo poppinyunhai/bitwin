@@ -9,6 +9,14 @@ class Trade < ActiveRecord::Base
   belongs_to :buyer, 						 class_name: "User"
   belongs_to :blank_account
 
+  def self.trades user
+    where("seller_id = #{user.id} or buyer_id = #{user.id}")
+  end
+
+  def category user
+    self.seller == user ? "sale" : "purchase"
+  end
+
 	scope :last_24h, -> {
     where("created_at >= ?", DateTime.now.advance(:hours => -24))
   }
