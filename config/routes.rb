@@ -12,6 +12,7 @@ Bitwin::Application.routes.draw do
       get  'set_google_auth'
       post 'google_auth'
       put  'update' => 'users#update'
+      post 'coin_tx'
     end
   end
 

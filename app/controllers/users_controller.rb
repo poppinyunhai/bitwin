@@ -58,6 +58,7 @@ class UsersController < ApplicationController
   end
 
   def seed_sms_code
+    #我这里需要一个接口来实现验证码的正确与否,以及验证码发送的时间限制等条件,返回的数据格式是json, { :success => false, :message=>'原密码输入不正确!'}
     session[:mobile] = params[:user][:mobile] unless params[:user].to_s.empty?
     @seed_state = Authentication::SmsAuth.new(mobile: current_user.mobile||params[:user][:mobile]||session[:mobile], email: current_user.email)
     if @seed_state
@@ -65,6 +66,7 @@ class UsersController < ApplicationController
     else
       @error = "发送失败"
     end
+
   end
 
   def sms_bind
@@ -100,6 +102,15 @@ class UsersController < ApplicationController
       # when 'quetion'
       # end
     redirect_to edit_user_password_path(:reset_password_token=>'there is a token')
+   end
+
+   def coin_tx
+    begin
+      Operation.btc_translate(current_user,params[:address],params[:amount])
+      respond_to :js
+    rescue Exception => e
+      respond_to :js
+    end
    end
 
   def update

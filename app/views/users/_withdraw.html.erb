@@ -1,74 +1,74 @@
 <div class="personal-id" id="nav3">
-<div class="personal-content" style="padding-bottom:50px;">
-		<div class="breadcrumb font-big"> <font class="margin-left-10">提现</font>
-			<select class="margin-left-10 withdraw-selct">
-				<option>Bitcoin</option>
-				<option>CNY</option>
+	<div class="personal-content" style="padding-bottom:50px;">
+			<div class="breadcrumb font-big"> <font class="margin-left-10">提现</font>
+				<select class="margin-left-10 withdraw-selct">
+					<option>Bitcoin</option>
+					<option>CNY</option>
+				</select>
 
-			</select>
+				<img src=<%=image_url "exchange/unlock.png" %> class="margin-left-20" /> 
+				  <font class="margin-left-10">可用  
+				  	<span id='coin-count'><%=current_user.btc_account.amount%></span>BTC
+				  </font>
+				<img src=<%=image_url "exchange/lock.png" %> class="margin-left-10" />	
+				<font class="color-gray margin-left-10">锁定  <%=current_user.btc_account.blocked%>BTC</font>
+			</div>
 
-			<img src=<%=image_url "exchange/unlock.png" %> class="margin-left-20" /> <font class="margin-left-10">可用  6.1215445BTC</font>
-			<img src=<%=image_url "exchange/lock.png" %> class="margin-left-10" />	
-			<font class="color-gray margin-left-10">锁定  6.1215445BTC</font>
-		</div>
-
-
-		<div class="margin-top-middle float-left">
-		<div class="withdraw-line">
-			<span>输入您的比特币提现地址：</span>
-			<input type="text" />
-			<a class="color-orange" href="#">
-			+从地址薄选择
-			</a>
-		</div>
-		<div class="withdraw-line">
-			<span>输入提现数量：</span>
-			<input type="text" />
-
-			手续费: *0.001 = <font class="color-orange">0.01BTC</font>
-		</div>
-		<div class="withdraw-line">
-			<span>手机验证码：</span>
-			<input type="text" style="width:70px;" />
-			<button class="bitwin-btn">获取手机验证码</button>
-		</div>
-		<div class="withdraw-line">
-			<button class="bitwin-btn input-middle pull-right" style="margin-right:80px;padding-right:10px;">提交
-			<img src=<%=image_url "user/to.png" %> class="pull-right" style="margin-top:2px;" />
-			</button>
-		</div>
-		</div>
+			<%=form_tag '/users/coin_tx', remote: true, id: 'coin_tx'%>
+				<div class="margin-top-middle float-left">
+					<div class="withdraw-line">
+						<span>输入您的比特币提现地址：</span>
+						<input type="text"  name='address' id='address'/>
+							<a class="color-orange" href="#">+从地址薄选择</a>
+					</div>
+					<div class="withdraw-line">
+						<span>输入提现数量：</span>
+						<input type="text" name='amount' id='amount'/>
+						 手续费: *0.001 = <font class="color-orange">0.01BTC</font>
+					</div>
+					<div class="withdraw-line">
+						<span>手机验证码：</span>
+						<input type="text" style="width:70px;" name='code' id='code'/>
+						<button class="bitwin-btn" id='sent-phone-code'>获取手机验证码</button>
+					</div>
+					<div class="withdraw-line">
+						<button class="bitwin-btn input-middle pull-right submit" style="margin-right:80px;padding-right:10px;">提交
+							<img src=<%=image_url "user/to.png" %> class="pull-right" style="margin-top:2px;" />
+						</button>
+					</div>
+				</div>
+			</form>
 	</div>
 
 
 	<div class="personal-content top-line">
-	<div class="withdraw-title">
-		<span>提现记录</span>
-		<select>
-			<option>提现</option>
-			<option>交易</option>
-		</select>
+		<div class="withdraw-title">
+			<span>提现记录</span>
+			<select>
+				<option>提现</option>
+				<option>交易</option>
+			</select>
 
-		<select >
-			<option>人民币</option>
-			<option>比特币</option>
-		</select>
-	</div>
-	<div class="margin-top-short withdraw-table">
-		<table class="exchange-table">
-			<tr>
-				<th>时间</th>
-				<th>数量</th>
-				<th>状态</th>
-			</tr>
-			<%current_user.bic_sent_operations.each do |o|%>
+			<select >
+				<option>人民币</option>
+				<option>比特币</option>
+			</select>
+		</div>
+		<div class="margin-top-short withdraw-table">
+			<table class="exchange-table">
 				<tr>
-					<td><%=o.created_at.localtime.to_s(:db)%></td>
-					<td>-<%=o.amount%></td>
-					<td><%= o.status == OperationStatus::UN_CONFIRMED ? "系统确认中":"已确认"%></td>
+					<th>时间</th>
+					<th>数量</th>
+					<th>状态</th>
 				</tr>
-			<%end%>
-		</table>
-	</div>
+				<%current_user.bic_sent_operations.each do |o|%>
+					<tr>
+						<td><%=o.created_at.localtime.to_s(:db)%></td>
+						<td>-<%=o.amount%></td>
+						<td><%= o.status == OperationStatus::UN_CONFIRMED ? "系统确认中":"已确认"%></td>
+					</tr>
+				<%end%>
+			</table>
+		</div>
 	</div>
 </div>
