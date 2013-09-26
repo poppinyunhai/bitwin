@@ -100,7 +100,9 @@
 			</div>
 
 			<div class="tagcontent" id="TransactionRecords">
-			交易记录
+				<!-- 交易 -->
+				<%= render_cell :user, :trade, user: current_user %>
+				<!-- 交易 end -->
 			</div>
 			<div class="tagcontent" id="Recharge">
 			充值
