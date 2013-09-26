@@ -24,6 +24,7 @@ div class="personal-id" id="nav5"
             form
             = form_tag close_google_auth_users_path, method: "post" do
               input.input-short placeholder="输入验证信息" type="text" name="user[google_code]"
+              br
               button.bitwin-btn.bitwin-btn-long 确认关闭google认证
 
         - else
