@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
   has_one :answer, dependent: :destroy
   has_one :question,  :through => :answer, :source => :question
 
+  has_many :trade_orders, -> { where("state != 'closed'")}
+
 
 
   after_create :create_account_and_blank_operations
