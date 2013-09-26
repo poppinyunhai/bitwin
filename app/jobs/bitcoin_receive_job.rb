@@ -3,10 +3,8 @@ class BitcoinReceiveJob
 
   def self.perform()
   	RESQUE_LOGGER.info "bitcoin synchronize  receive transactions start "
-    Lockfile.lock(:synchronize_transactions) do
-      Operation.synchronize_transactions!({:currency => 'btc', :type => "receive"})
-    end
-    RESQUE_LOGGER.info "bitcoin synchronize receive transactions end"
+  	Operation.btc_synchronize!("receive")
+  	RESQUE_LOGGER.info "bitcoin synchronize receive transactions end"
   end
 end
 

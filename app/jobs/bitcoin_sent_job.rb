@@ -3,9 +3,7 @@ class BitcoinSentJob
 
   def self.perform()
   	RESQUE_LOGGER.info "bitcoin synchronize  sent transactions start "
-    Lockfile.lock(:synchronize_transactions) do
-      Operation.synchronize_transactions!({:currency => 'btc', :type => "sent"})
-    end
+    Operation.btc_synchronize!("sent")
     RESQUE_LOGGER.info "bitcoin synchronize sent transactions end"
   end
 end

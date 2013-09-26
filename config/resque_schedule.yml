@@ -2,14 +2,14 @@
 
 bitcoin_synchronize_receive_transactions:
   description: "同步比特币钱包中接收交易信息，并将交易信息存储到数据库中"
-  every: 20s
+  every: 30m
   class: BitcoinReceiveJob
   queue: bitcoin_receive_job
   args:
 
 bitcoin_synchronize_sent_transactions:
   description: "同步比特币钱包中发送的交易信息，并修改数据库"
-  every: 10s
+  every: 15m
   class: BitcoinSentJob
   queue: bitcoin_sent_job
   args: 
