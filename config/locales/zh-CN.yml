@@ -1,4 +1,8 @@
 zh-CN:
+  trade_order:
+    category:
+      purchase: 买入
+      sale: 卖出
   user:
     username: "用户名:" 
     email: "邮件地址:" 

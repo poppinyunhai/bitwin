@@ -23,9 +23,9 @@ BlankCurrency.find_or_create_by(code: "cny")
 if TradeOrder.count == 0
 	1.upto(14).each do |item|
 		if item%2 == 0
-			TradeOrder.create(coin_account: CoinAccount.last, user: CoinAccount.last.user, amount: 1.0002, ppc: 754.00, category: 'sale', dark_pool: false, dark_pool_exclusive_match: false, state: 'active', blank_account: BlankAccount.find_by(user: CoinAccount.last.user))
+			TradeOrder.create(coin_account: CoinAccount.last, user: CoinAccount.last.user, amount: 1.0002, ppc: 754.00, category: 'sale', dark_pool: false, dark_pool_exclusive_match: false, state: 'active', blank_account: BlankAccount.find_by(user: CoinAccount.last.user), delegate_type: TradeOrder::TYPES.first.to_s)
 		else
-			TradeOrder.create(coin_account: CoinAccount.last, user: CoinAccount.last.user, amount: 1.0002, ppc: 754.00, category: 'purchase', dark_pool: false, dark_pool_exclusive_match: false, state: 'active', blank_account: BlankAccount.find_by(user: CoinAccount.last.user))
+			TradeOrder.create(coin_account: CoinAccount.last, user: CoinAccount.last.user, amount: 1.0002, ppc: 754.00, category: 'purchase', dark_pool: false, dark_pool_exclusive_match: false, state: 'active', blank_account: BlankAccount.find_by(user: CoinAccount.last.user), delegate_type: TradeOrder::TYPES.first.to_s)
 		end
 	end
 end

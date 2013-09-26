@@ -13,4 +13,8 @@ class TradeCell < Cell::Rails
 		@trades = Trade.limit(7)
 		render
 	end
+  
+  def new_trade
+    render
+  end
 end

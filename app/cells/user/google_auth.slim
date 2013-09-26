@@ -19,12 +19,13 @@ div class="personal-id" id="nav5"
             form
             = form_tag google_auth_users_path, method: "post" do
               input.input-short placeholder="输入验证信息" type="text" name="user[google_code]"
-              button.bitwin-btn.bitwin-btn-longth 确认开通
+              button.bitwin-btn.bitwin-btn-long 确认开通
           - else
             form
             = form_tag close_google_auth_users_path, method: "post" do
               input.input-short placeholder="输入验证信息" type="text" name="user[google_code]"
-              button.bitwin-btn.bitwin-btn-longth 确认关闭google认证
+              br
+              button.bitwin-btn.bitwin-btn-long 确认关闭google认证
 
         - else
           = link_to "设置认证密钥", set_google_auth_users_path, class: "bitwin-btn"

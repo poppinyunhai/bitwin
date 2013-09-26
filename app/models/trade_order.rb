@@ -2,6 +2,8 @@ class TradeOrder < ActiveRecord::Base
 
 	default_scope { order("created_at DESC") }
 
+  TYPES = [:limit_order, :market_order]
+
 	belongs_to :user
   belongs_to :coin_account
   belongs_to :blank_account

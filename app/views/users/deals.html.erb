@@ -1,14 +1,14 @@
 
 <div class="exchange-floor">
 	<div class="tagpage">
-		<ul class="nav nav-tabs nav-exchange-li">
-			<li class="active">
-				<a href="#">Order</a>
+		<ul class="nav nav-tabs nav-exchange-li" id="deals-higher">
+			<li class="active" id="OrderBook" >
+				<a href="#">Order Book</a>
 			</li>
-			<li>
+			<li id="QuotesFigure">
 				<a href="#">行情图</a>
 			</li>
-			<li>
+			<li id="Depthgauge">
 				<a href="#">深度表</a>
 			</li>
 		</ul>
@@ -18,7 +18,7 @@
 			<option>Cny</option>
 		</select>
 	</div>
-	<div class="tagcontent-wide">
+	<div class="tagcontent-wide" id="OrderBook" style="display:block;">
 		<div class="exchange-table-base">
 			<!-- 买单 -->
 			<%= render_cell :trade, :purchase_trade %>
@@ -35,6 +35,16 @@
 			<!-- 成交end -->
 		</div>
 	</div>
+
+
+	<div class="tagcontent-wide" id="QuotesFigure">
+	行情图
+	</div>
+
+	<div class="tagcontent-wide" id="Depthgauge">
+	深度表
+	</div>
+
 </div>
 
 
@@ -55,41 +65,7 @@
 			<th><%=current_user.cny_account.try :amount%> CNY</th>
 			</tr>
 		</table>
-		<div class="left-line">
-		<label class="radio float-left">
-				<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-				定价委托
-			</label>
-			<label class="radio float-left margin-left-10">
-				<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-				市价委托
-			</label>
-			<label class="checkbox float-left margin-left-10">
-    		<input type="checkbox" /> 暗池交易
-  			</label>
-		</div>
-
-		<div class="left-line">
-			<select id="select" style="margin-right:10px;">
-		 		<option>买入</option>
-		 		<option>卖出</option>
-		 	</select>
-		 	<input class="input-price-btc" />
-		</div>
-
-
-		<div class="left-line text-right">
-		<img src="<%=image_url "exchange/del.png"%>" width="10" height="10" />
-		<font>单价</font>
-		 <input class="input-price-cny" style="margin-right:10px;" />
-		</div>
-
-		<div class="left-line">
-		 	<span class="span-result shadow-radius background-gray-deep float-left">
-		 	<img src="<%=image_url "exchange/calculator-white.png"%>" class="float-left" style="margin-left:3px;margin-top:2px;" />
-		 		-￥711.20</span>
-		 	<button class="submit-button float-left">OK</button>
-		</div>
+		<%= render_cell :trade, :new_trade %>
 	</div>
 	</div>
 
@@ -97,111 +73,69 @@
 
 	<div class="right">
 			<div class="tagpage">
-			<ul class="nav nav-tabs nav-exchange-li">
-				<li class="active">
+			<ul class="nav nav-tabs nav-exchange-li" id="deals-lower">
+				<li class="active" id="EntrustedManagement">
 					<a href="#">委托管理</a>
 				</li>
-				<li>
+				<li id="TransactionRecords">
 					<a href="#">交易记录</a>
 				</li>
-				<li>
+				<li id="Recharge">
 					<a href="#">充值</a>
 				</li>
-				<li>
+				<li id="Withdraw">
 					<a href="#">提现</a>
 				</li>
-				<li>
+				<li id="RechargeRecord">
 					<a href="#">充值记录</a>
 				</li>
 			</ul>
 		</div>
-			<div class="tagcontent">
-			<div class="tag-height">
-				<table class="exchange-table">
-					<tr>
-						<th>时间</th>
-						<th>类型</th>
-						<th>数量</th>
-						<th>价格</th>
-						<th>总价</th>
-						<th>操作</th>
-					</tr>
-					<tr>
-						<td>2013.8.13 &nbsp; 07.26</td>
-						<td>买入</td>
-						<td>5.121B</td>
-						<td>￥616.74</td>
-						<td>￥2365.2</td>
-						<td><a href="#"><img src="<%=image_url "exchange/delwithdrawal.png" %>" /></a></td>
-					</tr>
-					<tr>
-						<td>2013.8.13 &nbsp; 07.26</td>
-						<td>买入</td>
-						<td>5.121B</td>
-						<td>￥616.74</td>
-						<td>￥2365.2</td>
-						<td><a href="#"><img src="<%=image_url "exchange/delwithdrawal.png" %>" /></a></td>
-					</tr>
-					<tr>
-						<td>2013.8.13 &nbsp; 07.26</td>
-						<td>买入</td>
-						<td>5.121B</td>
-						<td>￥616.74</td>
-						<td>￥2365.2</td>
-						<td><a href="#"><img src="<%=image_url "exchange/delwithdrawal.png" %>" /></a></td>
-					</tr>
-					<tr>
-						<td>2013.8.13 &nbsp; 07.26</td>
-						<td>买入</td>
-						<td>5.121B</td>
-						<td>￥616.74</td>
-						<td>￥2365.2</td>
-						<td><a href="#"><img src="<%=image_url "exchange/delwithdrawal.png" %>" /></a></td>
-					</tr>
-					<tr>
-						<td>2013.8.13 &nbsp; 07.26</td>
-						<td>买入</td>
-						<td>5.121B</td>
-						<td>￥616.74</td>
-						<td>￥2365.2</td>
-						<td><a href="#"><img src="<%=image_url "exchange/delwithdrawal.png" %>" /></a></td>
-					</tr>
-					<tr>
-						<td>2013.8.13 &nbsp; 07.26</td>
-						<td>买入</td>
-						<td>5.121B</td>
-						<td>￥616.74</td>
-						<td>￥2365.2</td>
-						<td><a href="#"><img src="<%=image_url "exchange/delwithdrawal.png" %>" /></a></td>
-					</tr>
-					<tr>
-						<td>2013.8.13 &nbsp; 07.26</td>
-						<td>买入</td>
-						<td>5.121B</td>
-						<td>￥616.74</td>
-						<td>￥2365.2</td>
-						<td><a href="#"><img src="<%=image_url "exchange/delwithdrawal.png" %>" /></a></td>
-					</tr>
-					<tr>
-						<td>2013.8.13 &nbsp; 07.26</td>
-						<td>买入</td>
-						<td>5.121B</td>
-						<td>￥616.74</td>
-						<td>￥2365.2</td>
-						<td><a href="#"><img src="<%=image_url "exchange/delwithdrawal.png" %>" /></a></td>
-					</tr>
-					<tr>
-						<td>2013.8.13 &nbsp; 07.26</td>
-						<td>买入</td>
-						<td>5.121B</td>
-						<td>￥616.74</td>
-						<td>￥2365.2</td>
-						<td><a href="#"><img src="<%=image_url "exchange/delwithdrawal.png" %>" /></a></td>
-					</tr>
 
-				</table>
+			<div class="tagcontent" id="EntrustedManagement" style="display:block;">
+				<!-- 委托 -->
+				<%= render_cell :user, :trade_order, user: current_user %>
+				<!-- 委托 end -->
+
 			</div>
+
+			<div class="tagcontent" id="TransactionRecords">
+			交易记录
 			</div>
+			<div class="tagcontent" id="Recharge">
+			充值
+			</div>
+			<div class="tagcontent" id="Withdraw">
+			提现
+			</div>
+			<div class="tagcontent" id="RechargeRecord">
+			充值记录
+			</div>
+
+
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#deals-higher li").click(function() {
+		/* Act on the event */
+		$("#deals-higher li").removeClass('active');
+		$(this).addClass('active');
+		var id = $(this).attr('id');
+		$("div.tagcontent-wide").css('display','none');
+		$("div#"+id).css('display','block');
+	});
+});
+
+$(document).ready(function(){
+	$("#deals-lower li").click(function() {
+		/* Act on the event */
+		$("#deals-lower li").removeClass('active');
+		$(this).addClass('active');
+		var id = $(this).attr('id');
+		$("div.tagcontent").css('display','none');
+		$("div#"+id).css('display','block');
+	});
+});
+</script>

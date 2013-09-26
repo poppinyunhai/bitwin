@@ -7,6 +7,10 @@ class UserCell < Cell::Rails
 		render locals: args
 	end
 
+	def trade_order args
+		render locals: args
+	end
+	
 	def ips args
 		ips = LoginHistory.where(user: args[:user]).paginate(:page => params[:page], :per_page => 15).order('id DESC')
 		render locals: args.merge(ips: ips)
