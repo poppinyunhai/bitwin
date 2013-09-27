@@ -1,5 +1,5 @@
 Bitwin::Application.routes.draw do
-
+  resources :trade_orders
 
   resources :users, :only => [] do
     collection do
