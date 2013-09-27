@@ -65,6 +65,10 @@ namespace :deploy do
   task :precompile, :roles => :app do
     run "cd #{current_path}; RAILS_ENV=production bundle exec rake assets:precompile"
   end
+
+  task :create_coins_account, :roles => :app do
+    run "cd #{current_path}; RAILS_ENV=production bundle exec rake create_user_operations"
+  end
 end
 
 after 'deploy:restart', 'unicorn:reload'   # app IS NOT preloaded
