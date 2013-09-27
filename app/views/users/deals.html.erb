@@ -13,9 +13,10 @@
 			</li>
 		</ul>
 
-		<select class="exchange-select pull-right" style="margin-top:-35px;">
-			<option>BitcCoin</option>
-			<option>Cny</option>
+		<select class="exchange-select pull-right" id="coin_account" style="margin-top:-35px;">
+			<%current_user.coin_accounts.each do |coin_account|%>
+				<option value="<%=coin_account.id%>"><%=coin_account.currency.code%></option>
+			<%end%>
 		</select>
 	</div>
 	<div class="tagcontent-wide" id="OrderBook" style="display:block;">

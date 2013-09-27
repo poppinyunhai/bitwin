@@ -1,14 +1,21 @@
 class NewTrade
 	constructor: (element) ->
-		@$element = $(element)
-		@total		= $('.span-result p')
-		@btc 			= $('.input-price-btc')
-		@cny			= $('.input-price-cny')
-		@category = $("#select")
+		@$element     = $(element)
+		@total		    = $('.span-result p')
+		@btc 			    = $('.input-price-btc')
+		@cny			    = $('.input-price-cny')
+		@category     = $("#select")
+		@coin_account = $('#coin_account')
+
 
 		@$element.find('.input-price-btc').on 'keyup', $.proxy(@, 'calculate')
 		@$element.find('.input-price-cny').on 'keyup', $.proxy(@, 'calculate')
 		@$element.find('#select').on 'change', $.proxy(@, 'calculate')
+		@$element.find('.submit-button').on 'click', $.proxy(@, 'submit')
+
+	submit: (event) ->
+		$('#trade_order_coin_account_id').val(@coin_account.val())
+		
 
 	calculate: (event) ->
 		if @category.val() == "purchase"
