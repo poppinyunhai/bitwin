@@ -6,7 +6,7 @@
 			<td>￥<%= trade.ppc%></td>
 			<td><%= trade.amount%></td>
 			<td>
-				<span class="jindutiao background-orange float-left" style="width:160px;"></span>
+				<span class="jindutiao background-orange float-left" style="width:<%= 160 * ( trade.amount/TradeOrder.sale_trade.order("amount desc").first.amount ) %>px;"></span>
 			</td>
 		</tr>
 	<% end %>
