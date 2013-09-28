@@ -15,6 +15,10 @@ class NewTrade
 
 	submit: (event) ->
 		$('#trade_order_coin_account_id').val(@coin_account.val())
+		if @cny.val() == "" or @btc.val() == "" or !@cny.val().match(/^[0-9]*\.?[0-9]*$/) or !@btc.val().match(/^[0-9]*\.?[0-9]*$/)
+			return false
+		else
+			return true
 		
 
 	calculate: (event) ->
