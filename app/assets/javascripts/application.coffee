@@ -4,8 +4,10 @@
 //= require_tree .
 
 
-$.fn.show = ->
+$.fn.show = () ->
   $(this).removeClass('hide')
+  $(this).addClass('show')
 
-$.fn.hide = ->
+$.fn.hide = () ->
   $(this).addClass('hide')
+  $(this).removeClass('show')

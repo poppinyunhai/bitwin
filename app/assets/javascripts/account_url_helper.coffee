@@ -1,12 +1,8 @@
 $ ->
   $("#personal-center").each ->
-   	hash = window.location.hash
-   	legal_hash_array = ["#personal-information","#password-safe", "#celphone","#authentication", "#IP-adress"]
-   	hash = "#personal-information" if legal_hash_array.indexOf(hash)== -1
-    $(hash).addClass('in')
+   	hash = window.location.hash.split('#').pop()
+   	legal_hash_array = ["base_info","recharge", "withdraw","password", "sms", "google", "ips"]
+   	hash = "base_info" if legal_hash_array.indexOf(hash)== -1
+    $("li[data-type=#{hash}]").personal_nav_click()
 
-    $(this).find('a[data-toggle="collapse"]').click (event)->
-    	$target = $(event.currentTarget)
-    	url = window.location
-    	window.history.pushState("", "", url.origin + url.pathname + $target.attr('href')) 
 
