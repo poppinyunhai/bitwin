@@ -1,11 +1,11 @@
 class TradeCell < Cell::Rails
 	def	sale_trade
-		@sale_trades = TradeOrder.sale_trade.limit(7)
+		@sale_trades = TradeOrder.sale_trade.order('ppc').limit(7)
 		render
 	end
 
 	def purchase_trade
-		@purchase_trades = TradeOrder.purchase_trade.limit(7)
+		@purchase_trades = TradeOrder.purchase_trade.order('ppc desc').limit(7)
 		render
 	end
 

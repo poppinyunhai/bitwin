@@ -15,7 +15,7 @@
 				<td><%= trade.amount %>B</td>
 				<td>￥<%= trade.ppc %></td>
 				<td>￥<%= trade.ppc * trade.amount %></td>
-				<td><a href="#"><img src="<%=image_url "exchange/delwithdrawal.png" %>" /></a></td>
+				<td><a data-confirm="确认取消委托订单吗?" data-method="delete" rel="nofollow" href="<%=trade_order_path(trade)%>"><img src="<%=image_url "exchange/delwithdrawal.png" %>" /></a></td>
 			</tr>
 		<% end %>
 	</table>
