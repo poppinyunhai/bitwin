@@ -5,18 +5,26 @@
         img src=image_url("topmenu/logo-top.png")
     .top-nav
       ul.top-nav-li
-        a href=user_deals_path
+        a.top-nav-li-active href=user_deals_path
           li 
             | 交易
-        a href="#"
+          span
+            div
+        a.top-nav-li-hover href="#"
           li 
             | 行情
-        a href="#"
+          span
+            div
+        a.top-nav-li-hover href="#"
           li 
             | 借贷
-        a href="#"
+          span
+            div
+        a.top-nav-li-hover href="#"
           li 
             | 社区 
+          span
+            div
     .top-user
       a href=user_account_path
         img src=image_url(current_user ? current_user.avatar : "topmenu/user_default_icon.png")
