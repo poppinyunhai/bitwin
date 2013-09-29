@@ -4,14 +4,13 @@
 	}
 
 	#base_info_view{
-		table{
-			text-align:center;			
-		}
-
+		table{text-align:center;}
 		.table{
-		}
-
+			th{text-align: center;}
+			td{text-align: center;}
+		} 
 	}
+
 	#ips_view{
 		p.prompt{
 			text-align: center;

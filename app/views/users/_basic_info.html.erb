@@ -1,5 +1,5 @@
 
-<div class="personal-showbox hide" id="base_info_view">
+<div class="personal-showbox" id="base_info_view">
 <div class="personal-content">
 		<div class="personal-head">
 			<div class="personal-head-left">
@@ -31,11 +31,15 @@
 		</div>
 
 		<div class="personal-line">
-			<font class="personal-text">
-			实名认证:
-			</font>
-			<input class="personal-input" id='realname_input' value="<%=current_user.real_name%>" />
-			<button class="personal-button margin-left-10 realname_btn" <%='disabled=disabled' unless current_user.real_name.blank?%> >确定</button>
+			<font class="personal-text">实名认证:</font>
+			<%if current_user.real_name%>
+				<span><%=current_user.real_name%></span>
+			<%else%>
+				<div class='real_name'>
+					<input class="personal-input" id='realname_input' value="<%=current_user.real_name%>" />
+					<button class="personal-button margin-left-10 realname_btn"%> 确定</button>
+				</div>
+			<%end%>
 		</div>
 
 		<div class="personal-warning">
@@ -65,16 +69,16 @@
 				</tr>
 				<tr>
 					<th>LTC</th>
-					<td ></td>
-					<td ></td>
+					<td ><%=@ltc_account.try :amount%></td>
+					<td ><%=@ltc_account.try :blocked%></td>
 					<td ></td>
 					<td ></td>
 					<td ></td>
 				</tr>
 				<tr>
 					<th>CNY</th>
-					<td></td>
-					<td></td>
+					<td><%=@cny_account.try :amount%></td>
+					<td><%=@cny_account.try :blocked%></td>
 					<td></td>
 					<td></td>
 					<td></td>

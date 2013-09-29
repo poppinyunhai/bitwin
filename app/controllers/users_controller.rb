@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def account
     @btc_account = current_user.btc_account   
     @ltc_account = current_user.ltc_account 
+    @cny_account = current_user.cny_account
   end
 
   def deals
@@ -145,9 +146,10 @@ class UsersController < ApplicationController
       return render json: { :success => true, :message=>'交易密码设置成功！'} if current_user.save!
       render json: { :success => false, :message=>current_user.errors.full_messages} 
     when 'realname'
+      # return render json: { :success => false, :message=>'不能重复实名认证！'} if current_user.real_name
       return render json: { :success => false, :message=>'实名认证不能为空'} if params[:realname].blank?
-      current_user.real_name = params[:realname]
-      return render json: { :success => true, :message=>'实名认证已经设置成功!'} if current_user.save!
+      current_user.real_name = params[:realname].strip
+      return render json: { :success => true, :message=>'实名认证设置成功!', :realname => current_user.real_name} if current_user.save!
       return render json: { :success => false, :message=>current_user.errors.full_messages} if current_user.save!
     else
       return render json: { :success => false, :message=>'操作不合法！'}
