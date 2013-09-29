@@ -1,6 +1,9 @@
 <%=form_tag found_password_check_users_path , :id=>'password_back' do %>
 <div class="devise-content">
 	<div class="devise-welcome">
+		<span class="devise-welcome-triangle">
+			<div></div>
+		</span>
 		<span class='message'><%= flash[:error] || "请先输入用户名"%></span>
 	</div>
 
