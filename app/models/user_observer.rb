@@ -4,7 +4,7 @@ class UserObserver < ActiveRecord::Observer
 
   def before_update(record)
   	if record.changed_attributes.has_key?("current_sign_in_at")
-  	#LoginHistory.create!(ip_address: record.current_sign_in_ip, area: TaobaoGeoIP.new(record.current_sign_in_ip).to_s, action_type: 'LoginIn', user: record)
+  	LoginHistory.create!(ip_address: record.current_sign_in_ip, area: TaobaoGeoIP.new(record.current_sign_in_ip).to_s, action_type: 'LoginIn', user: record)
 	  end
   end
   
