@@ -1,5 +1,5 @@
-task 'create_user_operations' => :environment do
-	
+task 'create_accounts' => :environment do
+
   BlankAccount.destroy_all
 	CoinAccount.destroy_all
 	
@@ -13,7 +13,6 @@ task 'create_user_operations' => :environment do
       else
         ao.address = Bitcoin::Client.instance.getnewaddress(currency.code+user.id.to_s)
       end
-      ao.address = Bitcoin::Client.instance.getnewaddress(currency.code+user.id.to_s)
       ao.save!
     end
 
@@ -25,3 +24,24 @@ task 'create_user_operations' => :environment do
     end
 	end
 end
+
+
+task 'create_currency' => :environment do
+
+  Currency.destroy_all
+  BlankCurrency.destroy_all
+  %w{btc ltc}.each do |c|
+    cu = Currency.new
+    cu.code = c
+    cu.save!
+  end
+
+
+  %w{cny usd}.each do |c|
+    cu = BlankCurrency.new
+    cu.code = c
+    cu.save!
+  end
+end
+
+

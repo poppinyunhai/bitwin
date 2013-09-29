@@ -1,5 +1,20 @@
-#ips_view{
-	p.prompt{
-		text-align: center;
+.account{
+	.link{
+		cursor: pointer;
+	}
+
+	#base_info_view{
+		table{
+			text-align:center;			
+		}
+
+		.table{
+		}
+
+	}
+	#ips_view{
+		p.prompt{
+			text-align: center;
+		}
 	}
 }

@@ -3,29 +3,29 @@
 <div class="personal-content">
 		<div class="personal-head">
 			<div class="personal-head-left">
-			<img src="<%=image_url('user/user_default_icon.png') %>" />
-			<span><%=current_user.username%></span>
-			<p><%=current_user.email%></p>
+				<img src="<%=image_url(current_user.avatar) %>" class='link user_avatar'/>
+				<span><%=current_user.username%></span>
+				<p><%=current_user.email%></p>
 			</div>
 			<div class="personal-head-right">
-			<table style="width:100%;text-align:center;">
-			<tr>
-				<td colspan="5">手续费率0.3%</td>
-			</tr>
-			<tr>
-				<td>VIP1</td>
-				<td colspan="3">
-					<div class="progress progress-success margin-top-short" style="width:350px;">
-						<div class="bar" style="width: <%=243*100/500%>%;"></div>
-					</div>
-				</td>
-				<td>VIP2</td>
-			</tr>
-			<tr>
-				<td class="text-right">0</td>
-				<td colspan="3" class="text-left;"> <font style="margin-left: <%=243*350/500-8%>px;padding:0px;float:left;">243</font></td>
-				<td class="text-left">500</td>
-			</tr>
+			<table>
+				<tr>
+					<td colspan="5">手续费率0.3%</td>
+				</tr>
+				<tr>
+					<td>VIP1</td>
+					<td colspan="3">
+						<div class="progress progress-success margin-top-short" style="width:350px;">
+							<div class="bar" style="width: <%=243*100/500%>%;"></div>
+						</div>
+					</td>
+					<td>VIP2</td>
+				</tr>
+				<tr>
+					<td class="text-right">0</td>
+					<td colspan="3" class="text-left;"> <font style="margin-left: <%=243*350/500-8%>px;padding:0px;float:left;">243</font></td>
+					<td class="text-left">500</td>
+				</tr>
 			</table>
 			</div>
 		</div>
@@ -42,32 +42,34 @@
 		绑定实名后 人民币充值提现账户将只限您本人账户 此项绑定后不可修改
 		</div>
 
-		<div class="personal-table-base margin-top-middle">
-			<table class="exchange-table personal-table">
-				<tr>
-					<th></th>
-					<th>可用余额</th>
-					<th>交易锁定</th>
-					<th>贷款抵押</th>
-					<th>押提现待处理</th>
-					<th>总计</th>
-					
-				</tr>
+		<div class=" personal-table-base margin-top-middle">
+			<table class="table">
+				<thead>
+					<tr>
+						<th></th>
+						<th>可用余额</th>
+						<th>交易锁定</th>
+						<th>贷款抵押</th>
+						<th>押提现待处理</th>
+						<th>总计</th>
+					</tr>
+				</thead>
+				<tbody>
 				<tr>
 					<th>BTC</th>
-					<td class="personal-table-td-bottom"></td>
-					<td class="personal-table-td-bottom"></td>
-					<td class="personal-table-td-bottom"></td>
-					<td class="personal-table-td-bottom"></td>
-					<td class="personal-table-td-bottom"></td>
+					<td ><%=@btc_account.try :amount%></td>
+					<td ><%=@btc_account.try :blocked%></td>
+					<td ></td>
+					<td ></td>
+					<td ></td>
 				</tr>
 				<tr>
 					<th>LTC</th>
-					<td class="personal-table-td-bottom"></td>
-					<td class="personal-table-td-bottom"></td>
-					<td class="personal-table-td-bottom"></td>
-					<td class="personal-table-td-bottom"></td>
-					<td class="personal-table-td-bottom"></td>
+					<td ></td>
+					<td ></td>
+					<td ></td>
+					<td ></td>
+					<td ></td>
 				</tr>
 				<tr>
 					<th>CNY</th>
@@ -77,6 +79,7 @@
 					<td></td>
 					<td></td>
 				</tr>
+				</tbody>
 			</table>
 		</div>
 	</div>

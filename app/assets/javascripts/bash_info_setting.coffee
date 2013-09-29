@@ -32,7 +32,7 @@ class BashInfoSetting
       $modal.modal
         show:true
         keyboard: false
-        backdrop: 'static' 
+        backdrop: '' 
     $modal.find('#username').val(@$element.find('p.username').text())
 
 
@@ -58,5 +58,5 @@ class BashInfoSetting
 
 
 $ ->
-  $('#personal-information').each ->
+  $('#base_info_view').each ->
     new BashInfoSetting(this)

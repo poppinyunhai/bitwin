@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   layout false, only: [:sms_bind,:solutions_sms_bind]
 
   def account
-    
+    @btc_account = current_user.btc_account   
+    @ltc_account = current_user.ltc_account 
   end
 
   def deals

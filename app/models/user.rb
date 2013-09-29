@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 
   has_many :coin_accounts, dependent: :destroy
   has_one :btc_account, -> { where currency: Currency.find_by_code('btc') }, class_name: 'CoinAccount'
+  has_one :ltc_account, -> { where currency: Currency.find_by_code('ltc') }, class_name: 'CoinAccount'
 
   has_many :blank_accounts
   has_one :cny_account, -> { where blank_currency: BlankCurrency.find_by_code('cny') }, class_name: 'BlankAccount'
