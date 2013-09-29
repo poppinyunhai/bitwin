@@ -32,7 +32,7 @@
 
 		<div class="personal-line">
 			<font class="personal-text">实名认证:</font>
-			<%if current_user.real_name%>
+			<%unless current_user.real_name%>
 				<span><%=current_user.real_name%></span>
 			<%else%>
 				<div class='real_name'>
