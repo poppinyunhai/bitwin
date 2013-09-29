@@ -1,3 +1,7 @@
 class Currency < ActiveRecord::Base
-	  has_many :account_operations, dependent: :destroy
+	validates :code, 
+					:presence => true, 
+					:uniqueness => true
+					
+	has_many :coin_accounts, dependent: :destroy 
 end

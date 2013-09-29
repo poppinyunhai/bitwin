@@ -10,10 +10,7 @@ class BashInfoSetting
     message = $('#realname-message')
     message_text = message.find('span')
     if realname.length is 0 
-      message.removeClass('success-message')
-      message.addClass('error-message')
-      message.show()
-      message_text.text("用户名不能为空!")
+      $('body').flash("用户名不能为空!", { type:'alert-error', timeout: 3000})
       return false
     payload =
       url:  '/users/update'
@@ -32,7 +29,7 @@ class BashInfoSetting
       $modal.modal
         show:true
         keyboard: false
-        backdrop: 'static' 
+        backdrop: '' 
     $modal.find('#username').val(@$element.find('p.username').text())
 
 
@@ -42,21 +39,15 @@ class BashInfoSetting
     $.ajax(options.payload).success (data)=>
       message = options.message
       if data.success
-        $('#realname_input').prop('disabled', true)
-        $('#realname_btn').prop('disabled', true)
-        message.addClass('success-message')
-        message.removeClass('error-message')
+        $('body').flash(data.message, { type:'alert-success', timeout: 3000})
+        @$element.find('.real_name').html("<span>#{data.realname}</span>")
       else
-        message.removeClass('success-message')
-        message.addClass('error-message')
-      message.show()
-      message.find('span').text(data.message)
-
+        $('body').flash(data.message, { type:'alert-error', timeout: 3000})
     .always () ->
       dfd.resolve()
 
 
 
 $ ->
-  $('#personal-information').each ->
+  $('#base_info_view').each ->
     new BashInfoSetting(this)

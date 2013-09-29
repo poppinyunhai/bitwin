@@ -1,14 +1,19 @@
 div class="personal-showbox hide" id="ips_view"
-  div class="personal-content" style="padding-bottom:50px;"
-    table.table
-      tr
-        th style="border-top:0px;"  Data And Time
-        th style="border-top:0px;"  IP Adress
-        th style="border-top:0px;"  Action
-        th style="border-top:0px;"  Adress
-      - ips.each do |item|
+  div class="personal-content"
+    table.table.table-hover
+      thead
         tr
-          td = item.created_at
-          td = item.ip_address
-          td = item.action_type
-          th = item.area
+          th="Date Time"
+          th="IP Adress"
+          th="Action"
+          th="Adress"
+      tbody
+        - ips.each do |item|
+          tr
+            td = item.created_at
+            td = item.ip_address
+            td = item.action_type
+            th = item.area
+    -if ips.size == 10
+      p.prompt 
+        | 最新10条ip记录将显示在这里

@@ -6,7 +6,7 @@ class CreateCurrencies < ActiveRecord::Migration
       t.timestamps
     end
 
-    %w{eur lrusd lreur pgau btc usd cad inr}.each do |c|
+    %w{btc ltc}.each do |c|
     	cu = Currency.new
     	cu.code = c
     	cu.save!

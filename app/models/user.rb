@@ -7,14 +7,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :async, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  has_many :login_historys
-
   validates :username,  presence: true, uniqueness: true
 
+  has_many :login_historys
   has_many :images, -> { where image: true  }, :as => :attachmentable, class_name: 'Attachment'
 
   has_many :coin_accounts, dependent: :destroy
   has_one :btc_account, -> { where currency: Currency.find_by_code('btc') }, class_name: 'CoinAccount'
+  has_one :ltc_account, -> { where currency: Currency.find_by_code('ltc') }, class_name: 'CoinAccount'
 
   has_many :blank_accounts
   has_one :cny_account, -> { where blank_currency: BlankCurrency.find_by_code('cny') }, class_name: 'BlankAccount'
@@ -28,8 +28,6 @@ class User < ActiveRecord::Base
   has_one :question,  :through => :answer, :source => :question
 
   has_many :trade_orders, -> { where("state != 'closed'")}
-
-
 
   after_create :create_account_and_blank_operations
 

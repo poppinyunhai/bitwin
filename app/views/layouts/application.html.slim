@@ -10,5 +10,6 @@ html
 		  = render :partial => 'layouts/header'
 		  .content-base
 		    .content-container
-			  = yield
+		    	= render :partial => 'layouts/flash'
+			  	= yield
 		= render :partial => 'layouts/footer'

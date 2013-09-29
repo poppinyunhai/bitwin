@@ -1,0 +1,14 @@
+#flash-alert.flash-bar-wrap.hide
+  .flash-bar
+    - if flash.notice
+      .alert.alert-success
+        span.close.dismiss data-dismiss="flash-notice" &times;
+        span.text
+          = flash[:notice]
+    - elsif flash.alert
+      .alert.alert-error
+        span.close.dismiss data-dismiss="flash-alert" &times;
+        span.text
+          = flash[:alert]
+
+  .flash-backspace
